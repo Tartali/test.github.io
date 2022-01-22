@@ -1,0 +1,32 @@
+{% extends "layout/base.html" %}
+
+{% block home %}
+<style >
+    .rer{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div>
+    <a href="{% url 'home' %}" style="color: #331c2a"><h1> <span style="color: #331c2a">⮪</span> Back</h1></a>
+</div>
+
+<body bgcolor="#884ea3">
+<div class="rer">
+    <h1 style="color: #331c2a">Sorry, you can only vote 1 time</h1>
+</div>
+</body>
+
+{% endblock %}

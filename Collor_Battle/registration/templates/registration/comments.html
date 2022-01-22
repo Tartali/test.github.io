@@ -1,0 +1,141 @@
+{% extends "layout/base.html" %}
+
+{% load static %}
+{% load comments %}
+{% load comments_xtd %}
+{% load account %}
+{% user_display user %}
+{% load i18n %}
+
+{% block home %}
+
+<style>
+
+body {
+    transition: 1s !important;
+    background: white;
+    color: black;
+}
+
+body.dark {
+     transition: 1s !important;
+     background: black;
+     color: white;
+}
+
+body.dark .backProfileUrl{
+     transition: 1s;
+     color: white;
+}
+
+<!--.div_button {-->
+<!--    position: absolute;-->
+<!--    right:0px;-->
+<!--     outline:0 none !important;-->
+<!--}-->
+
+.none_but {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.backProfileUrl {
+    color: black;
+}
+
+.media-list {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+}
+
+</style>
+
+<div class="div_button" align="right">
+        <button  id="toggleThemeBtn" class="none_but" class="loud-link-click" type="button">
+            <audio src="{% static 'CSS/out.mp3' %}"></audio>
+            <img onclick="soundClick()" src="{% static 'IMG/voting_blahite.png' %}" alt=""  width="50" class="img_button">
+        </button>
+</div>
+
+<div style="width: 120px; position: absolute; left: 8px; top: -10px;">
+        <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span> Back</h1></a>
+</div>
+
+
+
+<div class="container-fluid mt-4 comment-form">
+    {% render_comment_form for comment %}
+</div>
+
+{% get_comment_count for comment as comment_count %}
+{% if comment_count %}
+    <hr>
+    <div class="container-fluid mt-4 media-list">
+        {% render_xtdcomment_tree for comment allow_flagging allow_feedback show_feedback %}
+    </div>
+{% endif %}
+
+<!-- ------------------------------------------------------------------------------------------- -->
+
+{% block extra-js %}
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script>
+ window.comments_props = {% get_commentbox_props for comment %};
+ window.comments_props_override = {
+     allow_comments: {%if comment.allow_comments%}true{%else%}false{%endif%},
+     allow_feedback: true,
+     show_feedback: true,
+     allow_flagging: true,
+     polling_interval: 5000000000000  // In milliseconds.
+ };
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  crossorigin="anonymous"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+<script
+  type="text/javascript"
+  src="{% url 'javascript-catalog' %}"></script>
+<script src="{% static 'django_comments_xtd/js/vendor~plugin-2.9.5.js' %}"></script>
+<script src="{% static 'django_comments_xtd/js/plugin-2.9.5.js' %}"></script>
+<script>
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip({html: true});
+});
+</script>
+{% endblock %}
+
+<script>
+    if(!localStorage.theme) localStorage.theme - "light"
+    document.body.className = localStorage.theme
+
+    toggleThemeBtn.onclick = () => {
+        document.body.classList.toggle("dark")
+        localStorage.theme = document.body.className || "light"
+    }
+
+    toggleThemePurple.onclick = () => {
+        document.body.classList.toggle("purple")
+        localStorage.theme = document.body.className || "light"
+    }
+
+    function soundClick() {
+  var audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = 'http://127.0.0.1:8000/static/CSS/out.mp3' ; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}
+</script>
+
+{% endblock %}
+

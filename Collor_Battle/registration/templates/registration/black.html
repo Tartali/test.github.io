@@ -1,0 +1,48 @@
+{% extends "layout/base.html" %}
+
+{% block home %}
+
+<body bgcolor="black">
+<div>
+<font face="Montserrat">
+
+
+    <div>
+        <a href="{% url 'home' %}" class="back_b"><h1 style="color: white"> <span>⮪</span> Back</h1></a>
+    </div>
+
+    <div class="block_b">
+    <div>
+        <h1 style="color: black">Choose black for 1$ dollar</h1><br>
+
+
+
+
+
+    <form method="post">
+    {% csrf_token %}
+    <a href="{{ url }}">
+        <button  class="button_b" name="choose" value="black" type="button" onclick="assign()">
+            <h1 style="color: white">
+                <strong>Choose</strong>
+            </h1>
+        </button>
+    </a>
+    </form>
+
+    </div>
+    </div>
+
+<script type="text/javascript">
+   function assign(){
+       document.location.assign("{{ url }}");
+   }
+</script>
+
+</font>
+</div>
+</body>
+
+{% endblock %}
+
+

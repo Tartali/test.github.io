@@ -1,0 +1,29 @@
+html *
+{
+
+   font-family: Montserrat !important;
+}
+
+a {
+  text-decoration:none;
+}
+
+.center {
+    width:  600px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    background: #f4d9ff;
+}
+
+.div {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+
+}
+
+.picture {
+	height: 100%;
+	width: 100%;
+}
