@@ -65,9 +65,9 @@ INSTALLED_APPS = [
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
-]
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -218,7 +218,8 @@ COMMENTS_XTD_APP_MODEL_OPTIONS = {
     }
 }
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/IMG/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/IMG')
