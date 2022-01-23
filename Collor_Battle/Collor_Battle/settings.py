@@ -149,10 +149,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-PAYMENT_HOST = 'localhost:8000'
-PAYMENT_USES_SSL = False
-PAYMENT_MODEL = 'registration.Payment'
-PAYMENT_VARIANTS = {'default': ('payments.dummy.DummyProvider', {})}
+# PAYMENT_HOST = 'localhost:8000'
+# PAYMENT_USES_SSL = False
+# PAYMENT_MODEL = 'registration.Payment'
+# PAYMENT_VARIANTS = {'default': ('payments.dummy.DummyProvider', {})}
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
