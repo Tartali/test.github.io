@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_markdown2',
 
     'Collor_Battle',
+    'Color_Battle',
     'registration',
     'accounts',
     'avatar',
