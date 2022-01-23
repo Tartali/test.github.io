@@ -1,1 +1,1 @@
-web: gunicorn Collor_Battle.wsgi --log-file -
+web: gunicorn Сpip install psycopg2.wsgi --log-file -
