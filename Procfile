@@ -1,1 +1,1 @@
-web: gunicorn Сpip install psycopg2.wsgi --log-file -
+web: gunicorn Сollor_Battle.wsgi --log-file -
