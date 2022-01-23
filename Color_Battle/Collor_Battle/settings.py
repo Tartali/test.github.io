@@ -15,6 +15,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+path_dir: str = r"C:\Black or White\Color_Battle\Collor_Battle"
+filename: str = "wsgi.py"
+path_file = os.sep.join([path_dir, filename])
 
 
 # Quick-start development settings - unsuitable for production
