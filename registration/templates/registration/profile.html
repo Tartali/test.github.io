@@ -1,0 +1,110 @@
+{% extends 'layout/css.html' %}
+
+
+{% load avatar_tags %}
+{% render_avatar avatar 250 %}
+{% load account %}
+{% user_display user %}
+{% load i18n %}
+{% load static %}
+
+{% block home %}
+
+
+<div>
+
+<font face="Montserrat">
+ {% if user.is_authenticated %}
+
+    <div class="div_button" align="right">
+        <button  id="toggleThemeBtn" class="none_but" class="loud-link-click" type="button">
+            <audio src="{% static 'CSS/out.mp3' %}"></audio>
+            <img onclick="soundClick()" src="{% static 'IMG/voting_blahite.png' %}" alt=""  width="50" class="img_button">
+        </button>
+    </div>
+
+
+
+    <div>
+        <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span> Back</h1></a>
+    </div>
+
+    <div class="block_prof">
+    <div class="sss">
+
+
+    <div class="round_prof">
+        {% if user == profile %}
+        <a href="{% url 'avatar_change' %}" class="link">
+        {% endif %}
+            <!-- <a href="{% url 'avatar_delete' %}">bbb</a> -->
+          {% avatar profile 250 class="Avatar_prof" %}
+
+          {% if user == profile %}
+          <span>
+              <div class="pencil">
+              <img src="{% static 'IMG/pen5.png' %}" alt="" width="100">
+              </div>
+          </span>
+        {% endif %}
+        </a>
+    </div>
+
+        <h1 class="text_color_light" align="center">
+          {{ profile.username }}
+        </h1>
+
+        {% if choose.count_black %}
+
+            <h1 align="center">
+                <p>Voted for black</p>
+            </h1>
+
+        {% elif choose.count_white %}
+
+            <h1 align="center">
+              <p>Voted for white</p>
+            </h1>
+
+        {% elif choose.count_purple %}
+
+            <h1 align="center">
+                 <p>Voted for purple</p>
+            </h1>
+
+        {% endif %}
+            <h3 class="text_color_light" align="center" class="regis_marg">
+                Registration date: <p align="center">{{ profile.date_joined|date:"DATETIME_FORMAT" }}</p>
+            </h3>
+    </div>
+    </div>
+
+    {% else %}
+
+     <div class="div_button" align="right">
+
+        <button  id="toggleThemeBtn" class="none_but" class="loud-link-click">
+            <audio src="{% static 'CSS/out.mp3' %}"></audio>
+            <img onclick="soundClick()" src="{% static 'IMG/voting_blahite.png' %}" alt="" width="50" class="img_button">
+        </button>
+    </div>
+
+    <div class="block_prof">
+    <div class="sss">
+
+        <h1 align="center" class="text_color_light">You haven't logged
+            <p align="center" class="text_color_light"> or registered yet</p>
+        </h1>
+
+        <h2 align="center" class="text_color_light"><a href="{% url 'account_login' %}" class="SinProfileUrl">Sign In</a></h2>
+        <h2 align="center" class="text_color_light"><a href="{% url 'account_signup' %}" class="SinProfileUrl">Sign Up</a></h2>
+    </div>
+    </div>
+</font>
+</div>
+
+<script src="{% static 'CSS/scripting.js' %}"></script>
+</body>
+
+{% endif %}
+{% endblock %}

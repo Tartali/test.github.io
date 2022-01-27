@@ -1,0 +1,186 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% load avatar_tags %}
+{% render_avatar avatar 100 %}
+{% load account %}
+{% load i18n %}
+{% load static %}
+
+{% block home %}
+
+
+
+<body class="body">
+
+<header class="hat">
+    {% if user.is_authenticated %}
+<!--        <span>{{ user.username }}</span>-->
+        <a href="{% url 'account_logout' %}" class="login">
+            <h1>Logout</h1>
+        </a>
+
+
+
+        <div class="round">
+            <a href="{% url 'profile' user.username %}">
+                {% avatar user 100 class="Avatar" %}
+             </a>
+        </div>
+    {% else %}
+        <a href="{% url 'account_login' %}" class="login">
+            <h1>Login</h1>
+        </a>
+
+         <div class="round">
+
+        </div>
+    {% endif %}
+
+</header>
+
+    <div class="GAMP">
+
+    </div>
+
+    <div class="or" align="center">
+        <a href="{% url 'purple' %}" class="default_url">
+            <h1 class="text"><big>or</big></h1>
+        </a>
+    </div>
+
+    <a href="{% url 'black' %}">
+    <div class="Black">
+        <h1 style="color: white" class="a_b">Black</h1>
+    </div>
+    </a>
+
+    <a style="color: black" href="{% url 'white' %}">
+    <div class="White">
+        <h1 class="a_w">White</h1>
+    </div>
+     </a>
+
+    {% if user.is_authenticated %}
+    <div class="votes_black">
+        <a href="{% url 'black_results' %}">
+        <h1 style="color: white">{{ sum_black_result }} ({{ percent_black }})%</h1>
+        </a>
+    </div>
+
+    <div class="votes_white">
+        <a href="{% url 'white_results' %}">
+        <h1 style="color: black">{{ sum_white_result }} ({{ percent_white }})%</h1>
+        </a>
+    </div>
+
+
+
+    {% else %}
+    <div class="votes_black">
+        <h1 style="color: white" id="myBtn" class="point">???</h1>
+    </div>
+
+    <div class="votes_white">
+        <h1 style="color: black" id="myBtn_b" class="point">???</h1>
+    </div>
+
+
+
+    <div id="mypopup" class="popup" align="center">
+        <div class="popup-content">
+            <div class="popup-header">
+                 <h2>Here you will see the votes for the color of all users,
+                     after you vote yourself</h2>
+                <span class="close"><big><big><big>&times;</big></big></big></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mypopup_b" class="popup_b" align="center">
+        <div class="popup-content_b">
+            <div class="popup-header_b">
+                 <h2>Here you will see the votes for the color of all users,
+                     after you vote yourself</h2>
+                <span class="close_b"><big><big><big>&times;</big></big></big></span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+    let popup1 = document.getElementById('mypopup'),
+    popupToggle1 = document.getElementById('myBtn'),
+    popupClose1 = document.querySelector('.close');
+
+    popupToggle1.onclick = function() {
+     popup1.style.display="block";
+    };
+
+    popupClose1.onclick = function() {
+     popup1.style.display="none";
+    }
+
+    let popup = document.getElementById('mypopup_b'),
+    popupToggle = document.getElementById('myBtn_b'),
+    popupClose = document.querySelector('.close_b');
+
+    popupToggle.onclick = function() {
+     popup.style.display="block";
+    };
+
+    popupClose.onclick = function() {
+     popup.style.display="none";
+    }
+    </script>
+
+    {% endif %}
+
+    <div class="box">
+        <img src="{% static 'IMG/глаза.png' %}" class="eyes">
+        <a href="{% url 'comment' %}"><h2 style="color: white" class="eyes-text">Comments</h2></a>
+
+        <div class="y-1">
+            <div class="y-2"></div>
+        </div>
+
+        <div class="y-3">
+             <div class="y-4"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+    const relativeFollowCursor = (selector, callback) => {
+      const element = document.querySelector(selector);
+      const degreeInRadian = 180 / Math.PI;
+
+      document.addEventListener('mousemove', (event) => {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
+
+        callback(element, {
+          radian: angle,
+          degree: degreeInRadian * angle
+        });
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      relativeFollowCursor('.y-1', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
+      relativeFollowCursor('.y-3', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
+    });
+    </script>
+
+
+</body>
+
+{% endblock %}

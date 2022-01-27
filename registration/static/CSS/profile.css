@@ -1,0 +1,93 @@
+
+
+body {
+    transition: 1s !important;
+    background: white;
+    color: black;
+}
+
+body.dark {
+     transition: 1s !important;
+     background: black;
+     color: white;
+}
+
+body.dark .backProfileUrl{
+     transition: 1s;
+     color: white;
+}
+
+body.dark .SinProfileUrl{
+     transition: 1s;
+     color: #331c2a;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.backProfileUrl {
+    color: black;
+}
+
+.SibProfileUrl {
+    color: #884ea3;
+}
+
+.Avatar_prof {
+    border-radius: 100%;
+    box-shadow: 0 0 5px 2px; color: #884ea3;
+}
+
+.div_button {
+    position: absolute;
+    right:0px;
+}
+
+.purple_button {
+    position: absolute;
+    bottom:-28px;
+}
+
+.none_but {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+.block_prof {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    width: 550px;
+    border-radius: 50px;
+    position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+.link span{
+    position: absolute;
+    top: 170px;
+    left: 225px;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+.link:hover span{
+    position: absolute;
+    opacity: 1;
+    border-radius: 100%;
+    background: white;
+
+}

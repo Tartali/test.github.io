@@ -1,0 +1,41 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+
+<style>
+  a {
+  color: #551E89;
+  }
+
+  a:active {
+     color: #884dc0;
+}
+</style>
+
+<body class="body_out">
+
+<div class="back">
+    <a href="{% url 'home' %}" class="back_b"><h1 style="color: black"> <span>⮪</span> Back</h1></a>
+</div>
+
+<h4 align="center"><i>{% trans "Вы вошли, как" %}&thinsp;</i> <span style="font-weight: 900;">{{ user.username }}</span></h4>
+
+<h1 align="center"></h1>
+
+<p>{% trans 'Are you sure you want to sign out?' %}</p>
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button class="baton" type="submit"><h2 style="font-weight: 200;" class="text_b">{% trans 'Sign Out' %}</h2></button>
+</form>
+
+</body>
+
+{% endblock %}
