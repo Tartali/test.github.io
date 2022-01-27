@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,10 +30,13 @@ SECRET_KEY = '1wyi8gk7ag#ouf(^(!g6qnlru#y6!%3m=qo^*9xd2)3s(vfqro'
 #
 # ALLOWED_HOSTS = []
 
-DEBUG = False
+DEBUG = True # False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'test-my-site-id.herokuapp.com']
+ALLOWED_HOSTS = [] #'127.0.0.1', 'test-my-site-id.herokuapp.com'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,8 +49,6 @@ INSTALLED_APPS = [
 
     'django_markdown2',
 
-    'Collor_Battle',
-    'Color_Battle',
     'registration',
     'accounts',
     'avatar',
@@ -60,13 +62,19 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'payments',
-
     # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.reddit',
 ]
 
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), )
+
 STATIC_URL = '/static/'
+
+LANGUAGES = (
+    ('en-us', _('English')),
+    ('ru', _('Russian')),
+)
 
 # STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static"),
@@ -75,6 +83,7 @@ STATIC_URL = '/static/'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -114,6 +123,10 @@ DATABASES = {
     }
 }
 
+SOUTH_DATABASE_ADAPTERS = {
+    'default': 'south.db.sqlite3'
+}
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
@@ -142,15 +155,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'ru' #en-us
-
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
+
+
 
 # PAYMENT_HOST = 'localhost:8000'
 # PAYMENT_USES_SSL = False
@@ -180,7 +191,7 @@ EMAIL_PORT = 587
 
 # ACCOUNT_ADAPTER = "registration.adapter.MyAccountAdapter"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
-ACCOUNT_USERNAME_MIN_LENGTH = 4
+MAX_USERNAME_LENGTH = 10
 
 '''
 Для входа по email
@@ -222,7 +233,7 @@ COMMENTS_XTD_APP_MODEL_OPTIONS = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+
 
 MEDIA_URL = '/IMG/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/IMG')

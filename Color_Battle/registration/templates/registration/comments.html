@@ -1,4 +1,4 @@
-{% extends "layout/base.html" %}
+{% extends "layout/all_comment.html" %}
 
 {% load static %}
 {% load comments %}
@@ -6,20 +6,161 @@
 {% load account %}
 {% user_display user %}
 {% load i18n %}
+{% load l10n %}
+{% load md2 %}
 
 {% block home %}
 
 <style>
 
+a {
+    color: #676767;
+    font-weight: 900;
+}
+
+body.dark a {
+    color: #9e9e9e;
+}
+
 body {
-    transition: 1s !important;
-    background: white;
+    background: #f2f2f2;
     color: black;
 }
 
+body.dark .hr {
+    height: 3px;
+    background: white;
+    border: none;
+}
+
+body.dark .div_form_post_comment {
+    transition: 1s !important;
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 230px;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+}
+
+body.dark .form-control { /* texterea */
+    transition: 1s !important;
+    height: 100px;
+    width: 280px;
+    border-radius: 6px;
+    background-color: #090909;
+    color: black;
+}
+
+body.dark input[name="post"] {
+    transition: 1s !important;
+    height: 50px;
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: 900;
+    background-color: #090909;
+    color: white;
+}
+
+body.dark .div_comment_tree{
+    transition: 1s !important;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    margin-left: 20% !important;
+    background-color: #222222;
+
+    border-radius: 20px;
+    margin: 10px;
+    word-break: break-all; /* Перенос слов */
+}
+
+body.dark .comments_on_comment {
+   width: 400px !important;
+   border-left:3px solid white;
+   border-right:3px solid white;
+   padding-left:10px;
+   background: #222222 !important;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+
+}
+
+
+@media screen and (min-width: 1360px) {
+body.dark .comments_on_comment {
+    transition: 1s !important;
+   width: 700px !important;
+   border-left:3px solid white;
+   border-right:3px solid white;
+   padding-left:10px;
+   background:#222222 !important;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+}
+
+}
+
+@media screen and (max-width: 540px) {
+body.dark .comments_on_comment {
+     transition: 1s !important;
+   width: 250px !important;
+   border-left:3px solid white;
+   border-right:3px solid white;
+   padding-left:10px;
+   background:#222222 !important;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+}
+
+}
+
+@media screen and (max-width: 370px) {
+body.dark .comments_on_comment {
+     transition: 1s !important;
+   width: 190px !important;
+   border-left:3px solid white;
+   border-right:3px solid white;
+   padding-left:10px;
+   background: #222222f !important;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+}
+
+}
+
+@media screen and (max-width: 980px) {
+
+body.dark .div_comment_tree{
+    transition: 1s !important;
+    height: 100%;
+    display: flex;
+    margin-left: 0% !important;
+    width: 100%;
+    border-radius: 20px;
+    background:#222222;
+    margin: 10px;
+    word-break: break-all;
+}
+
+}
+
+
 body.dark {
      transition: 1s !important;
-     background: black;
+     background: #0b0b0b;
      color: white;
 }
 
@@ -53,6 +194,7 @@ body.dark .backProfileUrl{
 
 </style>
 
+
 <div class="div_button" align="right">
         <button  id="toggleThemeBtn" class="none_but" class="loud-link-click" type="button">
             <audio src="{% static 'CSS/out.mp3' %}"></audio>
@@ -60,11 +202,12 @@ body.dark .backProfileUrl{
         </button>
 </div>
 
-<div style="width: 120px; position: absolute; left: 8px; top: -10px;">
+<div style="width: 120px; position: absolute; left: 8px; top: -10px;" class="back">
         <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span> Back</h1></a>
 </div>
 
-
+<h3 align="center"><big>{% trans "Since you didn't vote, you will be shown the first 50 comments." %}</big></h3>
+<!--<h3 align="center"><big>{% trans "You will not be able to delete or change your comment. Think before you write" %}</big></h3>-->
 
 <div class="container-fluid mt-4 comment-form">
     {% render_comment_form for comment %}
@@ -72,8 +215,9 @@ body.dark .backProfileUrl{
 
 {% get_comment_count for comment as comment_count %}
 {% if comment_count %}
-    <hr>
-    <div class="container-fluid mt-4 media-list">
+    <hr class="hr">
+
+    <div class="">
         {% render_xtdcomment_tree for comment allow_flagging allow_feedback show_feedback %}
     </div>
 {% endif %}

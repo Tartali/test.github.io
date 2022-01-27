@@ -1,7 +1,8 @@
 import uuid
 import json
+
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from cloudipsp import Api, Checkout
 from django.db.models import Sum
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.generic import TemplateView
@@ -57,6 +58,7 @@ def callback_payment(request):
             print("Делаем")
 
 
+@login_required(login_url='accounts/login/')
 def black(request):
     Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
@@ -75,6 +77,7 @@ def black(request):
             "type": "redirect",
             "return_url": "https://www.merchant-website.com/return_url"
         },
+        """ "capture": false, """
 
         "description": "Заказ №72"
     }, idempotence_key)
@@ -111,6 +114,7 @@ def black_results(request):
     return render(request, 'results/black_results.html', {'voters': black_voters})
 
 
+@login_required(login_url='accounts/login/')
 def white(request):
     if request.user.is_authenticated:
         value, created = Choose.objects.get_or_create(voter=request.user)
@@ -155,6 +159,7 @@ def white_results(request):
     return render(request, 'results/white_results.html', {'voters': white_voters})
 
 
+@login_required(login_url='accounts/login/')
 def purple(request):
 
     api = Api(merchant_id=1496092,

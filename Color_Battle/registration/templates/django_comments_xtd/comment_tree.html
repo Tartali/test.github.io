@@ -6,14 +6,14 @@
 {% load avatar_tags %}
 
 {% for item in comments %}
-<div class="media">
+<div class="div_comment_tree">
   <a name="c{{ item.comment.id }}"></a>
-  <a href="{% url 'profile' item.comment.name %}"><img src="{% avatar_url item.comment.user %}" width="80" height="80"></a>
+  <a href="{% url 'profile' item.comment.name %}" class="avatar_comment"><img src="{% avatar_url item.comment.user %}" width="80" height="80"></a>
 
   <div class="media-body">
     <div class="comment pb-3">
-      <h6 class="mb-1 small d-flex">
-        <div class="mr-auto">{{ item.comment.submit_date }}&nbsp;-&nbsp;{% if item.comment.url and not item.comment.is_removed %}<a href="{{ item.comment.url }}" target="_new">{% endif %}<a href="{% url 'profile' item.comment.name %}">{{ item.comment.name }}</a>{% if item.comment.url %}</a>{% endif %}{% if item.comment.user and item.comment.user|has_permission:"django_comments.can_moderate" %}&nbsp;<span class="badge badge-secondary">{% trans "moderator" %}</span>{% endif %}&nbsp;&nbsp;<!-- <a class="permalink" title="{% trans 'comment permalink' %}" href="{% get_comment_permalink item.comment %}"> ¶</a>--></div>
+      <h6 class="mb-1 small d-flex" >
+        <div class="mr-auto"><h3>{{ item.comment.submit_date }}&nbsp;-&nbsp;{% if item.comment.url and not item.comment.is_removed %}<a href="{{ item.comment.url }}" target="_new">{% endif %}<a href="{% url 'profile' item.comment.name %}">{{ item.comment.name }}</a>{% if item.comment.url %}</a>{% endif %}{% if item.comment.user and item.comment.user|has_permission:"django_comments.can_moderate" %}&nbsp;<span class="badge badge-secondary">{% trans "moderator" %}</span>{% endif %}&nbsp;&nbsp;<!-- <a class="permalink" title="{% trans 'comment permalink' %}" href="{% get_comment_permalink item.comment %}"> ¶</a>--></h3></div>
         <span>
           {% if not item.comment.is_removed %}
             {% if perms.comments.can_moderate %}
@@ -46,12 +46,12 @@
           {% include "includes/django_comments_xtd/user_feedback.html" %}
         {% endif %}
         {% if item.comment.allow_thread and not item.comment.is_removed %}
-          {% if allow_feedback %}&nbsp;&nbsp;<span class="text-muted">&bull;</span>&nbsp;&nbsp;{% endif %}<a class="small mutedlink" href="{{ item.comment.get_reply_url }}">{% trans "Reply" %}</a>
+          {% if allow_feedback %}&nbsp;&nbsp;<span class="text-muted"></span>&nbsp;&nbsp;{% endif %}<a class="small mutedlink" href="{{ item.comment.get_reply_url }}">{% trans "Reply" %}</a>
         {% endif %}
       {% endif %}
     </div>
     {% if not item.comment.is_removed and item.children %}
-      <div align="right">{% render_xtdcomment_tree with comments=item.children %}</div>
+      <div class="comments_on_comment">{% render_xtdcomment_tree with comments=item.children %}</div> <!-- for comment comment !!! -->
     {% endif %}
   </div>
 </div>

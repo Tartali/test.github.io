@@ -1,7 +1,10 @@
 {% load i18n %}
 {% load comments %}
+{% load static %}
 
-<form method="POST" action="{% comment_form_target %}" onsubmit="post.disabled = true; return true;">
+<div class="div_center_comment_post">
+<div class="div_form_post_comment">
+<form method="POST" action="{% comment_form_target %}" onsubmit="post.disabled = true; return true;" class="form_post_com">
     {% csrf_token %}
     <fieldset>
         <input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}" />
@@ -76,3 +79,5 @@
         </div>
     </div>
 </form>
+</div>
+</div>
