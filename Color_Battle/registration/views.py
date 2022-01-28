@@ -87,30 +87,7 @@ def black(request):
 
     # get confirmation url
 
-    res = Payment.capture({
-        "amount": {
-            "value": "1000.00",
-            "currency": "RUB"
-        },
-        "transfers": [
-            {
-                "account_id": "123",
-                "amount": {
-                    "value": "300.00",
-                    "currency": "RUB"
-                }
-            },
-            {
-                "account_id": "456",
-                "amount": {
-                    "value": "700.00",
-                    "currency": "RUB"
-                }
-            }
-        ]
-    })
 
-    var_dump.var_dump(res)
 
     if request.user.is_authenticated:
         value, created = Choose.objects.get_or_create(voter=request.user)
@@ -138,7 +115,7 @@ def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
     black_voters = Choose.objects.filter(count_black__gte=1)
     # передаем в шаблон
-    return render(request, 'results/black_results.html', {'voters': black_voters})
+    return render(request, 'results/black_results.html', )
 
 
 @login_required(login_url='accounts/login/')
@@ -158,16 +135,6 @@ def white(request):
         if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
             return render(request, '403/white.html')
 
-        api = Api(merchant_id=1496092, secret_key='lXG0Sa7becztIrztkJmM0Hjdlevqliry')
-        checkout = Checkout(api=api)
-        data = {
-            "currency": "RUB",
-            "amount": 100,
-            "order_desc": "Описание платежа",  # Описнание платежа
-            "order_id": str(time.time())
-        }
-        url = checkout.url(data).get('many_money')
-
     else:
         if request.method == 'POST':
             select_action = request.POST['choose']
@@ -176,7 +143,7 @@ def white(request):
                 return redirect("accounts/login")
         return render(request, 'registration/white.html')
 
-    return render(request, 'registration/white.html', {"url": url})
+    return render(request, 'registration/white.html')
 
 
 def white_results(request):
@@ -189,17 +156,6 @@ def white_results(request):
 @login_required(login_url='accounts/login/')
 def purple(request):
 
-    api = Api(merchant_id=1496092,
-              secret_key='lXG0Sa7becztIrztkJmM0Hjdlevqliry')
-    checkout = Checkout(api=api)
-    data = {
-        "currency": "RUB",
-        "amount": 100,
-        "order_desc": "Описание платежа",  # Описнание платежа
-        "order_id": str(time.time())
-    }
-    url = checkout.url(data).get('many_money')
-
     if request.user.is_authenticated:
         value, created = Choose.objects.get_or_create(voter=request.user)
 
@@ -209,7 +165,8 @@ def purple(request):
             if select_action == 'purple':
                 value.count_purple += 1
                 value.save()
-            return redirect(url)
+
+            return redirect("home")
 
         if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
             return render(request, '403/purple.html')
@@ -222,8 +179,7 @@ def purple(request):
                 return redirect("accounts/login")
         return render(request, 'registration/purple.html')
 
-    return render(request, 'registration/purple.html', {"value": value, "url": url})
-
+    return render(request, 'registration/purple.html')
 
 class Profile(TemplateView):
     template_name = 'registration/profile.html'

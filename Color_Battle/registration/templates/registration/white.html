@@ -1,4 +1,5 @@
 {% extends 'layout/base.html' %}
+{% load i18n %}
 
 {% block home %}
 
@@ -7,18 +8,18 @@
 <font face="Montserrat">
 
     <div>
-        <a href="{% url 'home' %}" class="back_w"><h1> <span class="b_c">⮪</span> Back</h1></a>
+        <a href="{% url 'home' %}" class="back_w"><h1> <span class="b_c">⮪</span> {% trans "Back" %}</h1></a>
     </div>
 
     <div class="block_w">
     <div class="sss">
-        <h1 style="color: white">Choose white for 1$ dollar</h1><br>
+        <h1 style="color: white">{% trans "Choose white for 1$ dollar" %}</h1><br>
 
     <form method="POST">
     {% csrf_token %}
         <button  class="button_w" name="choose" value="white">
             <h1>
-            <b>Choose</b>
+            <b>{% trans "Choose" %}</b>
             </h1>
         </button>
 

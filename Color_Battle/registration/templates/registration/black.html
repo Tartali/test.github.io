@@ -1,4 +1,5 @@
 {% extends "layout/base.html" %}
+{% load i18n %}
 
 {% block home %}
 
@@ -8,12 +9,12 @@
 
 
     <div>
-        <a href="{% url 'home' %}" class="back_b"><h1 style="color: white"> <span>⮪</span> Back</h1></a>
+        <a href="{% url 'home' %}" class="back_b"><h1 style="color: white"> <span>⮪</span>{% trans "Back" %}</h1></a>
     </div>
 
     <div class="block_b">
     <div>
-        <h1 style="color: black">Choose black for 1$ dollar</h1><br>
+        <h1 style="color: black">{% trans "Choose black for 1$ dollar" %}</h1><br>
 
 
 
@@ -24,7 +25,7 @@
     <a href="{{ url }}">
         <button  class="button_b" name="choose" value="black" type="button" onclick="assign()">
             <h1 style="color: white">
-                <strong>Choose</strong>
+                <strong>{% trans "Choose" %}</strong>
             </h1>
         </button>
     </a>

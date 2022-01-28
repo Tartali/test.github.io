@@ -14,16 +14,12 @@
 }
 
 .baton {
-    display: flex;
-  justify-content: center;
-  align-items: center;
 
-  left: 90px;
   background: #ffffff;
   padding: 12px;
   border: none;
   border-radius: 15px;
-  margin-left: 12%;
+
   width: 200px;
   height: 80px;
   cursor: pointer;

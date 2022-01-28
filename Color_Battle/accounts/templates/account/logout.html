@@ -19,10 +19,10 @@
 <body class="body_out">
 
 <div class="back">
-    <a href="{% url 'home' %}" class="back_b"><h1 style="color: black"> <span>⮪</span> Back</h1></a>
+    <a href="{% url 'home' %}" class="back_b"><h1 style="color: black"> <span>⮪</span> {% trans "Back" %}</h1></a>
 </div>
 
-<h4 align="center"><i>{% trans "Вы вошли, как" %}&thinsp;</i> <span style="font-weight: 900;">{{ user.username }}</span></h4>
+<h4 align="center"><i>{% trans "You are logged in as" %}&thinsp;</i> <span style="font-weight: 900;">{{ user.username }}</span></h4>
 
 <h1 align="center"></h1>
 
@@ -33,7 +33,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <button class="baton" type="submit"><h2 style="font-weight: 200;" class="text_b">{% trans 'Sign Out' %}</h2></button>
+  <button class="baton" type="submit" style="position: relative; left: 50%; transform: translate(-50%, 0);"><h2 style="font-weight: 200;" class="text_b">{% trans 'Sign Out' %}</h2></button>
 </form>
 
 </body>

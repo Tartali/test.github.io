@@ -17,7 +17,7 @@
     {% if user.is_authenticated %}
 <!--        <span>{{ user.username }}</span>-->
         <a href="{% url 'account_logout' %}" class="login">
-            <h1>Logout</h1>
+            <h1>{% trans "Logout" %}</h1>
         </a>
 
 
@@ -29,7 +29,7 @@
         </div>
     {% else %}
         <a href="{% url 'account_login' %}" class="login">
-            <h1>Login</h1>
+            <h1>{% trans "Login</h" %}1>
         </a>
 
          <div class="round">
@@ -45,19 +45,19 @@
 
     <div class="or" align="center">
         <a href="{% url 'purple' %}" class="default_url">
-            <h1 class="text"><big>or</big></h1>
+            <h1 class="text"><big>{% trans "or</big>" %}</h1>
         </a>
     </div>
 
     <a href="{% url 'black' %}">
     <div class="Black">
-        <h1 style="color: white" class="a_b">Black</h1>
+        <h1 style="color: white" class="a_b">{% trans "Black" %}</h1>
     </div>
     </a>
 
     <a style="color: black" href="{% url 'white' %}">
     <div class="White">
-        <h1 class="a_w">White</h1>
+        <h1 class="a_w">{% trans "White" %}</h1>
     </div>
      </a>
 
@@ -143,7 +143,7 @@
 
     <div class="box">
         <img src="{% static 'IMG/глаза.png' %}" class="eyes">
-        <a href="{% url 'comment' %}"><h2 style="color: white" class="eyes-text">Comments</h2></a>
+        <a href="{% url 'comment' %}"><h2 style="color: white" class="eyes-text">{% trans "Comments" %}</h2></a>
 
         <div class="y-1">
             <div class="y-2"></div>

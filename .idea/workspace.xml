@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9539ef6a-38e0-4d88-af16-21ff94cd7b3c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" afterDir="false" />
@@ -40,6 +42,8 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/ru/LC_MESSAGES/django.po" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/change.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/change.html" afterDir="false" />
@@ -73,7 +77,16 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/django_comments_xtd/reply.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/django_comments_xtd/reply.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/comment_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/comment_content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/black.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/black.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/white.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/white.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/pngegg_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/100/pngegg_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/250/pngegg_5.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
