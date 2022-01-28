@@ -34,9 +34,9 @@ DEBUG = True # False
 
 ALLOWED_HOSTS = [] #'127.0.0.1', 'test-my-site-id.herokuapp.com'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles'), ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -68,10 +68,6 @@ INSTALLED_APPS = [
 ]
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), )
-
-STATIC_URL = 'static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 
 LANGUAGES = (
     ('en-us', _('English')),
