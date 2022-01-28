@@ -232,12 +232,12 @@ COMMENTS_XTD_APP_MODEL_OPTIONS = {
     }
 }
 
-
-
 MEDIA_URL = '/IMG/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/IMG')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
