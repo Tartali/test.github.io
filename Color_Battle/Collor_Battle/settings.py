@@ -232,7 +232,6 @@ COMMENTS_XTD_APP_MODEL_OPTIONS = {
     }
 }
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/static')
 
 
 MEDIA_URL = '/IMG/'
