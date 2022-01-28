@@ -30,7 +30,7 @@ SECRET_KEY = '1wyi8gk7ag#ouf(^(!g6qnlru#y6!%3m=qo^*9xd2)3s(vfqro'
 #
 # ALLOWED_HOSTS = []
 
-DEBUG = False
+DEBUG = True # False
 
 ALLOWED_HOSTS = [] #'127.0.0.1', 'test-my-site-id.herokuapp.com'
 
@@ -70,6 +70,8 @@ INSTALLED_APPS = [
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), )
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 
 LANGUAGES = (
     ('en-us', _('English')),
