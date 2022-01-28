@@ -74,7 +74,6 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/comment_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/comment_content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Color_Battle" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
