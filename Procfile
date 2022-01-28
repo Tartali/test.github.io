@@ -1,2 +1,2 @@
-web: gunicorn Collor_Battle.wsgi --log-file -
+web: gunicorn Color_Battle.wsgi --log-file -
 
