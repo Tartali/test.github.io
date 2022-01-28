@@ -86,7 +86,8 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/pngegg_5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/100/pngegg_5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/250/pngegg_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Color_Battle" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
