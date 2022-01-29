@@ -1,2 +1,2 @@
-web: gunicorn Color_Battle.Collor_Battle.wsgi --log-file
+web: sh -c 'cd Color_Battle && gunicorn Collor_Battle.wsgi --log-file'
 
