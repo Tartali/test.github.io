@@ -11,7 +11,6 @@ from django.http import HttpResponseForbidden, HttpResponse
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
-from cloudipsp import Api, Checkout, Order
 
 
 from yookassa import Configuration, Payment
