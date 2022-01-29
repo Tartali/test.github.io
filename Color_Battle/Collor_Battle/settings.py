@@ -41,7 +41,7 @@ SECRET_KEY = '1wyi8gk7ag#ouf(^(!g6qnlru#y6!%3m=qo^*9xd2)3s(vfqro'
 
 DEBUG = True # False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'test-my-site-id.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
