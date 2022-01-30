@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-25 22:03+0300\n"
+"POT-Creation-Date: 2022-01-29 14:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,7 +135,6 @@ msgstr ""
 #: .\templates\comments\list.html:17
 #: .\templates\django_comments_xtd\comment.html:15
 #: .\templates\django_comments_xtd\comment_tree.html:40
-#: .\templates\registration\comments.html:210
 msgid "This comment has been removed."
 msgstr ""
 
@@ -329,6 +328,96 @@ msgstr ""
 msgid "Reply to comment"
 msgstr ""
 
+#: .\templates\registration\black.html:12
+#: .\templates\registration\profile.html:29
+#: .\templates\registration\purple.html:11
+#: .\templates\registration\white.html:11
+msgid "Back"
+msgstr "Terug"
+
+#: .\templates\registration\black.html:17
+msgid "Choose black for 1$ dollar"
+msgstr "Kies swart vir $ 1 dollar"
+
+#: .\templates\registration\black.html:28
+#: .\templates\registration\purple.html:22
+#: .\templates\registration\white.html:22
+msgid "Choose"
+msgstr "Kies"
+
 #: .\templates\registration\comments.html:209
 msgid "Since you didn't vote, you will be shown the first 50 comments."
-msgstr ""
+msgstr "Aangesien jy nie gestem het nie, sal die eerste 50 opmerkings aan jou gewys word."
+
+#: .\templates\registration\comments.html:210
+msgid ""
+"You will not be able to delete or change your comment. Think before you write"
+msgstr "Jy sal nie jou opmerking kan uitvee of verander nie. Dink voor jy skryf"
+
+#: .\templates\registration\home.html:20
+msgid "Logout"
+msgstr "Teken uit"
+
+#: .\templates\registration\home.html:32
+msgid "Login"
+msgstr "teken aan"
+
+#: .\templates\registration\home.html:48
+msgid "or"
+msgstr "of"
+
+#: .\templates\registration\home.html:54
+msgid "Black"
+msgstr "Swart"
+
+#: .\templates\registration\home.html:60
+msgid "White"
+msgstr "Wit"
+
+#: .\templates\registration\home.html:146
+msgid "Comments"
+msgstr "Kommentaar"
+
+#: .\templates\registration\profile.html:60
+msgid "Voted for black"
+msgstr "Het vir swart gestem"
+
+#: .\templates\registration\profile.html:66
+msgid "Voted for white"
+msgstr "Het vir wit gestem"
+
+#: .\templates\registration\profile.html:73
+msgid "Voted for purple"
+msgstr "Het vir pers gestem"
+
+#: .\templates\registration\profile.html:78
+msgid "Registration"
+msgstr "Registrasie"
+
+#: .\templates\registration\profile.html:96
+msgid "You haven't logged"
+msgstr "Jy het nie aangemeld nie"
+
+#: .\templates\registration\profile.html:97
+msgid "or registered yet"
+msgstr "of nog geregistreer"
+
+#: .\templates\registration\profile.html:100
+msgid "Sign In"
+msgstr "Meld aan"
+
+#: .\templates\registration\profile.html:101
+msgid "Sign Up"
+msgstr "Teken aan"
+
+#: .\templates\registration\purple.html:16
+msgid "Wow, you're an original"
+msgstr "Sjoe, jy is 'n oorspronklike"
+
+#: .\templates\registration\purple.html:17
+msgid "Choose purple for 1$ dollar"
+msgstr "Kies pers vir $ 1 dollar"
+
+#: .\templates\registration\white.html:16
+msgid "Choose white for 1$ dollar"
+msgstr "Kies wit vir 1$ dollar"

@@ -65,28 +65,25 @@ def black(request):
     Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
-    # idempotence_key = str(uuid.uuid4())
-    #
-    # payment = Payment.create({
-    #     "amount": {
-    #         "value": "2.00",
-    #         "currency": "RUB"
-    #     },
-    #     "payment_method_data": {
-    #         "type": "bank_card"
-    #     },
-    #     "confirmation": {
-    #         "type": "redirect",
-    #         "return_url": "https://www.merchant-website.com/return_url"
-    #     },
-    #     "capture": False,
-    #
-    #     "description": "Заказ №72"
-    # }, idempotence_key)
+    idempotence_key = str(uuid.uuid4())
 
-    # get confirmation url
+    payment = Payment.create({
+        "amount": {
+            "value": "2.00",
+            "currency": "RUB"
+        },
+        "payment_method_data": {
+            "type": "bank_card"
+        },
+        "confirmation": {
+            "type": "redirect",
+            "return_url": "https://www.merchant-website.com/return_url"
+        },
 
+        "description": "Заказ №72"
+    }, idempotence_key)
 
+    confirmation_url = payment.confirmation.confirmation_url
 
     if request.user.is_authenticated:
         value, created = Choose.objects.get_or_create(voter=request.user)
@@ -107,14 +104,14 @@ def black(request):
                 return redirect("accounts/login")
         return render(request, 'registration/black.html')
 
-    return render(request, 'registration/black.html')
+    return render(request, 'registration/black.html', {"url": confirmation_url})
 
 
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
     black_voters = Choose.objects.filter(count_black__gte=1)
     # передаем в шаблон
-    return render(request, 'results/black_results.html', )
+    return render(request, 'results/black_results.html',)
 
 
 @login_required(login_url='accounts/login/')

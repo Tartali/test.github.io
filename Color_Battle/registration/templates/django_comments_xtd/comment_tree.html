@@ -8,7 +8,7 @@
 {% for item in comments %}
 <div class="div_comment_tree">
   <a name="c{{ item.comment.id }}"></a>
-  <a href="{% url 'profile' item.comment.name %}" class="avatar_comment"><img src="{% avatar_url item.comment.user %}" width="80" height="80"></a>
+  <a href="{% url 'profile' item.comment.name %}" class="avatar_comment"><img src="{% avatar_url user %}" width="80" height="80"></a> {# {% avatar_url item.comment.user %} #}
 
   <div class="media-body">
     <div class="comment pb-3">
