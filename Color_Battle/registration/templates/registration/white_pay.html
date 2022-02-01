@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+
+{% block home %}
+
+<body bgcolor="white">
+<div>
+<font face="Montserrat">
+
+    <div>
+        <a href="{% url 'home' %}" class="back_w"><h1> <span class="b_c">⮪</span> {% trans "Back" %}</h1></a>
+    </div>
+
+    <div class="block_w">
+    <div class="sss">
+        <h1 style="color: white">{% trans "Choose white" %}</h1><br>
+
+    <form method="POST">
+    {% csrf_token %}
+        <button  class="button_w" name="choose" type="button" value="white">
+            <h1>
+            <b>{% trans "Choose" %}</b>
+            </h1>
+        </button>
+
+    </form>
+
+    </div>
+    </div>
+
+</font>
+</div>
+</body>
+
+{% endblock %}

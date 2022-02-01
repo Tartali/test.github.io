@@ -26,7 +26,7 @@
             {% elif allow_flagging %}
               <a class="mutedlink"
                  href="{% url 'comments-flag' item.comment.pk %}">
-                <i class="fas fa-flag" title="{% trans 'flag comment' %}">лаг</i>  <!-- !!!!!!!!!!!!!!!!!!! --->
+<!--                <i class="fas fa-flag" title="{% trans 'flag comment' %}">лаг</i>  &lt;!&ndash; !!!!!!!!!!!!!!!!!!! -&ndash;&gt;-->
               </a>
             {% endif %}
             {% if perms.comments.can_moderate %}

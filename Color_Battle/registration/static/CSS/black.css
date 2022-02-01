@@ -1,4 +1,6 @@
-
+body {
+margin: 0;
+}
 
 
 a {
@@ -11,7 +13,7 @@ a {
 }
 
 .block_b {
-    position: relative;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,14 +21,6 @@ a {
     height: 600px;
     width: 550px;
     border-radius: 50px;
-    position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 .button_b {
@@ -37,7 +31,9 @@ a {
   padding: 12px;
   border: none;
   border-radius: 15px;
-  margin-left: 25%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
   width: 200px;
   height: 100px;
   cursor: pointer;
@@ -45,4 +41,180 @@ a {
 
 .button_b:active {
      background: #141414;
+}
+
+#div1{
+  display: none;
+  margin: auto;
+}
+
+.video {
+    position: absolute;
+    width:100%;
+    height: 320px;
+    overflow: hidden !important;
+    margin-top: -100px !important;
+    margin: auto;
+    object-fit: cover;
+background-attachment: fixed;
+	background-blend-mode: multiply;
+	background-color: #5a5454;
+
+}
+
+.black_cat {
+
+    width: 100%;
+    height: 600px;
+    background-image: url("../IMG/Black/cat.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+	background-blend-mode: multiply;
+	background-color: #5a5454;
+}
+
+
+.none_div {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: -15px;
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 30pt;
+}
+
+html {
+  height: 100%;
+}
+
+.div_piano {
+width: 100%;
+margin: auto;
+background: grey;
+height: 100px;
+padding-top: 100px;
+padding-bottom: 100px;
+}
+
+.piano {
+  margin: 0 auto;
+  position: relative;
+  width: 497px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.white-key {
+
+  width: 50px;
+  height: 140px;
+  background: linear-gradient(000, #757275,#bababa);
+  border: 2px solid black;
+  border-radius: 0 0 6px 6px;
+  margin-left: -4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.white-key.active {
+  background: linear-gradient(000, #424042, #757275);
+}
+
+.black-key {
+  position: absolute;
+  width: 32px;
+  height: 100px;
+  background: linear-gradient(000, #2e2e2e, #121212);
+  border: 3px solid black;
+  border-radius: 0 0 4px 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.black-key.active {
+  background: linear-gradient(000, #131313, #121212);
+}
+
+.Db4-key {
+
+  left: 29px;
+}
+
+.Eb4-key {
+  left: 80px;
+}
+
+.Gb4-key {
+  left: 180px;
+}
+
+.Ab4-key {
+  left: 230px;
+}
+
+.Bb4-key {
+  left: 280px;
+}
+
+.Db5-key {
+  left: 380px;
+}
+
+.Eb5-key {
+  left: 430px;
+}
+
+.heart {
+    float: left;
+    background-image: url("../IMG/Black/heart.jpg");
+    background-size: 100% 100%;
+    width: 40%;
+    height: 530px;
+    margin-top: 20px;
+}
+
+.heart_home {
+    float: left;
+    background-image: url("../IMG/Black/heart_home.jpg");
+    background-size: 100% 100%;
+    width: 60%;
+    height: 550px;
+}
+
+.rose {
+    float: left;
+    background-image: url("../IMG/Black/rose.jpg");
+    background-size: 100% 100%;
+    width: 30%;
+    height: 700px;
+}
+
+.swan {
+    float: left;
+    background-image: url("../IMG/Black/swan.jpg");
+    background-size: 100% 100%;
+    width: 70%;
+    height: 700px;
+}
+
+.horse {
+    float: left;
+    background-image: url("../IMG/Black/horse1.jpg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 900px;
+	background-blend-mode: multiply;
+	background-color: #5a5454;
+
+}
+
+.video_waves{
+    width:100%;
+    height: 320px;
+    object-fit: cover;
+    margin-left: -5px;
 }

@@ -49,6 +49,8 @@ p {
     color: white;
 }
 
+
+
 .form-control { /* texterea */
 
     height: 100px;
@@ -128,6 +130,10 @@ display: none;
 }
 
 /* comment_tree */
+
+.span_reply {
+    margin-top: 1000px;
+}
 
 .div_comment_tree{
     height: 100%;

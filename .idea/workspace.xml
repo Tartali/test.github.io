@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9539ef6a-38e0-4d88-af16-21ff94cd7b3c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/like.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/script_piano.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/signup.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" afterDir="false" />
@@ -46,6 +49,11 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/de/LC_MESSAGES/django.po" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/ru/LC_MESSAGES/django.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/all_comments.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/all_comments.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/battle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/battle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/black.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/black.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/purple.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/white.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/white.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/change.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/change.html" afterDir="false" />
@@ -81,6 +89,7 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/black.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/black.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/comments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" afterDir="false" />

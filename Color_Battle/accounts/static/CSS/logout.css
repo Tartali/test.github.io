@@ -1,10 +1,10 @@
 .body_out {
     position: absolute;
     margin: 0px;
-    min-height: 100%;
-    min-width:  100%;
-    background-image: url("../IMG/backround_aut.png ");
-    background-size: cover;
+    height: 100%;
+    width:  100%;
+    background-image: url("../IMG/backround_aut.png ") ;
+     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,12 +1,13 @@
 {% extends "layout/base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block home %}
 
 <body bgcolor="black">
-<div>
-<font face="Montserrat">
 
+<font face="Montserrat">
+<div class="">
 
     <div>
         <a href="{% url 'home' %}" class="back_b"><h1 style="color: white"> <span>⮪</span>{% trans "Back" %}</h1></a>
@@ -14,7 +15,7 @@
 
     <div class="block_b">
     <div>
-        <h1 style="color: black">{% trans "Choose black for 1$ dollar" %}</h1><br>
+        <h1 style="color: black">{% trans "Choose black" %}</h1><br>
 
 
 
@@ -23,7 +24,7 @@
     <form method="post">
     {% csrf_token %}
     <a href="{{ url }}">
-        <button  class="button_b" name="choose" value="black" type="button" onclick="assign()">
+        <button  class="button_b" name="choose" value="black" onclick="assign()">
             <h1 style="color: white">
                 <strong>{% trans "Choose" %}</strong>
             </h1>
@@ -33,15 +34,51 @@
 
     </div>
     </div>
+    <input type="button" onmousedown="viewDiv()" class="none_div" value="{% trans "Enjoy the black" %}">
 
-<script type="text/javascript">
-   function assign(){
-       document.location.assign("{{ url }}");
-   }
-</script>
+    <div id="div1">
+
+        <div class="black_cat"></div>
+
+        <div></div>
+
+        <div class="div_piano">
+        <video src="{% static 'IMG/Black/smoke.mp4' %}" class="video" autoplay loop muted></video>
+       <div class="piano">
+
+        <button class="white-key C4-key"></button>
+      <button class="black-key Db4-key"></button>
+      <button class="white-key D4-key"></button>
+      <button class="black-key Eb4-key"></button>
+      <button class="white-key E4-key"></button>
+      <button class="white-key F4-key"></button>
+      <button class="black-key Gb4-key"></button>
+      <button class="white-key G4-key"></button>
+      <button class="black-key Ab4-key"></button>
+      <button class="white-key A4-key"></button>
+      <button class="black-key Bb4-key"></button>
+      <button class="white-key B4-key"></button>
+      <button class="white-key C5-key"></button>
+      <button class="black-key Db5-key"></button>
+      <button class="white-key D5-key"></button>
+      <button class="black-key Eb5-key"></button>
+      <button class="white-key E5-key"></button>
+        </div>
+        </div>
+
+        <div class="heart"></div>
+        <div class="heart_home"></div>
+        <div class="rose"></div>
+        <div class="swan"></div>
+        <div class="horse"></div>
+         <div><video src="{% static 'IMG/Black/waves.mp4' %}" class="video_waves" autoplay loop muted></video></div>
+
+    </div>
+
+</div>
+
 
 </font>
-</div>
 </body>
 
 {% endblock %}

@@ -2,10 +2,10 @@
 .body {
     position: absolute;
     margin: 0px;
-    min-height: 100%;
-    min-width:  100%;
-    background-image: url("../IMG/backround_reg.rpEKb.png ");
-    background-size: cover;
+    height: 100%;
+    width:  100%;
+    background-image: url("../IMG/backround_reg.rpEKb.png ") ;
+     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +15,10 @@
 
 }
 
+
+
+
+
 .y-1 {
     background: #A1A2A5;
     border: 5px solid black;
@@ -23,7 +27,7 @@
 	border-radius: 50%;
 	position: absolute;
 	left: 15%;
-	bottom: 40%;
+	top: 350px;
 
 }
 .y-2{
