@@ -1,12 +1,12 @@
 import uuid
 import json
-
+from yookassa import Webhook
 import var_dump as var_dump
 from yookassa import Payment
 from yookassa.domain.notification import WebhookNotificationEventType, WebhookNotificationFactory
 
 from yookassa import Configuration, Payment
-from yookassa.domain.notification import WebhookNotificationEventType, WebhookNotificationFactory
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
@@ -70,10 +70,10 @@ def black(request):
 
     idempotence_key = str(uuid.uuid4())
 
-    # payment_id = '29886c50-000f-5000-8000-113bdfdebe75'
-    # payment_one = Payment.find_one(payment_id)
-    #
-    # dict_payment = vars(payment_one)
+    payment_id = '29886c50-000f-5000-8000-113bdfdebe75'
+    payment_one = Payment.find_one(payment_id)
+
+    dict_payment = vars(payment_one)
 
     payment = Payment.create({
         "amount": {
@@ -95,119 +95,47 @@ def black(request):
 
     confirmation_url = payment.confirmation.confirmation_url
 
-    event_json = json.loads(request.body)
-    try:
-        # Создание объекта класса уведомлений в зависимости от события
-        notification_object = WebhookNotificationFactory().create(event_json)
-        response_object = notification_object.object
-        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
-            some_data = {
-                'paymentId': response_object.id,
-                'paymentStatus': response_object.status,
-            }
-            # Специфичная логика
-            # ...
-            # if dict_payment['_PaymentResponse__status'] == 'succeeded':
-            value, created = Choose.objects.get_or_create(voter=request.user)
+    whUrl = 'https://test-my-site-id.herokuapp.com/'
+    needWebhookList = [
+        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
+        WebhookNotificationEventType.PAYMENT_CANCELED
+    ]
 
-            if request.method == 'POST':
-                select_action = request.POST['choose']
+    whList = Webhook.list()
 
-                if select_action == 'black':
-                    value.count_black += 1
-                    value.save()
-                return redirect("home")
+    for event in needWebhookList:
+        hookIsSet = False
+        for wh in whList.items:
+            if wh.event != event:
+                continue
+            if wh.url != whUrl:
+                Webhook.remove(wh.id)
+            else:
+                hookIsSet = True
 
-            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
-                return render(request, '403/black.html')
+        if not hookIsSet:
+            Webhook.add({"event": event, "url": whUrl})
 
-            return render(request, 'registration/black.html', {"url": confirmation_url})
-        elif notification_object.event == WebhookNotificationEventType.PAYMENT_WAITING_FOR_CAPTURE:
-            some_data = {
-                'paymentId': response_object.id,
-                'paymentStatus': response_object.status,
-            }
-            # Специфичная логика
-            # ...
-        elif notification_object.event == WebhookNotificationEventType.PAYMENT_CANCELED:
-            some_data = {
-                'paymentId': response_object.id,
-                'paymentStatus': response_object.status,
-            }
-            # Специфичная логика
-            # ...
-        elif notification_object.event == WebhookNotificationEventType.REFUND_SUCCEEDED:
-            some_data = {
-                'refundId': response_object.id,
-                'refundStatus': response_object.status,
-                'paymentId': response_object.payment_id,
-            }
-            # Специфичная логика
-            # ...
-        elif notification_object.event == WebhookNotificationEventType.DEAL_CLOSED:
-            some_data = {
-                'dealId': response_object.id,
-                'dealStatus': response_object.status,
-            }
-            # Специфичная логика
-            # ...
-        elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
-            some_data = {
-                'payoutId': response_object.id,
-                'payoutStatus': response_object.status,
-                'dealId': response_object.deal.id,
-            }
-            # Специфичная логика
-            # ...
-        elif notification_object.event == WebhookNotificationEventType.PAYOUT_CANCELED:
-            some_data = {
-                'payoutId': response_object.id,
-                'payoutStatus': response_object.status,
-                'dealId': response_object.deal.id,
-            }
-            # Специфичная логика
-            # ...
-        else:
-            # Обработка ошибок
-            return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+    var_dump.var_dump(Webhook.list())
 
-        # Специфичная логика
-        # ...
-        Configuration.configure('XXXXXX', 'test_XXXXXXXX')
-        # Получим актуальную информацию о платеже
-        payment_info = Payment.find_one(some_data['paymentId'])
-        if payment_info:
-            payment_status = payment_info.status
-            # Специфичная логика
-            # ...
-        else:
-            # Обработка ошибок
-            return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+    if dict_payment['_PaymentResponse__status'] == 'succeeded':
+        value, created = Choose.objects.get_or_create(voter=request.user)
 
-    except Exception:
-        # Обработка ошибок
-        return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+        if request.method == 'POST':
+            select_action = request.POST['choose']
 
-    return HttpResponse(status=200)  # Сообщаем кассе, что все хорошо
+            if select_action == 'black':
+                value.count_black += 1
+                value.save()
+            return redirect("home")
 
-    # # if dict_payment['_PaymentResponse__status'] == 'succeeded':
-    #     value, created = Choose.objects.get_or_create(voter=request.user)
-    #
-    #     if request.method == 'POST':
-    #         select_action = request.POST['choose']
-    #
-    #         if select_action == 'black':
-    #             value.count_black += 1
-    #             value.save()
-    #         return redirect("home")
-    #
-    #     if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
-    #         return render(request, '403/black.html')
-    #
-    # else:
-    #     return render(request, 'registration/black_pay.html')
-    #
-    # return render(request, 'registration/black.html', {"url": confirmation_url})
+        if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
+            return render(request, '403/black.html')
+
+    else:
+        return render(request, 'registration/black_pay.html')
+
+    return render(request, 'registration/black.html', {"url": confirmation_url})
 
 
 def black_results(request):
@@ -348,3 +276,5 @@ class Comment2(TemplateView):
         comment = Comment.objects.get(pk=1)
         context['comment'] = comment
         return context
+
+
