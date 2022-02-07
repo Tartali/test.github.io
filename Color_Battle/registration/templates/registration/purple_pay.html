@@ -27,9 +27,32 @@
     </div>
     </div>
 
-    <div class="result">
-        <h1 style="color: #331c2a" align="center">{{ value.count_purple }} ({{ percent_purple}})%</h1>
-    </div>
+     <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the purple" %}</b></h1></button>
+
+        <div id="div1">
+
+            <div class="jillyfish"></div>
+            <div class="snake_div">
+             <section class="snakeTable"></section>
+                <!-- modular window before and after games -->
+                <section class="modul">
+                  <div class="start">
+                    <span><b><b><b>➤➤</b></b></b></span>
+                  </div>
+                </section>
+            </div>
+            <div class="oke"></div>
+            <div class="arhi"></div>
+            <div><video src="{% static 'IMG/Purple/medi.mp4' %}" class="medi" autoplay loop muted></video></div>
+            <div class="space"></div>
+            <div class="speed"></div>
+            <div><video src="{% static 'IMG/Purple/anim.mp4' %}" class="anim" autoplay loop muted></video></div>
+
+        </div>
+
+<!--    <div class="result">-->
+<!--        <h1 style="color: #331c2a" align="center">{{ value.count_purple }} ({{ percent_purple}})%</h1>-->
+<!--    </div>-->
 </font>
 </div>
 </body>

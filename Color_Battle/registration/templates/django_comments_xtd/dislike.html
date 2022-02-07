@@ -78,7 +78,7 @@
           {% else %}
           <button class="dis_input" type="submit" name="submit" class="btn btn-primary" value="{% trans 'I dislike it' %}"/> <img src="{% static 'IMG/дизлайк.png' %}" width="500px" height="500px"></button>
           {% endif %}
-          <h2><p align="center"><a class="btn btn-secondary" href="{{ comment.get_absolute_url }}">{% trans "cancel" %}</a></p></h2>
+          <a style="position: absolute;left: 50%;transform: translate(-50%, 0);" class="btn btn-secondary" href="{{ comment.get_absolute_url }}"><h2 align="center">{% trans "cancel" %}</h2></a>
         </div>
       </div>
     </form>

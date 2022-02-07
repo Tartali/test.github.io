@@ -6,9 +6,15 @@ html *
 .body {
     background-image: url("../IMG/b2.png");
     background-size: 100% 100%;
-
 }
 
+@media screen and (max-width: 1360px) {
+.body{
+     background-image: url("../IMG/background_small.png");
+
+    background-size: 100% 100%;
+}
+}
 .img_back {
 
 }
@@ -70,6 +76,12 @@ html *
     cursor: default;
 }
 
+@media screen and (max-width: 1360px) {
+
+
+
+}
+
 .default_url {
     cursor: default;
 }
@@ -96,6 +108,12 @@ html *
     margin-left: 15px;
 }
 
+.mama_black {
+    display: flex;
+	justify-content: right;
+    align-items: center;
+}
+
 .White {
 	display: flex;
 	justify-content: right;
@@ -110,6 +128,33 @@ html *
 
 .a_w {
     margin-right: 15px;
+}
+
+@media screen and (max-width: 1360px) {
+
+.Black {
+	display: flex;
+	justify-content: left;
+    align-items: center;
+    background-color: black;
+    height: 150px;
+    width:  80%;
+    float: none;
+    margin: auto;
+}
+
+
+.White {
+	display: flex;
+	justify-content: right;
+    align-items: center;
+    background-color: white;
+    height: 150px;
+    width:  80%;
+    float: none;
+    margin: auto;
+}
+
 }
 
 .votes_black {
@@ -135,6 +180,19 @@ html *
     width: 300px;
     background-color: white;
 }
+
+@media screen and (max-width: 1360px) {
+.votes_black {
+    height: 100px;
+    width: 250px;
+}
+
+.votes_white {
+    height: 100px;
+    width: 250px;
+}
+}
+
 
 .eyes {
     position: absolute;

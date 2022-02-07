@@ -81,7 +81,7 @@
             {% else %}
             <button type="submit" name="submit" class="input_like" value="I like it"><img src="{% static 'IMG/лайк.png' %}" width="500px" height="500px"></button>
             {% endif %}
-            <h2><p align="center"><a class="btn btn-secondary" href="{{ comment.get_absolute_url }}">{% trans "cancel" %}</a></p></h2>
+            <a style="position: absolute;left: 50%;transform: translate(-50%, 0);" class="btn btn-secondary" href="{{ comment.get_absolute_url }}"><h2 align="center">{% trans "cancel" %}</h2></a>
           </div>
         </div>
       </form>

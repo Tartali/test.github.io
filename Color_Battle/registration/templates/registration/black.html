@@ -17,10 +17,6 @@
     <div>
         <h1 style="color: black">{% trans "Choose black" %}</h1><br>
 
-
-
-
-
     <form method="post">
     {% csrf_token %}
     <a href="{{ url }}">
@@ -40,10 +36,9 @@
 
         <div class="black_cat"></div>
 
-        <div></div>
-
         <div class="div_piano">
         <video src="{% static 'IMG/Black/smoke.mp4' %}" class="video" autoplay loop muted></video>
+
        <div class="piano">
 
         <button class="white-key C4-key"></button>
@@ -80,6 +75,14 @@
 
 </font>
 </body>
+
+<script>
+    function soundClick() {
+  var audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = 'http://127.0.0.1:8000/static/CSS/out.mp3' ; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}
+</script>
 
 {% endblock %}
 

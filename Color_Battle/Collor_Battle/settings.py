@@ -39,7 +39,7 @@ SECRET_KEY = '1wyi8gk7ag#ouf(^(!g6qnlru#y6!%3m=qo^*9xd2)3s(vfqro'
 #
 # ALLOWED_HOSTS = []
 
-DEBUG = True # False
+DEBUG = True  # False
 
 ALLOWED_HOSTS = ['*']
 
@@ -162,7 +162,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
 # PAYMENT_HOST = 'localhost:8000'
 # PAYMENT_USES_SSL = False
 # PAYMENT_MODEL = 'registration.Payment'
@@ -171,7 +170,7 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_EMAIL_REQUIRED = True  # указвать или не указывать почту при регистрации
-ACCOUNT_EMAIL_VERIFICATION = False
+ACCOUNT_EMAIL_VERIFICATION = "none"  # "mandatory"
 
 
 AVATAR_AUTO_GENERATE_SIZES = [250, 100]
@@ -218,7 +217,6 @@ COMMENTS_XTD_FROM_EMAIL = "color.scrooge3000admen@gmail.com"
 COMMENTS_XTD_CONTACT_EMAIL = "color.scrooge3000admen@gmail.com"
 
 COMMENTS_XTD_CONFIRM_EMAIL = False
-
 
 
 COMMENTS_XTD_MAX_THREAD_LEVEL = 1

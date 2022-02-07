@@ -20,6 +20,88 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
+def my_webhook_handler(request):
+    # Извлечение JSON объекта из тела запроса
+    event_json = json.loads(request.body)
+    try:
+        # Создание объекта класса уведомлений в зависимости от события
+        notification_object = WebhookNotificationFactory().create(event_json)
+        response_object = notification_object.object
+        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+            some_data = {
+                'paymentId': response_object.id,
+                'paymentStatus': response_object.status,
+            }
+            print("Платеж успешен!!1!!11!!!")
+        elif notification_object.event == WebhookNotificationEventType.PAYMENT_WAITING_FOR_CAPTURE:
+            some_data = {
+                'paymentId': response_object.id,
+                'paymentStatus': response_object.status,
+            }
+            # Специфичная логика
+            # ...
+        elif notification_object.event == WebhookNotificationEventType.PAYMENT_CANCELED:
+            some_data = {
+                'paymentId': response_object.id,
+                'paymentStatus': response_object.status,
+            }
+            # Специфичная логика
+            # ...
+        elif notification_object.event == WebhookNotificationEventType.REFUND_SUCCEEDED:
+            some_data = {
+                'refundId': response_object.id,
+                'refundStatus': response_object.status,
+                'paymentId': response_object.payment_id,
+            }
+            # Специфичная логика
+            # ...
+        elif notification_object.event == WebhookNotificationEventType.DEAL_CLOSED:
+            some_data = {
+                'dealId': response_object.id,
+                'dealStatus': response_object.status,
+            }
+            # Специфичная логика
+            # ...
+        elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
+            some_data = {
+                'payoutId': response_object.id,
+                'payoutStatus': response_object.status,
+                'dealId': response_object.deal.id,
+            }
+            # Специфичная логика
+            # ...
+        elif notification_object.event == WebhookNotificationEventType.PAYOUT_CANCELED:
+            some_data = {
+                'payoutId': response_object.id,
+                'payoutStatus': response_object.status,
+                'dealId': response_object.deal.id,
+            }
+            # Специфичная логика
+            # ...
+        else:
+            # Обработка ошибок
+            return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+
+        # Специфичная логика
+        # ...
+        Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+        # Получим актуальную информацию о платеже
+        payment_info = Payment.find_one(some_data['paymentId'])
+        if payment_info:
+            payment_status = payment_info.status
+            # Специфичная логика
+            # ...
+            print(payment_status)
+        else:
+            # Обработка ошибок
+            return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+
+    except Exception:
+        # Обработка ошибок
+        return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+
+    return HttpResponse(status=200)  # Сообщаем кассе, что все хорошо
+
 def home(request):
         value = Choose.objects.all()
         sum_black = Choose.objects.aggregate(Sum('count_black'))
@@ -65,15 +147,14 @@ def callback_payment(request):
 
 @login_required(login_url='accounts/login/')
 def black(request):
-    Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
     idempotence_key = str(uuid.uuid4())
 
-    payment_id = '29886c50-000f-5000-8000-113bdfdebe75'
-    payment_one = Payment.find_one(payment_id)
-
-    dict_payment = vars(payment_one)
+    # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
+    # payment_one = Payment.find_one(payment_id)
 
     payment = Payment.create({
         "amount": {
@@ -85,40 +166,22 @@ def black(request):
         },
         "confirmation": {
             "type": "redirect",
-            "return_url": "https://test-my-site-id.herokuapp.com/"
+            "return_url": "http://127.0.0.1:8000/"
         },
 
-        "capture": True,
+        "id": idempotence_key,
+        # "capture": True,
+        # "response_type": "code",
+        # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
+
 
         "description": "Заказ №72"
-    }, idempotence_key)
-
+    },)
+    print(idempotence_key)
+    # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
 
-    whUrl = 'https://test-my-site-id.herokuapp.com/'
-    needWebhookList = [
-        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
-        WebhookNotificationEventType.PAYMENT_CANCELED
-    ]
-
-    whList = Webhook.list()
-
-    for event in needWebhookList:
-        hookIsSet = False
-        for wh in whList.items:
-            if wh.event != event:
-                continue
-            if wh.url != whUrl:
-                Webhook.remove(wh.id)
-            else:
-                hookIsSet = True
-
-        if not hookIsSet:
-            Webhook.add({"event": event, "url": whUrl})
-
-    var_dump.var_dump(Webhook.list())
-
-    if dict_payment['_PaymentResponse__status'] == 'succeeded':
+    if request.user.is_authenticated:  #dict_payment['_PaymentResponse__status'] == 'succeeded'
         value, created = Choose.objects.get_or_create(voter=request.user)
 
         if request.method == 'POST':
@@ -133,9 +196,9 @@ def black(request):
             return render(request, '403/black.html')
 
     else:
-        return render(request, 'registration/black_pay.html')
+        return render(request, 'registration/black.html')
 
-    return render(request, 'registration/black.html', {"url": confirmation_url})
+    return render(request, 'registration/black_pay.html', {"url": confirmation_url})
 
 
 def black_results(request):

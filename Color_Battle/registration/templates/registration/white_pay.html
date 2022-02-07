@@ -1,6 +1,6 @@
 {% extends 'layout/base.html' %}
 {% load i18n %}
-
+{% load static %}
 {% block home %}
 
 <body bgcolor="white">
@@ -13,7 +13,7 @@
 
     <div class="block_w">
     <div class="sss">
-        <h1 style="color: white">{% trans "Choose white" %}</h1><br>
+        <h1 style="color: white">{% trans "Choose white for 1$ dollar" %}</h1><br>
 
     <form method="POST">
     {% csrf_token %}
@@ -26,6 +26,21 @@
     </form>
 
     </div>
+    </div>
+
+    <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the white" %}</b></h1></button>
+    <div id="div1">
+          <div class="wolf"></div>
+
+        <div class="paint">
+            <div id="paint-container"></div>
+            <button id="clear" class="clear"><h2 style="color: white; margin-top: -0px;">⭮</h2></button>
+        </div>
+          <div class="cloud"></div>
+          <div class="pool"></div>
+          <div class="pigeon"></div>
+          <div class="mramor"></div>
+          <div><video src="{% static 'IMG/White/roul.mp4' %}" class="roul" autoplay loop muted></video></div>
     </div>
 
 </font>

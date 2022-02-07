@@ -16,14 +16,10 @@
     <div>
         <h1 style="color: black">{% trans "Choose black for 1$ dollar" %}</h1><br>
 
-
-
-
-
     <form method="post">
     {% csrf_token %}
     <a href="{{ url }}">
-        <button  class="button_b" name="choose" value="black" type="button" onclick="assign()">
+        <button  class="button_b" type="button" name="choose" value="black" onclick="assign()">
             <h1 style="color: white">
                 <strong>{% trans "Choose" %}</strong>
             </h1>
@@ -44,6 +40,8 @@
 
         <div class="div_piano">
         <video src="{% static 'IMG/Black/smoke.mp4' %}" class="video" autoplay loop muted></video>
+            <audio src="{% static 'CSS/Bohemian.mp3' %}"></audio>
+                <img onclick="soundClickGod()" class="fred_img" src="{% static 'IMG/fred.png' %}">
        <div class="piano">
 
         <button class="white-key C4-key"></button>
@@ -79,6 +77,14 @@
 </font>
 </div>
 </body>
+
+<script>
+    function soundClickGod() {
+  var audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = 'http://127.0.0.1:8000/static/CSS/Bohemian.mp3' ; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}
+</script>
 
 {% endblock %}
 

@@ -1,4 +1,6 @@
 
+
+
 .bodyyy_white {
     background-image: url("../IMG/black.png");
     background-size: 100% 100%;
@@ -21,14 +23,8 @@ a {
     height: 600px;
     width: 550px;
     border-radius: 50px;
-    position: absolute;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .button_w {
@@ -39,7 +35,6 @@ a {
   padding: 12px;
   border: none;
   border-radius: 15px;
-  margin-left: 25%;
   width: 200px;
   height: 100px;
   cursor: pointer;
@@ -50,4 +45,155 @@ a {
 
 .button_w:active {
      background: #ebebeb;
+}
+
+#div1{
+  display: none;
+  margin: auto;
+
+}
+
+.none_div_w {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: -15px;
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 12pt;
+
+}
+
+.wolf {
+
+    margin-top:50px;
+    width: 100%;
+    height: 600px;
+    background-image: url("../IMG/White/ice.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+	background-color: #929292;
+}
+
+.cloud {
+    float: left;
+    width: 30%;
+    height: 600px;
+    background-image: url("../IMG/White/cloud.jpg");
+    background-size: 100% 100%;
+}
+
+.pool {
+    float: left;
+    width: 70%;
+    height: 600px;
+    background-image: url("../IMG/White/pool.jpg");
+    background-size: 100% 100%;
+}
+
+.pigeon {
+    float: left;
+    width: 65%;
+    height: 500px;
+    background-image: url("../IMG/White/pigeon.jpg");
+    background-size: 100% 100%;
+}
+
+.mramor {
+    float: left;
+    width: 35%;
+    height: 500px;
+    background-image: url("../IMG/White/mramor.jpg");
+    background-size: 100% 100%;
+}
+
+.roul {
+    width:100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: -5px;
+}
+
+
+.paint {
+position: absolute
+width: 100%;
+height: 500px;
+border: 20px solid black;
+}
+
+
+.inputs {
+position: absolute;
+
+}
+
+#paint-container {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    border-radius: 4px;
+    background: yellow;
+    cursor: pointer;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.paint-cell {
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    background-color: black !important;
+    box-sizing: border-box;
+
+}
+
+.paint-cell__circle {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    pointer-events: none;
+    border-radius: 100%;
+
+}
+
+.number{
+position: absolute;
+top: 10px;
+margin-left: 57px;
+}
+
+.reset {
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 11px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 0 10px 0 10px;
+    border: 2px dotted white;
+}
+
+.clear {
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: black;
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

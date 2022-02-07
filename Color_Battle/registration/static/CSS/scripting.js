@@ -17,4 +17,3 @@ function soundClick() {
   audio.autoplay = true; // Автоматически запускаем
 }
 
-

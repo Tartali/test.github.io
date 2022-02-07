@@ -8,34 +8,25 @@ a {
 }
 
 .block_p{
-
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 600px;
-    width: 550px;
-    position: absolute;
+    width: 750px;
+      position: relative;
   left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
 
 
 .button_p {
   outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   background: #723c7d;
   padding: 12px;
   border-radius: 15px;
   border: none;
-  margin-left: 25%;
   width: 200px;
   height: 100px;
   cursor: pointer;
@@ -64,3 +55,200 @@ a {
     bottom: 0px;
 
 }
+
+.none_div_p {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: -15px;
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 12pt;
+    color: #331c2a;
+}
+
+.jillyfish {
+    margin-top: 30px;
+    width: 100%;
+    height: 600px;
+    background-image: url("../IMG/Purple/jillyfish.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+	background-blend-mode: multiply;
+	background-color: #5a5454;
+}
+
+.snake_div {
+width: 100%;
+height: 600px;
+background: linear-gradient(to top, #542951, #33003B) !important;
+}
+
+.oke {
+    float: left;
+    background-image: url("../IMG/Purple/oke.jpeg");
+    background-size: 100% 100%;
+    width: 70%;
+    height: 700px;
+}
+
+.arhi {
+    float: left;
+    background-image: url("../IMG/Purple/arhi.jpg");
+    background-size: 100% 100%;
+    width: 30%;
+    height: 700px;
+}
+
+.medi {
+    float: left;
+    object-fit: cover;
+    width: 30%;
+    height: 650px;
+}
+
+.space {
+    float: left;
+    background-image: url("../IMG/Purple/space.jpg");
+    background-size: 100% 100%;
+    width: 70%;
+    height: 650px;
+    background-blend-mode: multiply;
+	background-color: #b0b0b0;
+}
+
+.speed {
+    float: left;
+    background-image: url("../IMG/Purple/speed.jpg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 900px;
+	background-blend-mode: multiply;
+	background-color: #d5d5d5;
+
+}
+
+.anim{
+    width:100%;
+    height: 320px;
+    object-fit: cover;
+    margin-bottom: -5px;
+}
+
+.snakeTable {
+  width: 210px;
+  height: 230px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+   background: #5f5f5f;
+}
+@media only screen and (min-width: 768px) {
+  .snakeTable {
+    width: 315px;
+    height: 345px;
+  }
+}
+
+/* all boxes in the table */
+.box {
+  background: #5f5f5f;
+  border: none;
+  width: 15px;
+  height: 15px;
+}
+
+
+.food {
+  background: MediumPurple;
+  border-radius: 50px;
+  width: 15px;
+  height: 15px;
+}
+
+.snake {
+  background: #db5fac;
+}
+
+/* bar showing status below table */
+.status {
+  background-color: #212121;
+  color: white;
+  width: 210px;
+  height: 20px;
+}
+@media only screen and (min-width: 768px) {
+  .status {
+    width: 315px;
+    height: 30px;
+  }
+}
+
+.score {
+  float: right;
+  padding: 0 5px;
+  line-height: 20px;
+}
+@media only screen and (min-width: 768px) {
+  .score {
+    padding: 0 10px;
+    line-height: 30px;
+    font-size: 20px;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* modular window before and after game */
+.modul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -170px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.start {
+  background: #212121;
+  padding: 60px;
+  box-shadow: 0 0 2px 3px rgba(0,0,0,0.3);
+  border-radius: 2px;
+}
+.start span {
+  color: white;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.start span:hover {
+  background: white;
+  color: #212121;
+}
+
+footer {
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
