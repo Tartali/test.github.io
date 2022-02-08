@@ -39,6 +39,14 @@ html *
     color: black;
 }
 
+@media screen and (max-width: 285px) {
+
+.login{
+left: 10px;
+}
+
+}
+
 .round {
     position: absolute;
     margin-top: 65px;
@@ -78,7 +86,20 @@ html *
 
 @media screen and (max-width: 1360px) {
 
-
+.or {
+    position: absolute;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #884ea3;
+    height: 100px;
+    width:  110px;
+    margin:0 auto;
+    cursor: default;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
 
 }
 
@@ -130,29 +151,122 @@ html *
     margin-right: 15px;
 }
 
-@media screen and (max-width: 1360px) {
+@media screen and (max-height: 670px) {
 
 .Black {
-	display: flex;
-	justify-content: left;
-    align-items: center;
-    background-color: black;
-    height: 150px;
-    width:  80%;
-    float: none;
-    margin: auto;
+    height: 100px !important;
+    top: 110px;
+}
+
+.a_b {
+    margin-right: 15px;
+}
+
+.White {
+    height: 100px !important;
+    bottom: 110px;
+}
+
 }
 
 
-.White {
+@media screen and (max-width: 1360px) {
+
+.Black {
+    position: absolute;
 	display: flex;
 	justify-content: right;
     align-items: center;
-    background-color: white;
+    background-color: black;
     height: 150px;
-    width:  80%;
+    width:  50%;
     float: none;
     margin: auto;
+    top: 110px;
+    right: 100px;
+}
+
+.a_b {
+    margin-right: 15px;
+}
+
+.White {
+    position: absolute;
+	display: flex;
+	justify-content: left;
+    align-items: center;
+    background-color: white;
+    height: 150px;
+    width:  50%;
+    float: none;
+    bottom: 110px;
+    left: 100px;
+}
+
+.a_w {
+    margin-left: 15px;
+}
+
+}
+
+@media screen and (max-width: 800px) {
+
+.Black {
+    position: absolute;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 150px;
+    width:  50%;
+    float: none;
+    left: 50%;
+    top: 110px;
+    transform: translate(-50%, 0);
+}
+
+.a_b {
+    margin-right: none;
+}
+
+.White {
+    position: absolute;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 150px;
+    width:  50%;
+    float: none;
+    bottom: 110px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.a_w {
+    margin-left: none;
+}
+
+}
+
+@media screen and (max-width: 620px) {
+
+.Black {
+    width:  80%;
+    top: 120px;
+}
+
+.a_b {
+    margin-right: none;
+}
+
+.White {
+    width:  80%;
+    bottom: 120px;
+}
+
+.a_w {
+    margin-left: none;
 }
 
 }
@@ -170,6 +284,7 @@ html *
 }
 
 .votes_white {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,13 +298,54 @@ html *
 
 @media screen and (max-width: 1360px) {
 .votes_black {
+    position: absolute;
     height: 100px;
     width: 250px;
+    right: -71px;
+    transform: translate(-50%, -50%);
+    top: 44%;
 }
 
 .votes_white {
+    position: absolute;
     height: 100px;
     width: 250px;
+    left: 180px;
+    transform: translate(-50%, -50%);
+    top: 44%;
+}
+}
+
+@media screen and (max-width: 800px) {
+.votes_black {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    right: -71px;
+    transform: translate(-50%, -50%);
+    top: 44%;
+    font-size: 8pt;
+}
+
+.votes_white {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    left: 130px;
+    transform: translate(-50%, -50%);
+    top: 44%;
+    font-size: 8pt;
+
+}
+}
+
+@media screen and (max-width: 620px) {
+.votes_black {
+    display: none;
+}
+
+.votes_white {
+    display: none;
 }
 }
 
@@ -203,6 +359,7 @@ html *
 }
 
 .eyes-text {
+
     position: absolute;
     right: 78px;
     bottom: 30px;
@@ -246,6 +403,74 @@ html *
 	left: 17px;
 	bottom: 10px;
 	border-radius: 100%;
+}
+
+@media screen and (max-width: 800px) {
+.eyes {
+    display: none;
+}
+
+.eyes-text {
+    text-align: center;
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 15px;
+}
+
+.right_hand{
+    position: absolute;
+    background-image: url("../IMG/right.png");
+    background-size: 100% 100%;
+    right: 0px;
+    bottom: 0px;
+    width: 70px;
+    height: 70px;
+}
+
+.left_hand{
+    position: absolute;
+    background-image: url("../IMG/left.png");
+    background-size: 100% 100%;
+    left: 0px;
+    bottom: 0px;
+    width: 70px;
+    height: 70px;
+}
+
+.y-1 {
+    background-color: white;
+	right: 95px;
+	bottom: 1px !important;
+
+}
+.y-2{
+    background-color: black;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 19px;
+	bottom: 10px;
+	border-radius: 100%;
+}
+
+.y-3 {
+    background-color: white;
+	left: 95px;
+	bottom: 1px;
+}
+
+.y-4{
+    background-color: black;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 19px;
+	bottom: 10px;
+	border-radius: 100%;
+}
+
 }
 
 .popup{
