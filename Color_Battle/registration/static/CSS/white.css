@@ -27,6 +27,15 @@ a {
     transform: translate(-50%, 0);
 }
 
+@media screen and (max-width: 300px){
+
+.block_w {
+    width: 250px !important;
+    height: 500px;
+}
+
+}
+
 .button_w {
   display: flex;
   justify-content: center;
@@ -73,10 +82,13 @@ a {
     width: 100%;
     height: 600px;
     background-image: url("../IMG/White/ice.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
     background-attachment: fixed;
     background-blend-mode: multiply;
 	background-color: #929292;
+
 }
 
 .cloud {
@@ -118,6 +130,182 @@ a {
     margin-bottom: -5px;
 }
 
+@media screen and (max-width: 900px){
+
+
+.cloud {
+    height: 400px;
+}
+
+.pool {
+    height: 400px;
+}
+
+.pigeon {
+    height: 300px;
+    width: 60%;
+}
+
+.mramor {
+    height: 300px;
+    width: 40%;
+}
+
+}
+
+@media screen and (max-width: 630px){
+
+.block_w {
+    width: 450px;
+    height: 550px;
+}
+
+.cloud {
+    height: 400px;
+}
+
+.pool {
+    height: 400px;
+}
+
+.pigeon {
+    height: 250px;
+    width: 60%;
+}
+
+
+.mramor {
+    height: 250px;
+    width: 40%;
+}
+
+}
+
+@media screen and (max-width: 530px){
+
+.block_w {
+    width: 395px;
+    height: 500px;
+}
+
+
+.cloud {
+    height: 350px;
+}
+
+.pool {
+    height: 350px;
+}
+
+.pigeon {
+    height: 200px;
+    width: 60%;
+}
+
+
+.mramor {
+    height: 200px;
+    width: 40%;
+}
+
+}
+
+@media screen and (max-width: 530px){
+
+.cloud {
+    height: 350px;
+    width: 100%;
+    float: none;
+}
+
+.pool {
+    height: 350px;
+    width: 100%;
+    float: none;
+}
+
+.pigeon {
+    height: 300px;
+    width: 100%;
+    float: none;
+}
+
+
+.mramor {
+    height: 400px;
+    width: 100%;
+    float: none;
+}
+
+}
+
+@media screen and (max-width: 400px){
+
+.block_w {
+    width: 300px;
+    height: 500px;
+}
+
+.cloud {
+    height: 350px;
+    width: 100%;
+    float: none;
+}
+
+.pool {
+    height: 300px;
+    width: 100%;
+    float: none;
+}
+
+.pigeon {
+    height: 250px;
+    width: 100%;
+    float: none;
+}
+
+
+.mramor {
+    height: 300px;
+    width: 100%;
+    float: none;
+}
+
+}
+
+@media screen and (max-width: 278px){
+
+.block_w {
+    width: 220px !important;
+    height: 450px;
+}
+
+.cloud {
+    height: 320px;
+    width: 100%;
+    float: none;
+}
+
+.pool {
+    height: 270px;
+    width: 100%;
+    float: none;
+}
+
+.pigeon {
+    height: 220px;
+    width: 100%;
+    float: none;
+}
+
+
+.mramor {
+    height: 220px;
+    width: 100%;
+    float: none;
+}
+
+}
 
 .paint {
 position: absolute

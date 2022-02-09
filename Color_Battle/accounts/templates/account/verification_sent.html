@@ -8,8 +8,15 @@
 <body bgcolor="#d5d5d5">
     <h1 align="center">{% trans "Verify Your E-mail Address" %}</h1>
 
-    <p align="center">{% blocktrans %}We have sent an e-mail to you for verification.{% endblocktrans %}</p>
-
-    <img src="{% static 'IMG/mail.png' %}" style="position: absolute; left: 50%; transform: translate(-50%, 0); bottom: 50px;" height="300px" width="300px">
+    <img class="email_img_conf" src="{% static 'IMG/mail.png' %}" style="position: absolute; left: 50%; transform: translate(-50%, 0); bottom: 50px;" height="300px" width="300px">
 </body>
+
+<style>
+    @media screen and (max-width: 278px){
+        .email_img_conf {
+            width: 240px;
+            height: 240px;
+        }
+    }
+</style>
 {% endblock %}

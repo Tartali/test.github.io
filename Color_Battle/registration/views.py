@@ -1,5 +1,7 @@
 import uuid
 import json
+
+from rest_framework.views import APIView
 from yookassa import Webhook
 import var_dump as var_dump
 from yookassa import Payment
@@ -62,16 +64,33 @@ def callback_payment(request):
             print("Делаем")
 
 
+class YandexNotifications(APIView):
+
+    def post(self, request):
+        event_json = json.loads(request.body)
+        values = int(event_json["object"]["description"])
+        print(values)
+        return HttpResponse(status=200)
+
+
 @login_required(login_url='accounts/login/')
 def black(request):
     # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
-    response = Webhook.add({
-        "event": "payment.succeeded",
-        "url": "https://test-my-site-id.herokuapp.com/",
-    })
+    # response = Webhook.add({
+    #     "event": "payment.succeeded",
+    #     "url": "https://test-my-site-id.herokuapp.com/",
+    # })
+
+
+
+    # event_json = json.loads(request.body)
+    # return HttpResponse(status=200)
+    #
+    # # Получите объекта платежа
+    # payment = notification_object.object
 
     idempotence_key = str(uuid.uuid4())
 
@@ -99,34 +118,11 @@ def black(request):
         "description": "Заказ №72"
     }, )
     print(idempotence_key)
-    print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
-    # print(vars(payment_one))
+
     confirmation_url = payment.confirmation.confirmation_url
 
 
-    whUrl = 'https://test-my-site-id.herokuapp.com'
-    needWebhookList = [
-        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
-        WebhookNotificationEventType.PAYMENT_CANCELED
-    ]
-
-    whList = Webhook.list()
-
-    for event in needWebhookList:
-        hookIsSet = False
-        for wh in whList.items:
-            if wh.event != event:
-                continue
-            if wh.url != whUrl:
-                Webhook.remove(wh.id)
-            else:
-                hookIsSet = True
-
-        if not hookIsSet:
-            Webhook.add({"event": event, "url": whUrl})
-
-    var_dump.var_dump(Webhook.list())
-    return render(request, 'registration/black.html', )
+    return render(request, 'registration/black_pay.html', {"url": confirmation_url})
 
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
