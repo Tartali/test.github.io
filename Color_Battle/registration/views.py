@@ -120,7 +120,7 @@ def black(request):
             Webhook.add({"event": event, "url": whUrl})
 
     var_dump.var_dump(Webhook.list())
-    return render(request, 'results/black.html', )
+    return render(request, 'registration/black.html', )
 
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
