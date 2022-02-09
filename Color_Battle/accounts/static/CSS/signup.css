@@ -89,7 +89,6 @@
     height: 650px;
     width: 550px;
     border-radius: 65px;
-
 }
 
 .re1 {
@@ -101,7 +100,6 @@
     height: 625px;
     width: 525px;
     border-radius: 65px;
-
 }
 
 
@@ -144,10 +142,12 @@
   padding: 12px;
   border: none;
   border-radius: 15px;
-  margin-left: 12%;
   width: 200px;
   height: 80px;
   cursor: pointer;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .buttom:active {
@@ -183,4 +183,121 @@ top: 110px;
 .GAMP{
     width: 100%;
     height: 20px;
+}
+
+@media screen and (max-width: 570px){
+.re1 {
+    margin-top: 80px;
+    width: 425px;
+}
+
+.re2 {
+    width: 450px;
+}
+
+.father {
+    width: 400px;
+}
+
+}
+
+@media screen and (max-width: 460px){
+.re1 {
+    margin-top: 80px;
+    width: 375px;
+}
+
+.re2 {
+    width: 400px;
+}
+
+.father {
+    width: 350px;
+}
+
+}
+
+@media screen and (max-width: 410px){
+.re1 {
+    margin-top: 80px;
+    width: 325px;
+}
+
+.re2 {
+    width: 350px;
+}
+
+.father {
+    width: 300px;
+}
+
+}
+
+@media screen and (max-width: 360px){
+.re1 {
+    margin-top: 80px;
+    width: 255px;
+}
+
+.re2 {
+    width: 280px;
+}
+
+.father {
+    width: 230px;
+}
+
+input {
+    width: 200px !important;
+}
+
+}
+
+@media screen and (max-height: 800px) {
+.re1 {
+    margin-top: 80px;
+
+}
+}
+
+@media screen and (max-height: 700px) {
+.re1 {
+    margin-top: 120px;
+}
+}
+
+@media screen and (max-height: 650px) {
+.re1 {
+    margin-top: 170px;
+}
+}
+
+@media screen and (max-height: 605px) {
+.re1 {
+    margin-top: 250px;
+}
+}
+
+@media screen and (max-height: 525px) {
+.re1 {
+    margin-top: 300px;
+}
+}
+
+@media screen and (max-height: 525px) {
+.re1 {
+    margin-top: 300px;
+}
+}
+
+@media screen and (max-height: 475px) {
+.re1 {
+    margin-top: 400px;
+}
+}
+
+@media screen and (max-height: 380px) {
+.re1 {
+    margin-top: 500px;
+}
 }

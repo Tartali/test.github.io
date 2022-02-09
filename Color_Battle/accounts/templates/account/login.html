@@ -9,16 +9,6 @@
 
 {% block content %}
 
-<style>
-  a {
-  color: #551E89;
-  }
-
-  a:active {
-     color: #884dc0;
-}
-</style>
-
 <body class="body">
 
 <div class="back">
@@ -115,6 +105,16 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
       relativeFollowCursor('.y-5', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
     });
     </script>
+
+    <style>
+      a {
+      color: #551E89;
+      }
+
+      a:active {
+         color: #884dc0;
+    }
+    </style>
 {% endblock %}
 
 </body>
