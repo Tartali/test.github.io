@@ -70,9 +70,6 @@ def black(request):
 
     idempotence_key = str(uuid.uuid4())
 
-    event_json = json.loads(request.body)
-    notification_object = WebhookNotificationFactory().create(event_json)
-    response_object = notification_object.object
     # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
     # payment_one = Payment.find_one(payment_id)
 
@@ -100,37 +97,29 @@ def black(request):
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
 
-    event_json = json.loads(request.body)
-    try:
-        # Создание объекта класса уведомлений в зависимости от события
-        notification_object = WebhookNotificationFactory().create(event_json)
-        response_object = notification_object.object
-        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
-            some_data = {
-                'paymentId': response_object.id,
-                'paymentStatus': response_object.status,
-            }
 
-        else:
-            # Обработка ошибок
-            return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+    whUrl = 'https://merchant-site.ru/payment-notification'
+    needWebhookList = [
+        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
+        WebhookNotificationEventType.PAYMENT_CANCELED
+    ]
+    
+    whList = Webhook.list()
 
-        # Специфичная логика
-        # ...
-        Configuration.configure_auth_token(
-            'AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
-        # Получим актуальную информацию о платеже
-        payment_info = Payment.find_one(some_data['paymentId'])
-        if payment_info:
-            payment_status = payment_info.status
-            return render(request, 'registration/white.html')
-        else:
-            # Обработка ошибок
-            return HttpResponse(status=400)  # Сообщаем кассе об ошибке
+    for event in needWebhookList:
+        hookIsSet = False
+        for wh in whList.items:
+            if wh.event != event:
+                continue
+            if wh.url != whUrl:
+                Webhook.remove(wh.id)
+            else:
+                hookIsSet = True
 
-    except Exception:
-        # Обработка ошибок
-        return render(request, 'registration/white.html', {"url": confirmation_url})
+        if not hookIsSet:
+            Webhook.add({"event": event, "url": whUrl})
+
+    var_dump.var_dump(Webhook.list())
 
 
 

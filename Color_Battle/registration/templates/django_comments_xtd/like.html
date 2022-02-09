@@ -68,7 +68,6 @@
   <div class="offset-lg-1 col-lg-10">
     {% if already_liked_it %}
     <div class="alert alert-warning text-center">
-      <h3 align="center">{% trans 'Click on the "withdraw" button if you want to withdraw your positive opinion on this comment.' %}</h3>
     </div>
     {% endif %}
     <div class="well well-lg">
@@ -77,9 +76,9 @@
         <div class="form-group">
           <div class="text-center">
             {% if already_liked_it %}
-            <button class="del_like" type="submit" name="submit" value="Withdraw"><img src="{% static 'IMG/del_лайк.png' %}" width="500px" height="500px"></button>
+            <button class="del_like" type="submit" name="submit" value="Withdraw"><img src="{% static 'IMG/del_лайк.png' %}" width="500px" height="500px" class="fix_com_ing"></button>
             {% else %}
-            <button type="submit" name="submit" class="input_like" value="I like it"><img src="{% static 'IMG/лайк.png' %}" width="500px" height="500px"></button>
+            <button type="submit" name="submit" class="input_like" value="I like it"><img src="{% static 'IMG/лайк.png' %}" width="500px" height="500px" class="fix_com_ing"></button>
             {% endif %}
             <a style="position: absolute;left: 50%;transform: translate(-50%, 0);" class="btn btn-secondary" href="{{ comment.get_absolute_url }}"><h2 align="center">{% trans "cancel" %}</h2></a>
           </div>

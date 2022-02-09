@@ -38,6 +38,9 @@ a {
 .Avatar_prof {
     border-radius: 100%;
     box-shadow: 0 0 5px 2px; color: #884ea3;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .div_button {

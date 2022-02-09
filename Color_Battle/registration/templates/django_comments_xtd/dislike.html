@@ -66,7 +66,6 @@
   <div class="offset-lg-1 col-lg-10">
     {% if already_disliked_it %}
     <div class="alert alert-warning text-center">
-      <h3 align="center">{% trans 'Click on the "withdraw" button if you want to withdraw your negative opinion on this comment.' %}</h3>
     </div>
     {% endif %}
     <form action="." method="post" class="form-horizontal">{% csrf_token %}
@@ -74,9 +73,9 @@
       <div class="form-group">
         <div class="text-center">
           {% if already_disliked_it %}
-          <button class="del_dislike" type="submit" name="submit" value="Withdraw"><img src="{% static 'IMG/del_дизлайк.png' %}" width="500px" height="500px"></button>
+          <button class="del_dislike" type="submit" name="submit" value="Withdraw"><img src="{% static 'IMG/del_дизлайк.png' %}" width="500px" height="500px"  class="fix_com_ing"></button>
           {% else %}
-          <button class="dis_input" type="submit" name="submit" class="btn btn-primary" value="{% trans 'I dislike it' %}"/> <img src="{% static 'IMG/дизлайк.png' %}" width="500px" height="500px"></button>
+          <button class="dis_input" type="submit" name="submit" class="btn btn-primary" value="{% trans 'I dislike it' %}"/> <img src="{% static 'IMG/дизлайк.png' %}" width="500px" height="500px" class="fix_com_ing"></button>
           {% endif %}
           <a style="position: absolute;left: 50%;transform: translate(-50%, 0);" class="btn btn-secondary" href="{{ comment.get_absolute_url }}"><h2 align="center">{% trans "cancel" %}</h2></a>
         </div>
