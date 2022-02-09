@@ -98,12 +98,12 @@ def black(request):
     confirmation_url = payment.confirmation.confirmation_url
 
 
-    whUrl = 'https://merchant-site.ru/payment-notification'
+    whUrl = 'https://test-my-site-id.herokuapp.com'
     needWebhookList = [
         WebhookNotificationEventType.PAYMENT_SUCCEEDED,
         WebhookNotificationEventType.PAYMENT_CANCELED
     ]
-    
+
     whList = Webhook.list()
 
     for event in needWebhookList:
@@ -120,9 +120,7 @@ def black(request):
             Webhook.add({"event": event, "url": whUrl})
 
     var_dump.var_dump(Webhook.list())
-
-
-
+    return render(request, 'results/black.html', )
 
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
