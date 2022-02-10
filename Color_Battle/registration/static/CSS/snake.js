@@ -1,6 +1,13 @@
 
 // ADD time?
 
+let left = document.querySelector(".left")
+let bottom = document.querySelector(".bottom")
+let right = document.querySelector(".right")
+let up = document.querySelector(".top")
+
+
+
 var snakeTable = document.querySelector(".snakeTable");
 var boxes = document.getElementsByClassName("box");
 var modul = document.querySelector(".modul");
@@ -37,6 +44,8 @@ var snake = {
 snake.init();
 
 start.addEventListener("click", startSnake);
+
+
 
 document.addEventListener("keydown", function(e) {
   if (e.keyCode === 13 && snake.time === 0) {
@@ -137,7 +146,7 @@ function hitFood() {
     randomFood();
     snake.food++;
     snake.score += snake.food;
-    scoreElt.innerHTML = snake.score + " pts";
+    scoreElt.innerHTML = snake.score + "";
     // increase speed
     clearInterval(setInt);
     snake.interval = snake.interval - snake.interval/40;
@@ -214,7 +223,7 @@ function tableCreation() {
     snakeTable.appendChild(statusElt);
     scoreElt = document.createElement("span");
     scoreElt.classList.add("score");
-    scoreElt.innerHTML = snake.score + " pts";
+    scoreElt.innerHTML = snake.score;
     statusElt.appendChild(scoreElt);
   }
 }

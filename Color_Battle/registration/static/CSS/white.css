@@ -337,6 +337,24 @@ position: absolute;
     user-select: none;
 }
 
+@media screen and (max-width: 500px){
+
+#paint-container {
+    width: 300px;
+    height: 300px;
+}
+}
+
+@media screen and (max-width: 400px){
+
+#paint-container {
+
+    margin-top: 150px;
+    width: 200px;
+    height: 200px;
+}
+}
+
 .paint-cell {
     width: 20px;
     height: 20px;

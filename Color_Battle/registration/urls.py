@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 # from django.conf.urls import url
-from .views import Profile, Comment2, YandexNotifications
+from .views import Profile, Comment2
 from django.contrib import admin
 admin.autodiscover()
 poll_id = 1
@@ -13,7 +13,6 @@ urlpatterns = [
     path('white', views.white, name='white'),
     path('purple', views.purple, name='purple'),
 
-    path('notifications/', YandexNotifications.as_view(), name='notifications'),
     path('callback/', views.callback_payment, name='callback'),
     path('info', Comment2.as_view(), name='comment'),
 

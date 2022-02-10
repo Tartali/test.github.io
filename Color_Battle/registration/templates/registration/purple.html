@@ -28,17 +28,33 @@
     </div>
     <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the purple" %}</b></h1></button>
 
-        <div id="div1">
+        <div id="div11">
 
             <div class="jillyfish"></div>
             <div class="snake_div">
-             <section class="snakeTable"></section>
-                <!-- modular window before and after games -->
-                <section class="modul">
-                  <div class="start">
-                    <span><b><b><b>➤➤</b></b></b></span>
-                  </div>
-                </section>
+                <div class="width_snake">
+                 <section class="snakeTable"></section>
+                    <!-- modular window before and after games -->
+                    <section class="modul">
+                      <div class="start">
+                        <span><b><b><b>➤➤</b></b></b></span>
+                      </div>
+                    </section>
+                </div>
+
+                <div class="width_town">
+                      <div id="container">
+                      <div id="game"></div>
+                      <div id="score">0</div>
+                      <div class="game-over">
+                        <h2>o_0</h2>
+                      </div>
+                      <div class="game-ready">
+                        <div id="start-button">>></div>
+                        <div></div>
+                      </div>
+                    </div>
+                </div>
             </div>
             <div class="oke"></div>
             <div class="arhi"></div>
@@ -54,5 +70,9 @@
 </font>
 </div>
 </body>
+
+<script>
+
+</script>
 
 {% endblock %}

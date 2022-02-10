@@ -64,38 +64,41 @@ def callback_payment(request):
             print("Делаем")
 
 
-class YandexNotifications(APIView):
-
-    def post(self, request):
-        event_json = json.loads(request.body)
-        values = int(event_json["object"]["description"])
-        print(values)
-        return HttpResponse(status=200)
-
-
 @login_required(login_url='accounts/login/')
 def black(request):
     # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
-
-    # response = Webhook.add({
-    #     "event": "payment.succeeded",
-    #     "url": "https://test-my-site-id.herokuapp.com/",
-    # })
-
-
-
-    # event_json = json.loads(request.body)
-    # return HttpResponse(status=200)
-    #
-    # # Получите объекта платежа
-    # payment = notification_object.object
-
     idempotence_key = str(uuid.uuid4())
 
-    # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
-    # payment_one = Payment.find_one(payment_id)
+    body = """
+    {"type":"notification","event":"payment.succeeded","object":{"id":"2203aa1d-000f-5000-8000-17102541fd31",
+    "status":"succeeded","paid":true,"amount":{"value":"1.00","currency":"RUB"},"captured_at":"2018-01-31T10:12:06.249Z",
+    "created_at":"2018-01-31T10:11:41.499Z","description":"Оплата тестового заказа №100500 для магазина Вереница","metadata":{"zakaz":"100500","param3":"value3","param2":"value2"},
+    "payment_method":{"type":"bank_card","id":"2203aa1d-000f-5000-8000-17102541fd31","saved":false,
+    "card":{"last4":"1026","expiry_month":"12","expiry_year":"2025","card_type":"Unknown"},"title":"Bank card *1026"},
+    "recipient":{"account_id":"500105","gateway_id":"1500105"},"refunded_amount":{"value":"0.00","currency":"RUB"},"test":true}}    
+    """
+
+    whUrl = 'https://test-my-site-id.herokuapp.com/'
+    needWebhookList = [
+        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
+        WebhookNotificationEventType.PAYMENT_CANCELED
+    ]
+
+    event_json = json.loads(body)
+
+    
+
+    notification_object = WebhookNotificationFactory().create(event_json)
+    response_object = notification_object.object
+    if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+        some_data = {
+            'paymentId': response_object.id,
+            'paymentStatus': response_object.status,
+        }
+        print(some_data)
+        print("работай...")
 
     payment = Payment.create({
         "amount": {
@@ -117,10 +120,8 @@ def black(request):
 
         "description": "Заказ №72"
     }, )
-    print(idempotence_key)
 
     confirmation_url = payment.confirmation.confirmation_url
-
 
     return render(request, 'registration/black_pay.html', {"url": confirmation_url})
 

@@ -4,6 +4,7 @@
     <list default="true" id="9539ef6a-38e0-4d88-af16-21ff94cd7b3c" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/like.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/script_piano.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" afterDir="false" />
@@ -95,12 +96,10 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/white.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/white.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/pngegg_5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/100/pngegg_5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/250/pngegg_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +114,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Color_Battle" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
