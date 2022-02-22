@@ -11,6 +11,125 @@
 
 {% block home %}
 
+{% if somebody.count_purple %}
+
+<style>
+
+a {
+    color: #3c3541;
+    font-weight: 900;
+}
+
+body {
+    background: #884EA3;
+    color: #331C41;
+}
+
+.hr {
+    background: #331C41;
+}
+
+
+p {font-weight: 600}
+
+.s {color: #331C41}
+
+<!--.div_button {-->
+<!--    position: absolute;-->
+<!--    right:0px;-->
+<!--     outline:0 none !important;-->
+<!--}-->
+
+.none_but {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.comments_on_comment {
+   width: 400px !important;
+   border-left:3px solid Indigo;
+   border-right:3px solid Indigo;
+   padding-left:10px;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+
+}
+
+.div_form_post_comment {
+    background-color: #723c8b;
+    color: #331C41;
+    font-weight: 600;
+}
+
+textarea {
+    background-color: #d2c6d8;
+    color: #331C41;
+}
+
+input[name="post"] {
+    background-color: #d2c6d8;
+    color: #331C41;
+}
+
+@media screen and (min-width: 1360px) {
+.comments_on_comment {
+   width: 700px !important;
+   padding-left:10px;
+
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+}
+
+}
+
+@media screen and (max-width: 540px) {
+.comments_on_comment {
+   width: 240px !important;
+   padding-left:10px;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+}
+
+}
+
+
+@media screen and (max-width: 370px) {
+.comments_on_comment {
+   width: 190px !important;
+   padding-left:10px;
+   border-radius: 5px;
+   padding: 1px;
+   margin: 10px;
+}
+
+}
+
+@media screen and (max-width: 330px) {
+.comments_on_comment {
+   width: 200px !important;
+   margin-left: -80px;
+}
+
+}
+
+.backProfileUrl {
+    color: black;
+}
+
+.media-list {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+}
+
+</style>
+
+{% else %}
 <style>
 
 a {
@@ -51,7 +170,7 @@ body.darkkk .form-control { /* texterea */
     width: 280px;
     border-radius: 6px;
     background-color: #090909;
-    color: black;
+    color: white;
 }
 
 body.darkkk input[name="post"] {
@@ -94,7 +213,6 @@ body.darkkk .comments_on_comment {
    margin: 10px;
 
 }
-
 
 @media screen and (min-width: 1360px) {
 body.darkkk .comments_on_comment {
@@ -200,17 +318,29 @@ body.darkkk .backProfileUrl{
 }
 
 </style>
+{% endif %}
 
-
+{% if somebody.count_black or somebody.count_white %}
 <div class="div_button" align="right">
         <button  id="toggleThemeBtn" class="none_but" class="loud-link-click" type="button">
             <audio src="{% static 'CSS/out.mp3' %}"></audio>
             <img onclick="soundClick()" src="{% static 'IMG/voting_blahite_comment.png' %}" alt=""  width="50" class="img_button">
         </button>
 </div>
+{% elif somebody.count_purple %}
+<div class="div_button" align="right" style="margin-top: 50px;">
 
+</div>
+{% else %}
+<div class="div_button" align="right">
+        <button  id="toggleThemeBtn" class="none_but" class="loud-link-click" type="button">
+            <audio src="{% static 'CSS/out.mp3' %}"></audio>
+            <img onclick="soundClick()" src="{% static 'IMG/voting_blahite_comment.png' %}" alt=""  width="50" class="img_button">
+        </button>
+</div>
+{% endif %}
 <div style="width: 120px; position: absolute; left: 8px; top: -10px;" class="back">
-        <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span> Back</h1></a>
+        <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span>{% trans "Back" %}</h1></a>
 </div>
 
 <h3 align="center"><big>{% trans "Since you didn't vote, you will be shown the first 50 comments." %}</big></h3>
@@ -223,11 +353,12 @@ body.darkkk .backProfileUrl{
 {% get_comment_count for comment as comment_count %}
 {% if comment_count %}
     <hr class="hr">
-
+    {{ comment_count }} {% trans "comment" %}
     <div class="">
         {% render_xtdcomment_tree for comment allow_flagging allow_feedback show_feedback %}
     </div>
 {% endif %}
+
 
 <!-- ------------------------------------------------------------------------------------------- -->
 

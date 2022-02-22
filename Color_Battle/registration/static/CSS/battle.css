@@ -32,6 +32,18 @@ html *
     cursor: default;
 }
 
+.about_site {
+    position: absolute;
+    left: 0;
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60px;
+    background: #75647D;
+    cursor: pointer;
+}
+
 .login {
     position: absolute;
     right:0px;
@@ -39,10 +51,34 @@ html *
     color: black;
 }
 
+@media screen and (max-width: 340px) {
+.login {
+    margin-right: 125px !important;
+}
+}
+
 @media screen and (max-width: 285px) {
 
 .login{
-left: 10px;
+    font-size: 10pt;
+}
+
+.about_site {
+    font-size: 16pt;
+    width: 40px;
+}
+
+}
+
+@media screen and (max-width: 250px) {
+
+.login{
+    font-size: 8pt;
+}
+
+.about_site {
+    font-size: 13pt;
+    width: 30px;
 }
 
 }
@@ -489,6 +525,8 @@ left: 10px;
 
 .close {
     position: absolute;
+    width: 35px;
+    height: 35px;
     right: 20px;
     top: 5px;
     cursor:pointer;
@@ -496,6 +534,9 @@ left: 10px;
     font-size: 28px;
     font-wight: bold;
     margin-left: auto;
+    display: flex;
+	justify-content: center;
+    align-items: center;
 }
 
 .popup-header {
@@ -540,6 +581,8 @@ left: 10px;
 
 .close_b {
     position: absolute;
+    width: 35px;
+    height: 35px;
     right: 20px;
     top: 5px;
     cursor:pointer;
@@ -547,6 +590,9 @@ left: 10px;
     font-size: 28px;
     font-wight: bold;
     margin-left: auto;
+    display: flex;
+	justify-content: center;
+    align-items: center;
 }
 
 .popup-header_b {
@@ -568,13 +614,137 @@ left: 10px;
     align-items: center;
     top: 30px;
     position: relative;
-    background: #e3e3ef;
+    background: #E3E3EF;
     height: 150px;
     width: 60%;
     border-radius: 30px;
     animation-name: animatetop;
     animation-duration: 0.8s
 }
+
+.popup_p{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 1;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.8);
+}
+
+.close_p {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: 20px;
+    top: 5px;
+    cursor:pointer;
+    color: black;
+    font-size: 28px;
+    font-wight: bold;
+    margin-left: auto;
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    right: -40px;
+    background: #605168;
+    border-radius: 50px;
+}
+
+.popup-header_p {
+
+    top: 30px;
+
+    background-color: #75647D;
+    border-radius: 30px;
+    color: black;
+    display: flex;
+    padding: 2px 16px;
+    wight: 80% !important;
+}
+
+
+.popup-content_p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    position: relative;
+    background: #e3e3ef;
+    height: 150px;
+    width: 60%;
+    border-radius: 30px;
+    animation-name: animatetop;
+    animation-duration: 0.8s;
+    transform: translate(0, -50%);
+}
+
+@media screen and (max-width: 1070px) {
+
+.close_p {
+    margin-top: -50px;
+}
+
+}
+
+@media screen and (max-width: 840px) {
+.close {
+right: -40px;
+background: #111112;
+border-radius: 50px;
+}
+
+.close_b {
+background: #E3E3EF;
+border-radius: 50px;
+right: -40px;
+}
+}
+
+@media screen and (max-width: 615px) {
+
+.close_p {
+    margin-top: -140px;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+.popup-content {
+    margin-top: 100px;
+}
+
+.popup-content_b {
+    margin-top: 100px;
+}
+
+.close {
+    top: -50px !important;
+}
+
+.close_b {
+    top: -50px !important;
+}
+
+.close_p {
+    margin-top: -200px;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+
+.close_p {
+    position: absolute;
+    bottom: 50px !important;
+}
+
+}
+
 
 .point {cursor:pointer}
 

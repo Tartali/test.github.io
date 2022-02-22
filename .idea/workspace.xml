@@ -3,13 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="9539ef6a-38e0-4d88-af16-21ff94cd7b3c" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/like.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/reply.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/script_piano.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Black or White.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Black or White.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/password.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/password.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/signup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_aut.png" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_aut.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_reg.png" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_reg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_reg.rpEKb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_rreg.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" afterDir="false" />
@@ -45,10 +53,14 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/de/LC_MESSAGES/django.mo" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/de/LC_MESSAGES/django.po" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/ru/LC_MESSAGES/django.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/AVATAR_CSS/avatar.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/AVATAR_CSS/avatar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/AVATAR_CSS/delete.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/AVATAR_CSS/delete.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/all_comments.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/all_comments.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/battle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/battle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/black.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/black.css" afterDir="false" />
@@ -56,6 +68,9 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/purple.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/scripting.js" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/scripting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/white.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/white.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/403/black.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/403/black.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/403/purple.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/403/purple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/403/white.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/403/white.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/change.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/avatar/change.html" afterDir="false" />
@@ -89,6 +104,7 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/django_comments_xtd/reply.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/django_comments_xtd/reply.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/comment_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/comment_content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/includes/django_comments_xtd/user_feedback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/all_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/all_comment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/layout/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/black.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/black.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/comments.html" afterDir="false" />
@@ -96,6 +112,10 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/purple.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/white.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/registration/white.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/results/black_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/results/black_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/results/purple_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/results/purple_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/results/white_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/results/white_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/pngegg_5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/static/IMG/avatars/dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/resized/100/pngegg_5.png" beforeDir="false" />
@@ -135,7 +155,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="D:/game_space-main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Board" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -146,20 +167,20 @@
       <recent name="C:\Black or White\Collor_Battle\registration\templates\layout" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="space_game" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.views">
+    <configuration name="треш" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Black or White" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="D:/game_space-main" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="C:\Users\Успешный\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="D:/!ъуъская практика" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:/game_space-main/space_game.py" />
+      <option name="SCRIPT_NAME" value="D:/!ъуъская практика/треш.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,6 +189,54 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Black or White" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../кванториум" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../кванториум/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Black or White" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Color_Battle/registration" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Color_Battle/registration/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,5 +260,23 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Color_Battle/registration/views.py</url>
+          <line>111</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

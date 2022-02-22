@@ -3,20 +3,12 @@
 {% block home %}
 <style >
     .rer{
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: absolute;
-
         left: 50%;
         top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
+
 </style>
 
 <body bgcolor="white">
@@ -26,8 +18,13 @@
 </div>
 
 <div class="rer">
-    <h1 style="color: black">Sorry, you can only vote 1 time</h1>
+    <h1 style="color: black" align="center">Sorry, you can only vote 1 time</h1>
+    <a href="{% url 'white_results' %}" class="url_results ">
+        <big><h1 align="center" style="color: black">Results</h1></big>
+    </a>
 </div>
+
+
 </body>
 
 {% endblock %}

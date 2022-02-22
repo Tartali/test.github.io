@@ -21,6 +21,7 @@ a {
     height: 600px;
     width: 550px;
     border-radius: 50px;
+    text-align: center;
 }
 
 .button_b {
@@ -37,6 +38,38 @@ a {
   width: 200px;
   height: 100px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 630px){
+
+.block_b {
+    width: 450px;
+    height: 550px;
+}
+}
+
+@media screen and (max-width: 530px){
+
+.block_b {
+    width: 395px;
+    height: 500px;
+}
+}
+
+@media screen and (max-width: 400px){
+
+.block_b {
+    width: 300px;
+    height: 500px;
+}
+}
+
+@media screen and (max-width: 330px){
+
+.block_b {
+    width: 220px !important;
+    height: 450px;
+}
 }
 
 .button_b:active {
@@ -67,7 +100,9 @@ background-attachment: fixed;
     width: 100%;
     height: 600px;
     background-image: url("../IMG/Black/cat.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     background-attachment: fixed;
 	background-blend-mode: multiply;
 	background-color: #5a5454;
@@ -106,6 +141,7 @@ padding-bottom: 100px;
   width: 497px;
   margin: auto;
   margin-top: -10px;
+
 }
 
 .white-key {
@@ -134,6 +170,7 @@ padding-bottom: 100px;
   outline: none;
   cursor: pointer;
 }
+
 
 .fred_img {
     position: absolute;
@@ -176,10 +213,158 @@ padding-bottom: 100px;
   left: 430px;
 }
 
+@media screen and (max-width: 520px){
+
+.piano {
+    width: 400px;
+}
+
+.fred_img {
+    width: 110px;
+    height: 100px;
+}
+
+.white-key {
+  width: 40px;
+  height: 130px;
+}
+
+.black-key {
+  width: 25px;
+  height: 90px;
+}
+
+.Db4-key {
+
+  left: 24px;
+}
+
+.Eb4-key {
+  left: 65px;
+}
+
+.Gb4-key {
+  left: 145px;
+}
+
+.Ab4-key {
+  left: 185px;
+}
+
+.Bb4-key {
+  left: 225px;
+}
+
+.Db5-key {
+  left: 305px;
+}
+
+.Eb5-key {
+  left: 345px;
+}
+
+}
+
+@media screen and (max-width: 430px){
+
+.piano {
+    width: 297px;
+}
+
+.white-key {
+  width: 30px;
+  height: 120px;
+}
+
+.black-key {
+  width: 20px;
+  height: 80px;
+}
+
+.Db4-key {
+
+  left: 16px;
+}
+
+.Eb4-key {
+  left: 46px;
+}
+
+.Gb4-key {
+  left: 105px;
+}
+
+.Ab4-key {
+  left: 136px;
+}
+
+.Bb4-key {
+  left: 166px;
+}
+
+.Db5-key {
+  left: 226px;
+}
+
+.Eb5-key {
+  left: 256px;
+}
+
+}
+
+@media screen and (max-width: 330px){
+
+.piano {
+    width: 220px;
+}
+
+.white-key {
+  width: 22px;
+  height: 110px;
+}
+
+.black-key {
+  width: 12px;
+  height: 70px;
+}
+
+.Db4-key {
+
+  left: 9px;
+}
+
+.Eb4-key {
+  left: 31px;
+}
+
+.Gb4-key {
+  left: 75px;
+}
+
+.Ab4-key {
+  left: 97px;
+}
+
+.Bb4-key {
+  left: 119px;
+}
+
+.Db5-key {
+  left: 163px;
+}
+
+.Eb5-key {
+  left: 184px;
+}
+
+}
+
 .heart {
     float: left;
     background-image: url("../IMG/Black/heart.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     width: 45%;
     height: 530px;
     margin-top: 20px;
@@ -188,7 +373,9 @@ padding-bottom: 100px;
 .heart_home {
     float: left;
     background-image: url("../IMG/Black/heart_home.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     width: 55%;
     height: 550px;
 }
@@ -196,7 +383,9 @@ padding-bottom: 100px;
 .rose {
     float: left;
     background-image: url("../IMG/Black/rose.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     width: 25%;
     height: 700px;
 }
@@ -204,7 +393,9 @@ padding-bottom: 100px;
 .swan {
     float: left;
     background-image: url("../IMG/Black/swan.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     width: 75%;
     height: 700px;
 }
@@ -212,7 +403,9 @@ padding-bottom: 100px;
 .horse {
     float: left;
     background-image: url("../IMG/Black/horse1.jpg");
-    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
     width: 100%;
     height: 900px;
 	background-blend-mode: multiply;

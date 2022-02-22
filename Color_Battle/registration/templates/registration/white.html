@@ -11,6 +11,10 @@
         <a href="{% url 'home' %}" class="back_w"><h1> <span class="b_c">⮪</span> {% trans "Back" %}</h1></a>
     </div>
 
+     <div style="position: absolute; right: 5px; top: 5px;">
+        <h1 style="color: black" id="myBtn_b" class="point">???</h1>
+    </div>
+
     <div class="block_w">
     <div class="sss">
         <h1 style="color: white">{% trans "Choose white" %}</h1><br>
@@ -42,8 +46,36 @@
           <div><video src="{% static 'IMG/White/roul.mp4' %}" class="roul" autoplay loop muted></video></div>
     </div>
 
+<div id="mypopup_b" class="popup_b" align="center">
+        <div class="popup-content_b">
+            <div class="popup-header_b">
+                 <h2>Here you will see the votes for the color of all users,
+                     after you vote yourself</h2>
+                <span class="close_b"><big><big><big>&times;</big></big></big></span>
+            </div>
+
+        </div>
+    </div>
+
 </font>
 </div>
 </body>
+    <script>
 
+
+
+    let popup = document.getElementById('mypopup_b'),
+    popupToggle = document.getElementById('myBtn_b'),
+    popupClose = document.querySelector('.close_b');
+
+    popupToggle.onclick = function() {
+     popup.style.display="block";
+    };
+
+    popupClose.onclick = function() {
+     popup.style.display="none";
+    }
+    </script>
+
+<script src="{% static 'CSS/paint.js' %}"></script>
 {% endblock %}

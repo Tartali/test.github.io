@@ -85,7 +85,6 @@ a {
     left: 225px;
     opacity: 0;
     transition: 0.5s;
-
 }
 .link:hover span{
     position: absolute;
@@ -93,4 +92,18 @@ a {
     border-radius: 100%;
     background: white;
 
+}
+
+.pencil_none {
+    position: absolute;
+    top: 45px !important;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.link:hover .pencil_none{
+    position: absolute;
+    opacity: 1;
+    border-radius: 100%;
+    background: white;
 }

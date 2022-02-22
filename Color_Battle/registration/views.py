@@ -1,6 +1,7 @@
 import uuid
 import json
 
+from django.core.paginator import Paginator
 from rest_framework.views import APIView
 from yookassa import Webhook
 import var_dump as var_dump
@@ -8,12 +9,11 @@ from yookassa import Payment
 from yookassa.domain.notification import WebhookNotificationEventType, WebhookNotificationFactory
 
 from yookassa import Configuration, Payment
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
 from django.http import HttpResponseForbidden, HttpResponse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
 
@@ -22,32 +22,36 @@ from yookassa.domain.common.user_agent import Version
 
 
 def home(request):
-    value = Choose.objects.all()
-    sum_black = Choose.objects.aggregate(Sum('count_black'))
-    sum_white = Choose.objects.aggregate(Sum('count_white'))
-    sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+    if request.user.is_authenticated:
+        value = Choose.objects.all()
+        somebody, created = Choose.objects.get_or_create(voter=request.user)
+        sum_black = Choose.objects.aggregate(Sum('count_black'))
+        sum_white = Choose.objects.aggregate(Sum('count_white'))
+        sum_purple = Choose.objects.aggregate(Sum('count_purple'))
 
-    sum_black_result = sum_black['count_black__sum']
-    sum_white_result = sum_white['count_white__sum']
-    sum_purple_result = sum_purple['count_purple__sum']
+        sum_black_result = sum_black['count_black__sum']
+        sum_white_result = sum_white['count_white__sum']
+        sum_purple_result = sum_purple['count_purple__sum']
 
-    all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
-    percent_black = int(sum_black['count_black__sum'] * 100 / all)
-    percent_white = int(sum_white['count_white__sum'] * 100 / all)
-    percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+        all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+        percent_black = int(sum_black['count_black__sum'] * 100 / all)
+        percent_white = int(sum_white['count_white__sum'] * 100 / all)
+        percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
 
-    context = {
-        "value": value,
-        "sum_black_result": sum_black_result,
-        "sum_white_result": sum_white_result,
-        "sum_purple_result": sum_purple_result,
-        "percent_black": percent_black,
-        "percent_white": percent_white,
-        "percent_purple": percent_purple,
-    }
+        context = {
+            "value": value,
+            "sum_black_result": sum_black_result,
+            "sum_white_result": sum_white_result,
+            "sum_purple_result": sum_purple_result,
+            "percent_black": percent_black,
+            "percent_white": percent_white,
+            "percent_purple": percent_purple,
+            "somebody": somebody
+        }
 
-    return render(request, 'registration/home.html', context)
-
+        return render(request, 'registration/home.html', context)
+    else:
+        return render(request, 'registration/home.html')
 
 def callback_payment(request):
     if request.method == 'POST':
@@ -71,25 +75,7 @@ def black(request):
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
     idempotence_key = str(uuid.uuid4())
 
-    body = """
-    {"type":"notification","event":"payment.succeeded","object":{"id":"2203aa1d-000f-5000-8000-17102541fd31",
-    "status":"succeeded","paid":true,"amount":{"value":"1.00","currency":"RUB"},"captured_at":"2018-01-31T10:12:06.249Z",
-    "created_at":"2018-01-31T10:11:41.499Z","description":"Оплата тестового заказа №100500 для магазина Вереница","metadata":{"zakaz":"100500","param3":"value3","param2":"value2"},
-    "payment_method":{"type":"bank_card","id":"2203aa1d-000f-5000-8000-17102541fd31","saved":false,
-    "card":{"last4":"1026","expiry_month":"12","expiry_year":"2025","card_type":"Unknown"},"title":"Bank card *1026"},
-    "recipient":{"account_id":"500105","gateway_id":"1500105"},"refunded_amount":{"value":"0.00","currency":"RUB"},"test":true}}    
-    """
-
-    whUrl = 'https://test-my-site-id.herokuapp.com/'
-    needWebhookList = [
-        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
-        WebhookNotificationEventType.PAYMENT_CANCELED
-    ]
-
-    event_json = json.loads(body)
-
-    
-
+    event_json = json.loads(request.body)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
     if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
@@ -128,8 +114,21 @@ def black(request):
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
     black_voters = Choose.objects.filter(count_black__gte=1)
+
+    sum_black = Choose.objects.aggregate(Sum('count_black'))
+    sum_white = Choose.objects.aggregate(Sum('count_white'))
+    sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+
+    sum_black_result = sum_black['count_black__sum']
+
+    all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+    percent_black = int(sum_black['count_black__sum'] * 100 / all)
+
     # передаем в шаблон
-    return render(request, 'results/black_results.html', )
+    paginator = Paginator(black_voters, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'results/black_results.html', {'voters': page_obj, 'page_obj': page_obj, "sum_black_result": sum_black_result, "percent_black": percent_black})
 
 
 @login_required(login_url='accounts/login/')
@@ -189,8 +188,21 @@ def white(request):
 def white_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
     white_voters = Choose.objects.filter(count_white__gte=1)
+
+    sum_black = Choose.objects.aggregate(Sum('count_black'))
+    sum_white = Choose.objects.aggregate(Sum('count_white'))
+    sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+
+    sum_white_result = sum_white['count_white__sum']
+
+    all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+    percent_white = int(sum_white['count_white__sum'] * 100 / all)
+
     # передаем в шаблон
-    return render(request, 'results/white_results.html', {'voters': white_voters})
+    paginator = Paginator(white_voters, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'results/white_results.html', {'voters': page_obj, 'page_obj': page_obj, "sum_white_result": sum_white_result, "percent_white": percent_white})
 
 
 @login_required(login_url='accounts/login/')
@@ -244,6 +256,23 @@ def purple(request):
         return render(request, 'registration/purple_pay.html')
     return render(request, 'registration/purple.html', {"url": confirmation_url})
 
+def purple_results(request):
+    purple_voters = Choose.objects.filter(count_purple__gte=1)
+
+    sum_black = Choose.objects.aggregate(Sum('count_black'))
+    sum_white = Choose.objects.aggregate(Sum('count_white'))
+    sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+
+    sum_purple_result = sum_purple['count_purple__sum']
+
+    all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+    percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+
+    paginator = Paginator(purple_voters, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'results/purple_results.html', {'voters': page_obj, 'page_obj': page_obj, "sum_purple_result": sum_purple_result, "percent_purple": percent_purple})
+
 
 class Profile(TemplateView):
     template_name = 'registration/profile.html'
@@ -260,7 +289,15 @@ class Comment2(TemplateView):
     template_name = "registration/comments.html"
 
     def get_context_data(self, **kwargs):
-        context = super(Comment2, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         comment = Comment.objects.get(pk=1)
+        somebody, created = Choose.objects.get_or_create(voter=self.request.user)
         context['comment'] = comment
+        context['somebody'] = somebody
+
         return context
+
+
+
+
+

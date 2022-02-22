@@ -1,4 +1,6 @@
 #models.py
+from allauth.account.adapter import DefaultAccountAdapter
+from django.forms import ValidationError
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
@@ -19,17 +21,15 @@ class Choose(models.Model):
 
 class Comment(models.Model):
     title = models.CharField(max_length=30, default="tit")
+    published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Опубликовано')
 
     def get_absolute_url(self):
         return reverse("comment")
 
 
-class Payment(BasePayment):
-    def get_failure_url(self):
-        return 'http://example.com/failure/'
+class UsernameMaxAdapter(DefaultAccountAdapter):
 
-    def get_success_url(self):
-        return 'http://example.com/success/'
-
-    def get_purchased_items(self):
-        yield PurchasedItem(name='The Hound of the Baskervilles', sku='BSKV', quantity=9, price=Decimal(1), currency='USD')
+    def clean_username(self, username, **kwargs):
+        if len(username) > 20:
+            raise ValidationError('Please enter a username value less than the current one')
+        return DefaultAccountAdapter.clean_username(self,username) # For other default validations.

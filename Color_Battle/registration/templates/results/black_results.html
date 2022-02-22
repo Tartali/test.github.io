@@ -9,10 +9,8 @@
 
 <style>
 
-.join{
-  display: inline-block;
-  align-items: flex-start;
-  height: 0px;
+a {
+    color: LavenderBlush;
 }
 
 .join-btn{
@@ -27,20 +25,44 @@
 <body bgcolor="black">
 
 <div style="width: 120px;">
-    <a href="{% url 'home' %}" class="back_b" style="text-decoration: none;"><h1 style="color: white"> <span>⮪</span> Back</h1></a>
+    <a href="{% url 'home' %}" class="back_b" style="text-decoration: none;"><h1 style="color: white"> <span>⮪</span>{% trans "Back" %}</h1></a>
 </div>
 
-<h1 style="color: white" align="center"><big>Users who chose black</big></h1>
+<h1 style="color: white" align="center">{{ sum_black_result }} ({{ percent_black }})%</h1>
+<h1 style="color: white" align="center"><big>{% trans "Users who chose black" %}</big></h1>
 
 {% if voters %}
 {%for v in voters%}
 <p>
 <div class="join">
-    <a href="{{ v.get_absolute_url }}" class="join-btn" style="color: white"><h3>{{v.voter}}</h3></a>
+    <a href="{{ v.get_absolute_url }}" class="join-btn" style="color: white"><h3 align="center" >{{v.voter}}</h3></a>
 </div>
 </p>
 {% endfor %}
 {% endif %}
+
+{% for contact in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br>
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page=1"><h4 align="center">{% trans "Back" %}</h4></a>
+        {% endif %}
+
+        <span class="current"><h4 align="center" style="color: white">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </h4></span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"><h4 align="center">ᐳᐳ</h4></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}"><h4 align="center">ᐸᐸ</h4></a>
+        {% endif %}
+    </span>
+</div>
 
 </body>
 

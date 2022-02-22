@@ -14,6 +14,11 @@
 <body class="body">
 
 <header class="hat">
+    {% if somebody.count_black or somebody.count_white or somebody.count_purple %}
+    <h1 style="display: none;">???</h1>
+    {% else %}
+    <h1 class="about_site" id="aboutBtn">???</h1>
+    {% endif %}
     {% if user.is_authenticated %}
 <!--        <span>{{ user.username }}</span>-->
         <a href="{% url 'account_logout' %}" class="login">
@@ -61,7 +66,7 @@
     </div>
      </a>
 
-    {% if user.is_authenticated %}
+    {% if somebody.count_black or somebody.count_white or somebody.count_purple %}
     <div class="votes_black">
         <a href="{% url 'black_results' %}">
         <h1 style="color: white">{{ sum_black_result }} ({{ percent_black }})%</h1>
@@ -90,8 +95,7 @@
     <div id="mypopup" class="popup" align="center">
         <div class="popup-content">
             <div class="popup-header">
-                 <h2>Here you will see the votes for the color of all users,
-                     after you vote yourself</h2>
+                 <h2>{% trans "Here you will see the votes for the color of all users, after you vote yourself" %}</h2>
                 <span class="close"><big><big><big>&times;</big></big></big></span>
             </div>
 
@@ -101,25 +105,25 @@
     <div id="mypopup_b" class="popup_b" align="center">
         <div class="popup-content_b">
             <div class="popup-header_b">
-                 <h2>Here you will see the votes for the color of all users,
-                     after you vote yourself</h2>
+                <h2>{% trans "Here you will see the votes for the color of all users, after you vote yourself" %}</h2>
                 <span class="close_b"><big><big><big>&times;</big></big></big></span>
             </div>
 
         </div>
     </div>
 
+    <div id="about" class="popup_p" align="center">
+        <div class="popup-content_p">
+            <div class="popup-header_p">
+                 <h2 style="color: #331c2a">{% trans "This site was created in order to find out which color people like more. Black or White? Everyone likes these 2 colors, but which one do you like the most?" %}<br>
+                       {% trans "You can only vote 1 time by paying 1 USD" %}</h2>
+                <span class="close_p" style="color: #331c2a"><big><big><big>&times;</big></big></big></span>
+            </div>
 
-
+        </div>
+    </div>
 
     <script>
-
-    $(window).resize(function(e) {
-      let width = e.target.innerWidth
-        if(width < 1200) {
-
-       }
-    });
 
     let popup1 = document.getElementById('mypopup'),
     popupToggle1 = document.getElementById('myBtn'),
@@ -143,6 +147,18 @@
 
     popupClose.onclick = function() {
      popup.style.display="none";
+    }
+
+    let popup2 = document.getElementById('about'),
+    popupToggle2 = document.getElementById('aboutBtn'),
+    popupClose2 = document.querySelector('.close_p');
+
+    popupToggle2.onclick = function() {
+     popup2.style.display="block";
+    };
+
+    popupClose2.onclick = function() {
+     popup2.style.display="none";
     }
     </script>
 

@@ -12,6 +12,10 @@
         <a href="{% url 'home' %}" class="back_b"><h1 style="color: white"> <span>⮪</span>{% trans "Back" %}</h1></a>
     </div>
 
+    <div style="position: absolute; right: 5px; top: 5px;">
+        <h1 style="color: white" id="myBtn" class="point">???</h1>
+    </div>
+
     <div class="block_b">
     <div>
         <h1 style="color: black">{% trans "Choose black for 1$ dollar" %}</h1><br>
@@ -32,7 +36,7 @@
 
      <input type="button" onmousedown="viewDiv()" class="none_div" value="{% trans "Enjoy the black" %}">
 
-    <div id="div1">
+    <div id="div11">
 
         <div class="black_cat"></div>
 
@@ -74,9 +78,38 @@
     </div>
 
 
+
+    <div id="mypopup" class="popup" align="center">
+        <div class="popup-content">
+            <div class="popup-header">
+                 <h2>Here you will see the votes for the color of all users,
+                     after you vote yourself</h2>
+                <span class="close"><big><big><big>&times;</big></big></big></span>
+            </div>
+
+        </div>
+    </div>
 </font>
 </div>
 </body>
+<script src="{% static 'CSS/script_piano.js' %}"></script>
+
+
+    <script>
+
+    let popup1 = document.getElementById('mypopup'),
+    popupToggle1 = document.getElementById('myBtn'),
+    popupClose1 = document.querySelector('.close');
+
+    popupToggle1.onclick = function() {
+     popup1.style.display="block";
+    };
+
+    popupClose1.onclick = function() {
+     popup1.style.display="none";
+    }
+
+    </script>
 
 <script>
     function soundClickGod() {

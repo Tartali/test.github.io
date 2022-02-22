@@ -21,7 +21,11 @@
 <div class="back">
     <a href="{% url 'home' %}" class="back_b"><h1 style="color: black"> <span>⮪</span> Back</h1></a>
 </div>
-<h3 align="center" class="warning">{% trans "Не совершай ошибок, иначе пожалеешь..." %}</h3>
+
+<div class="re1">
+<div class="re2">
+
+<div class="father">
 
         <div class="y-1">
             <div class="y-2"></div>
@@ -31,18 +35,8 @@
              <div class="y-4"></div>
         </div>
 
-        <div class="y-5">
-             <div class="y-6"></div>
-        </div>
 
-
-
-<div class="re1">
-<div class="re2">
-
-<div class="father">
-<p><h1 align="center">{% trans "Sign Up" %}</h1></p>
-
+<h2 class="sign_text"><p align="center">{% blocktrans %}Sign Up{% endblocktrans %}</p></h2>
 <h3><p align="center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p></h3>
 
 <div style="height: 20px; width: 100%;"></div>
@@ -55,16 +49,32 @@
   <input class="input" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
 
+  <h3 class="info_sing_r" id="aboutBtn">!!!</h3>
+  <h3 class="info_sing_l" id="aboutBtn1">!!!</h3>
   <div class="b_but"><button type="submit" class="buttom"><h2 style="font-weight: 200;" class="text_b">{% trans "Sign Up" %}</h2></button></div>
 </form>
+           <div class="y-5">
+             <div class="y-6"></div>
+        </div>
+
 </div>
+
 
 </div>
 
 </div>
 </div>
 
+<div id="about" class="popup_p" align="center">
+        <div class="popup-content_p">
+            <div class="popup-header_p">
+                 <h3 style="color: #331c2a">{% trans "Observe this for successful registration: You cannot enter the mail that the account already uses on this site,
+                     do not write simple and common passwords, the maximum length of the name = 20 characters" %}</h3>
+                <span class="close_p" style="color: #331c2a"><big><big><big>&times;</big></big></big></span>
+            </div>
 
+        </div>
+</div>
 
  <script>
     const relativeFollowCursor = (selector, callback) => {
@@ -89,6 +99,32 @@
       relativeFollowCursor('.y-3', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
       relativeFollowCursor('.y-5', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
     });
+    </script>
+
+    <script>
+    let popup2 = document.getElementById('about'),
+    popupToggle2 = document.getElementById('aboutBtn'),
+    popupClose2 = document.querySelector('.close_p');
+
+    popupToggle2.onclick = function() {
+     popup2.style.display="block";
+    };
+
+    popupClose2.onclick = function() {
+     popup2.style.display="none";
+    }
+
+    let popup1 = document.getElementById('about'),
+    popupToggle1 = document.getElementById('aboutBtn1'),
+    popupClose1 = document.querySelector('.close_p');
+
+    popupToggle1.onclick = function() {
+     popup1.style.display="block";
+    };
+
+    popupClose1.onclick = function() {
+     popup1.style.display="none";
+    }
     </script>
 {% endblock %}
 </body>

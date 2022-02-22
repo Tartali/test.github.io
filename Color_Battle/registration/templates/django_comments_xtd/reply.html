@@ -1,212 +1,23 @@
-{% extends "django_comments_xtd/base.html" %}
+{% extends "layout/all_comment.html" %}
 {% load i18n %}
+{% load l10n %}
 {% load static %}
+{% load md2 %}
 {% load comments %}
 {% load comments_xtd %}
 {% load avatar_tags %}
 
 {% block title %}{% trans "Comment reply" %}{% endblock %}
 
-{% block content %}
+{% block home %}
 
-<style>
-
-  .div_comment_tree_reply{
-    display: flex;
-	justify-content: center;
-    align-items: center;
-  }
-
-  a {
-    color: #676767;
-    font-weight: 900;
-}
-
-body.darkk a {
-    color: #9e9e9e;
-}
-
-body {
-    background: #f2f2f2;
-    color: black;
-}
-
-body.darkk .hr {
-    height: 3px;
-    background: white;
-    border: none;
-}
-
-body.darkk .div_form_post_comment {
-    transition: 1s !important;
-    display: flex;
-	justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 230px;
-    background-color: white;
-    border-radius: 10px;
-    color: black;
-}
-
-body.darkk .form-control { /* texterea */
-    transition: 1s !important;
-    height: 100px;
-    width: 280px;
-    border-radius: 6px;
-    background-color: #090909;
-    color: black;
-}
-
-body.darkk input[name="post"] {
-    transition: 1s !important;
-    height: 50px;
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    display: block;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 12pt;
-    font-weight: 900;
-    background-color: #090909;
-    color: white;
-}
-
-body.darkk .div_comment_tree{
-    transition: 1s !important;
-    height: 100%;
-    width: 60%;
-    display: flex;
-    margin-left: 20% !important;
-    background-color: #222222;
-
-    border-radius: 20px;
-    margin: 10px;
-    word-break: break-all; /* Перенос слов */
-}
-
-body.darkk .comments_on_comment {
-   width: 400px !important;
-   border-left:3px solid white;
-   border-right:3px solid white;
-   padding-left:10px;
-   background: #222222 !important;
-   border-radius: 5px;
-   padding: 1px;
-   margin: 10px;
-
-}
-
-
-@media screen and (min-width: 1360px) {
-body.darkk .comments_on_comment {
-    transition: 1s !important;
-   width: 700px !important;
-   border-left:3px solid white;
-   border-right:3px solid white;
-   padding-left:10px;
-   background:#222222 !important;
-   border-radius: 5px;
-   padding: 1px;
-   margin: 10px;
-}
-
-}
-
-@media screen and (max-width: 540px) {
-body.darkk .comments_on_comment {
-     transition: 1s !important;
-   width: 250px !important;
-   border-left:3px solid white;
-   border-right:3px solid white;
-   padding-left:10px;
-   background:#222222 !important;
-   border-radius: 5px;
-   padding: 1px;
-   margin: 10px;
-}
-
-}
-
-@media screen and (max-width: 370px) {
-body.darkk .comments_on_comment {
-     transition: 1s !important;
-   width: 190px !important;
-   border-left:3px solid white;
-   border-right:3px solid white;
-   padding-left:10px;
-   background: #222222f !important;
-   border-radius: 5px;
-   padding: 1px;
-   margin: 10px;
-}
-
-}
-
-@media screen and (max-width: 980px) {
-
-body.darkk .div_comment_tree{
-    transition: 1s !important;
-    height: 100%;
-    display: flex;
-    margin-left: 0% !important;
-    width: 100%;
-    border-radius: 20px;
-    background:#222222;
-    margin: 10px;
-    word-break: break-all;
-}
-
-}
-
-
-body.darkk {
-     transition: 1s !important;
-     background: #0b0b0b;
-     color: white;
-}
-
-body.darkk .backProfileUrl{
-     transition: 1s;
-     color: white;
-}
-
-<!--.div_button {-->
-<!--    position: absolute;-->
-<!--    right:0px;-->
-<!--     outline:0 none !important;-->
-<!--}-->
-
-.none_but {
-  outline: none; /* Для синий ободки */
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-}
-
-.backProfileUrl {
-    color: black;
-}
-
-
-</style>
-
-<div class="div_button" align="right">
-        <button  id="toggleThemeBtnReply" class="none_but" class="loud-link-click" type="button">
-            <audio src="{% static 'CSS/out.mp3' %}"></audio>
-            <img onclick="soundClick()" src="{% static 'IMG/voting_blahite_comment.png' %}" alt=""  width="50" class="img_button">
-        </button>
-</div>
-
-<div style="width: 120px; position: absolute; left: 8px; top: -10px;" class="back">
-        <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span> Back</h1></a>
+<div class="back">
+    <a href="{% url 'comment' %}" class="back_b"><h1 style="color: white; margin-top: 30px; position: absolute;"> <span>⮪</span>{% trans "Back" %}</h1></a>
 </div>
 
 <div class="container">
   <div class="mb-4">
-    <h3 class="text-center" align="center">{% trans "Leave a response to the user's comment" %}</h3>
+    <h3 class="text-center" style="text-align: center; vertical-align: middle; position: relative;top: 13px; ">{% trans "Leave a response to the user's comment" %}</h3>
   </div>
   <div class="div_comment_tree_reply">
     <div class="offset-md-1 col-md-10">
@@ -219,7 +30,8 @@ body.darkk .backProfileUrl{
               <a href="{{ comment.user_url }}" target="_new">{% endif %}
                 <div class="avatar_comment" style="height: 100%; width: 100%;" >
                  <img src="{% avatar_url user %}" width="80" height="80" align="center">
-                  {{ comment.submit_date|date:"N j, Y, P" }}&nbsp;-&nbsp;{{ comment.user_name }}{% if comment.user_url %}{% endif %}
+                    {{ comment.submit_date|date:"N j, Y, f" }}
+                    <span class="span_username">{{ comment.user_name }}</span>{% if comment.user_url %}{% endif %}
                 </div></a>
 
             </h6>
@@ -228,14 +40,97 @@ body.darkk .backProfileUrl{
         </div>
       </div>
       <div class="card mt-4 mb-5">
-        <div>
-          <h4 class="card-title text-center pb-3" align="center">{% trans "Post your comment" %}</h4>
+        <div class="post-comment-div">
           {% include "comments/form.html" %}
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="bottom_div"></div>
+
+<style>
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: black;
+    margin-top: -10px !important;
+    top:0px;
+    left:0px;
+}
+
+.mb-4 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    height: 50px;
+    background: #c386c2;
+    border-radius: 30px;
+    margin-top: 130px;
+    color: #462c45;
+}
+
+.mb-1 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 100px;
+    border-radius: 30px;
+    border: 5px solid MediumOrchid;
+}
+
+.bottom_div {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: black;
+}
+
+.media {
+    width: 400px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+@media screen and (max-width: 545px){
+.mb-4 {
+    height: 70px;
+}
+}
+
+@media screen and (max-width: 283px){
+.mb-4 {
+    height: 70px;
+    width: 90%;
+}
+}
+
+@media screen and (max-width: 415px){
+.media {
+    width: 300px;
+}
+}
+
+@media screen and (max-width: 315px){
+.media {
+    width: 240px;
+}
+
+.span_username {
+    position: relative;
+    left: 40%;
+    transform: translate(-40%, 0);
+    bottom: 20px;
+}
+}
+</style>
 
 <script>
     if(!localStorage.theme) localStorage.theme - "lightt"
@@ -257,4 +152,29 @@ body.darkk .backProfileUrl{
   audio.autoplay = true; // Автоматически запускаем
 }
 </script>
+
+<script>
+    const relativeFollowCursor = (selector, callback) => {
+      const element = document.querySelector(selector);
+      const degreeInRadian = 180 / Math.PI;
+
+      document.addEventListener('mousemove', (event) => {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
+
+        callback(element, {
+          radian: angle,
+          degree: degreeInRadian * angle
+        });
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      relativeFollowCursor('.y-1', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
+      relativeFollowCursor('.y-3', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
+      relativeFollowCursor('.y-5', (eye, { degree }) => eye.style.setProperty('transform', `rotate(${degree}deg)`));
+    });
+    </script>
 {% endblock %}

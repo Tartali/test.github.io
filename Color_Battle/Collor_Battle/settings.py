@@ -190,7 +190,8 @@ EMAIL_PORT = 587
 
 # ACCOUNT_ADAPTER = "registration.adapter.MyAccountAdapter"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
-MAX_USERNAME_LENGTH = 10
+# MAX_USERNAME_LENGTH = 10
+ACCOUNT_ADAPTER = 'registration.models.UsernameMaxAdapter'
 
 '''
 Для входа по email

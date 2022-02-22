@@ -1,0 +1,70 @@
+{% extends "layout/base.html" %}
+
+{% load account %}
+{% user_display user %}
+{% load i18n %}
+{% load static %}
+
+{% block home %}
+
+<style>
+
+a {
+   color: Indigo;
+}
+
+.join-btn{
+  display: inline;
+  background-color: red; /*для проверки наличия областей ссылки*/
+  width: max-content;
+}
+
+
+</style>
+
+
+<body bgcolor="#884EA3">
+
+<div style="width: 120px;">
+    <a href="{% url 'home' %}" class="back_b" style="text-decoration: none;"><h1 style="color: #331C35"> <span>⮪</span>{% trans "Back" %}</h1></a>
+</div>
+
+<h1 style="color: #331C35" align="center">{{ sum_purple_result }} ({{ percent_purple }})%</h1>
+<h1 style="color: #331C35" align="center"><big>{% trans "Users who chose purple" %}</big></h1>
+
+{% if voters %}
+{%for v in voters%}
+<p>
+<div class="join">
+    <a href="{{ v.get_absolute_url }}" class="join-btn" style="color: #331C35"><h3 align="center">{{v.voter}}</h3></a>
+</div>
+</p>
+{% endfor %}
+{% endif %}
+
+{% for contact in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br>
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page=1"><h4 align="center">{% trans "Back" %}</h4></a>
+        {% endif %}
+
+        <span class="current"><h4 align="center" style="color: #331C35">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </h4></span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"><h4 align="center">ᐳᐳ</h4></a>
+        <a href="?page={{ page_obj.paginator.num_pages }}"><h4 align="center">ᐸᐸ</h4></a>
+        {% endif %}
+    </span>
+</div>
+
+</body>
+
+{% endblock %}

@@ -59,3 +59,14 @@ label {
     height: 25px;
 }
 
+@media screen and (max-width: 360px){
+.avatar {
+    height: 700px;
+}
+
+.choose {
+width: 230px;
+
+font-size: 9pt;
+}
+}

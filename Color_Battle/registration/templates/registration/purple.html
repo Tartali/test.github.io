@@ -3,6 +3,12 @@
 {% load static %}
 {% block home %}
 
+<head>
+    <script src="https://codepen.io/steveg3003/pen/zBVakw"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+</head>
+
 <body bgcolor="#884ea3">
 <div>
 <font face="Montserrat">
@@ -71,8 +77,7 @@
 </div>
 </body>
 
-<script>
-
-</script>
+<script src="{% static 'CSS/snake.js' %}"></script>
+<script src="{% static 'CSS/town.js' %}"></script>
 
 {% endblock %}

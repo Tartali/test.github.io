@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Choose, Comment, Payment
+from .models import Choose, Comment
 
 
 class ChooseAdmin(admin.ModelAdmin):
@@ -10,4 +10,3 @@ class ChooseAdmin(admin.ModelAdmin):
 
 admin.site.register(Choose, ChooseAdmin)
 admin.site.register(Comment)
-admin.site.register(Payment)

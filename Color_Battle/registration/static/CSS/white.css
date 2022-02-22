@@ -328,7 +328,7 @@ position: absolute;
     flex-wrap: wrap;
     margin: 40px auto;
     border-radius: 4px;
-    background: yellow;
+    background: grey;
     cursor: pointer;
     border: none;
     -webkit-user-select: none;
@@ -341,7 +341,7 @@ position: absolute;
 
 #paint-container {
     width: 300px;
-    height: 300px;
+    height: 300px !important;
 }
 }
 
@@ -351,7 +351,7 @@ position: absolute;
 
     margin-top: 150px;
     width: 200px;
-    height: 200px;
+    height: 200px !important;
 }
 }
 
