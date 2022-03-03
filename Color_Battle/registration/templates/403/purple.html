@@ -1,5 +1,5 @@
 {% extends "layout/base.html" %}
-
+{% load i18n %}
 {% block home %}
 <style >
     .rer{
@@ -12,14 +12,14 @@
 </style>
 
 <div>
-    <a href="{% url 'home' %}" style="color: #331c2a"><h1> <span style="color: #331c2a">⮪</span> Back</h1></a>
+    <a href="{% url 'home' %}" style="color: #331c2a"><h1> <span style="color: #331c2a">⮪</span> {% trans "Back" %}</h1></a>
 </div>
 
 <body bgcolor="#884ea3">
 <div class="rer">
-    <h1 style="color: #331c2a" align="center">Sorry, you can only vote 1 time</h1>
+    <h1 style="color: #331c2a" align="center">{% trans "Sorry, you can only vote 1 time" %}</h1>
     <a href="{% url 'purple_results' %}" class="url_results">
-        <big><h1 align="center" style="color: #331c2a">Results</h1></big>
+        <big><h1 align="center" style="color: #331c2a">{% trans "Results" %}</h1></big>
     </a>
 </div>
 </body>

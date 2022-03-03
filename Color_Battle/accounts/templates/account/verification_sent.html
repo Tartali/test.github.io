@@ -5,6 +5,11 @@
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block content %}
+
+<div class="back">
+    <a href="{% url 'home' %}" class="back_b"><h1 style="color: black"> <span>⮪</span> {% trans "Back" %}</h1></a>
+</div>
+
 <body bgcolor="#d5d5d5">
     <h1 align="center">{% trans "Verify Your E-mail Address" %}</h1>
 

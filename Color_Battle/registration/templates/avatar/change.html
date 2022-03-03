@@ -2,11 +2,12 @@
 {% load i18n avatar_tags %}
 {% render_avatar avatar 100 %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
 <div style="margin-top: 22px; height: 0px; width: 120px;">
-    <a href="{% url 'home' %}" class="back_b" style="text-decoration: none;"><h1 style="color: black"> <span>⮪</span> Back</h1></a>
+    <a href="{% url 'home' %}" class="back_b" style="text-decoration: none;"><h1 style="color: black"> <span>⮪</span>{% trans "Back" %}</h1></a>
 </div>
 
 <div class="div">
@@ -35,4 +36,5 @@
         <img style="float: right;" src="{% static 'IMG/мусорка.png' %}" title="{% trans "Delete Avatar" %}" width="100" height="100">
     </a>
 
+<style>label {color: transparent;}</style>
 {% endblock %}

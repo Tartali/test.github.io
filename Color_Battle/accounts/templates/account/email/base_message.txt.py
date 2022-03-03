@@ -1,8 +1,0 @@
-BBBB BBBBBBBBBBBBBB BBB gettext(u"Hello it's Color Admin from %(site_name)s!") SSSSS SSSS SSSSS SSSSS SSSS SSSSSSSSSSSSSS
-
-BBBBB BBBBBBBBBBBBBBB
-
- gettext(u' %(site_name)s!\n%(site_domain)s')  SSSSSSSSSSSSSS
-SSSSSSSSSSSSSSS
-BBBBBBBBBBBBB
-

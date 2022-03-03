@@ -171,7 +171,7 @@
         {% if user.is_authenticated %}
         <a href="{% url 'comment' %}"><h2 style="color: white" class="eyes-text">{% trans "Comments" %}</h2></a>
         {% else %}
-        <a href="{% url 'account_login' %}"><h2 style="color: white" class="eyes-text">{% trans "Comments" %}</h2></a>
+        <a href="{% url 'account_login' %}"><h2 style="color: white; " class="eyes-text">{% trans "Comments" %}</h2></a>
         {% endif %}
         <div class="y-1">
             <div class="y-2"></div>

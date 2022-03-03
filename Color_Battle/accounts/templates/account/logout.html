@@ -22,11 +22,11 @@
     <a href="{% url 'home' %}" class="back_b"><h1 style="color: black"> <span>⮪</span> {% trans "Back" %}</h1></a>
 </div>
 
-<h4 align="center"><i>{% trans "You are logged in as" %}&thinsp;</i> <span style="font-weight: 900;">{{ user.username }}</span></h4>
+<h4 align="center" style="background: #97939C; border-radius: 8px;"><i>{% trans "You are logged in as" %}&thinsp;</i> <span style="font-weight: 900;">{{ user.username }}</span></h4>
 
 <h1 align="center"></h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<p style="background: #97939C; border-radius: 8px;">{% trans 'Are you sure you want to sign out?' %}</p>
 
 <form method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}

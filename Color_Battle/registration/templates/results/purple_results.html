@@ -55,7 +55,7 @@ a {
         {% endif %}
 
         <span class="current"><h4 align="center" style="color: #331C35">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
         </h4></span>
 
         {% if page_obj.has_next %}

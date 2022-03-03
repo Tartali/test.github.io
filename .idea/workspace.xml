@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/Collor_Battle/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/base.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/logout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/password.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/password.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/static/CSS/signup.css" afterDir="false" />
@@ -19,39 +20,72 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_reg.rpEKb.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/static/IMG/backround_rreg.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/account_inactive.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/base.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/base_message.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/base_message.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/base_message.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_message.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_message.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_signup_message.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_signup_message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_signup_message.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_signup_subject.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_signup_subject.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_signup_subject.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_subject.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_subject.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/email_confirmation_subject.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/password_reset_key_message.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/password_reset_key_message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/password_reset_key_subject.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/password_reset_key_subject.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email/password_reset_key_subject.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/email_confirm.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/login.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/logout.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/cannot_delete_primary_email.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/cannot_delete_primary_email.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/cannot_delete_primary_email.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_confirmation_sent.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_confirmation_sent.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_confirmation_sent.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_confirmed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_confirmed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_confirmed.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_deleted.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_deleted.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/email_deleted.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/logged_in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/logged_in.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/logged_in.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/logged_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/logged_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/logged_out.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/password_changed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/password_changed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/password_changed.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/password_set.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/password_set.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/password_set.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/primary_email_set.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/primary_email_set.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/primary_email_set.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/unverified_primary_email.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/unverified_primary_email.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/messages/unverified_primary_email.txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_change.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_change.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_change.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_done.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_from_key.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_from_key.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_from_key.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_from_key_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_from_key_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_reset_from_key_done.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_set.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_set.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/password_set.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/signup.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/signup_closed.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/signup_closed.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/signup_closed.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/snippets/already_logged_in.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/snippets/already_logged_in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/snippets/already_logged_in.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verification_sent.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/accounts/templates/account/verified_email_required.html.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/locale/de/LC_MESSAGES/django.mo" beforeDir="false" />
@@ -68,6 +102,9 @@
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/purple.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/purple.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/scripting.js" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/scripting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/white.css" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/static/CSS/white.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/IMG/pur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/IMG/pur2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color_Battle/registration/static/IMG/черт.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/403/black.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/403/black.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/403/purple.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/403/purple.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Color_Battle/registration/templates/403/white.html" beforeDir="false" afterPath="$PROJECT_DIR$/Color_Battle/registration/templates/403/white.html" afterDir="false" />
@@ -217,9 +254,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Успешный\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Color_Battle/registration" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Color_Battle/registration/views.py" />
@@ -231,6 +268,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.треш" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.views" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.views" />
@@ -263,13 +305,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Color_Battle/registration/views.py</url>
-          <line>111</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

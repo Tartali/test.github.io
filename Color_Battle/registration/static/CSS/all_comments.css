@@ -44,7 +44,7 @@ p {
 	justify-content: center;
     align-items: center;
     width: 300px;
-    height: 230px;
+    height: 220px;
     background-color: black;
     border-radius: 10px;
     color: white;
@@ -52,10 +52,11 @@ p {
 
 
 .form-control { /* texterea */
-
     height: 100px;
     width: 280px;
     border-radius: 6px;
+    margin-top: -20px;
+    resize: none;
 }
 
 
@@ -136,7 +137,7 @@ input[name="post"] {
     height: 50px;
     width: 150px;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-top: 15px;
     display: block;
     border-radius: 10px;
     border: none;

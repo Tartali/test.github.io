@@ -1,7 +1,13 @@
 {% extends "avatar/base.html" %}
 {% load i18n avatar_tags %}
+{% load i18n %}
 
 {% block content %}
+<body bgcolor="black">
+    <div>
+        <a href="{% url 'home' %}" style="color: white" ><h1> <span class="b_c">⮪</span> {% trans "Back" %}</h1></a>
+    </div>
+
     <p>{% trans "Your current avatar: " %}</p>
     {% avatar profile %}
     {% if not avatars %}
@@ -9,6 +15,24 @@
     {% endif %}
     <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
         {{ upload_avatar_form.as_p }}
-        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+
     </form>
+
+<style>
+    img[src="/static/avatar/img/default.jpg"]{
+        display: none;
+    }
+
+    p {
+        display: none;
+    }
+
+    .errorlist {
+        font-weight: 600;
+        margin-top: 50px;
+        margin-left: 20px;
+        color: white;
+    }
+</style>
+</body>
 {% endblock %}

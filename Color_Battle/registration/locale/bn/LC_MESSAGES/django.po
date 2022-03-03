@@ -1,0 +1,521 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 12:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\403\black.html:17 .\templates\403\purple.html:15
+#: .\templates\403\white.html:17 .\templates\django_comments_xtd\reply.html:15
+#: .\templates\registration\black.html:13
+#: .\templates\registration\black_pay.html:12
+#: .\templates\registration\comments.html:343
+#: .\templates\registration\profile.html:29
+#: .\templates\registration\purple.html:17
+#: .\templates\registration\purple_pay.html:11
+#: .\templates\registration\white.html:11
+#: .\templates\registration\white_pay.html:11
+#: .\templates\results\black_results.html:28
+#: .\templates\results\black_results.html:53
+#: .\templates\results\purple_results.html:29
+#: .\templates\results\purple_results.html:54
+#: .\templates\results\white_results.html:28
+#: .\templates\results\white_results.html:54
+msgid "Back"
+msgstr "পেছনে"
+
+#: .\templates\403\black.html:21 .\templates\403\purple.html:20
+#: .\templates\403\white.html:21
+msgid "Sorry, you can only vote 1 time"
+msgstr "দুঃখিত, আপনি শুধুমাত্র 1 বার ভোট দিতে পারেন"
+
+#: .\templates\403\black.html:23 .\templates\403\purple.html:22
+#: .\templates\403\white.html:23
+msgid "Results"
+msgstr "ফলাফল"
+
+#: .\templates\avatar\add.html:5 .\templates\avatar\change.html:14
+msgid "Your current avatar: "
+msgstr ""
+
+#: .\templates\avatar\add.html:8 .\templates\avatar\change.html:17
+msgid "You haven't uploaded an avatar yet. Please upload one now."
+msgstr ""
+
+#: .\templates\avatar\add.html:12 .\templates\avatar\change.html:30
+msgid "Upload New Image"
+msgstr ""
+
+#: .\templates\avatar\change.html:25
+msgid "Choose new Default"
+msgstr ""
+
+#: .\templates\avatar\change.html:35
+msgid "Delete Avatar"
+msgstr ""
+
+#: .\templates\avatar\confirm_delete.html:16
+msgid "Please select the avatars that you would like to delete."
+msgstr ""
+
+#: .\templates\avatar\confirm_delete.html:19
+#, python-format
+msgid ""
+"You have no avatars to delete. Please <a href=\"%(avatar_change_url)s"
+"\">upload one</a> now."
+msgstr ""
+
+#: .\templates\avatar\confirm_delete.html:25
+msgid "Delete These"
+msgstr ""
+
+#: .\templates\comments\delete.html:5
+msgid "Remove comment"
+msgstr ""
+
+#: .\templates\comments\delete.html:9
+msgid "Remove this comment?"
+msgstr ""
+
+#: .\templates\comments\delete.html:12
+msgid ""
+"As a moderator you can delete comments. Deleting a comment does not remove "
+"it from the site, only prevents your website from showing the text. Click on "
+"the remove button to delete the following comment:"
+msgstr ""
+
+#: .\templates\comments\delete.html:45
+msgid "Remove"
+msgstr ""
+
+#: .\templates\comments\deleted.html:5
+msgid "Comment removed"
+msgstr ""
+
+#: .\templates\comments\deleted.html:12
+msgid "The comment has been removed."
+msgstr ""
+
+#: .\templates\comments\deleted.html:13 .\templates\comments\flagged.html:13
+msgid ""
+"Thank you for taking the time to improve the quality of discussion in our "
+"site."
+msgstr ""
+
+#: .\templates\comments\flag.html:5
+msgid "Flag comment"
+msgstr ""
+
+#: .\templates\comments\flag.html:13
+msgid "Flag this comment?"
+msgstr ""
+
+#: .\templates\comments\flag.html:16
+msgid ""
+"Click on the flag button to mark the following comment as inappropriate."
+msgstr ""
+
+#: .\templates\comments\flag.html:41
+#: .\templates\django_comments_xtd\comment.html:11
+msgid "Posted to "
+msgstr ""
+
+#: .\templates\comments\flag.html:56
+msgid "Flag"
+msgstr ""
+
+#: .\templates\comments\flag.html:57
+#: .\templates\django_comments_xtd\dislike.html:80
+#: .\templates\django_comments_xtd\like.html:83
+msgid "cancel"
+msgstr ""
+
+#: .\templates\comments\flagged.html:5
+msgid "Comment flagged"
+msgstr ""
+
+#: .\templates\comments\flagged.html:12
+msgid "The comment has been flagged."
+msgstr ""
+
+#: .\templates\comments\form.html:77
+msgid "send"
+msgstr ""
+
+#: .\templates\comments\form.html:78
+msgid "preview"
+msgstr ""
+
+#: .\templates\comments\list.html:17
+#: .\templates\django_comments_xtd\comment.html:15
+#: .\templates\django_comments_xtd\comment_tree.html:42
+#: .\templates\django_comments_xtd\comment_tree.html:95
+#: .\templates\django_comments_xtd\comment_tree.html:148
+msgid "This comment has been removed."
+msgstr ""
+
+#: .\templates\comments\list.html:25
+#: .\templates\django_comments_xtd\comment_tree.html:51
+#: .\templates\django_comments_xtd\comment_tree.html:104
+#: .\templates\django_comments_xtd\comment_tree.html:157
+msgid "Reply"
+msgstr ""
+
+#: .\templates\comments\posted.html:6
+msgid "Comment confirmation requested."
+msgstr ""
+
+#: .\templates\comments\posted.html:12
+msgid ""
+"A confirmation message has been sent to your\n"
+"            email address. Please, click on the link in the message to "
+"confirm\n"
+"            your comment."
+msgstr ""
+
+#: .\templates\comments\preview.html:5 .\templates\comments\preview.html:10
+msgid "Preview your comment"
+msgstr ""
+
+#: .\templates\comments\preview.html:14
+msgid "Preview of your comment for:"
+msgstr ""
+
+#: .\templates\comments\preview.html:21
+msgid "Empty comment."
+msgstr ""
+
+#: .\templates\comments\preview.html:48
+msgid "Post your comment"
+msgstr ""
+
+#: .\templates\django_comments_xtd\comment_list.html:16
+msgid "List of comments"
+msgstr ""
+
+#: .\templates\django_comments_xtd\comment_tree.html:18
+#: .\templates\django_comments_xtd\comment_tree.html:71
+#: .\templates\django_comments_xtd\comment_tree.html:124
+msgid "moderator"
+msgstr ""
+
+#: .\templates\django_comments_xtd\comment_tree.html:18
+#: .\templates\django_comments_xtd\comment_tree.html:71
+#: .\templates\django_comments_xtd\comment_tree.html:124
+msgid "comment permalink"
+msgstr ""
+
+#: .\templates\django_comments_xtd\comment_tree.html:23
+#: .\templates\django_comments_xtd\comment_tree.html:76
+#: .\templates\django_comments_xtd\comment_tree.html:129
+#, python-format
+msgid "A user has flagged this comment as inappropriate."
+msgid_plural "%(counter)s users have flagged this comment as inappropriate."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\django_comments_xtd\comment_tree.html:27
+#: .\templates\django_comments_xtd\comment_tree.html:80
+#: .\templates\django_comments_xtd\comment_tree.html:133
+msgid "comment flagged"
+msgstr ""
+
+#: .\templates\django_comments_xtd\comment_tree.html:31
+#: .\templates\django_comments_xtd\comment_tree.html:84
+#: .\templates\django_comments_xtd\comment_tree.html:137
+msgid "flag comment"
+msgstr ""
+
+#: .\templates\django_comments_xtd\comment_tree.html:36
+#: .\templates\django_comments_xtd\comment_tree.html:89
+#: .\templates\django_comments_xtd\comment_tree.html:142
+msgid "remove comment"
+msgstr ""
+
+#: .\templates\django_comments_xtd\discarded.html:4
+msgid "Comment discarded"
+msgstr ""
+
+#: .\templates\django_comments_xtd\discarded.html:7
+msgid "Comment automatically discarded"
+msgstr ""
+
+#: .\templates\django_comments_xtd\discarded.html:8
+msgid "Sorry, your comment has been automatically discarded"
+msgstr ""
+
+#: .\templates\django_comments_xtd\dislike.html:6
+#: .\templates\django_comments_xtd\like.html:6
+msgid "Confirm your opinion"
+msgstr ""
+
+#: .\templates\django_comments_xtd\dislike.html:46
+msgid "You didn't like this comment, do you want to change it?"
+msgstr ""
+
+#: .\templates\django_comments_xtd\dislike.html:48
+msgid "Do you dislike this comment?"
+msgstr ""
+
+#: .\templates\django_comments_xtd\dislike.html:52
+#: .\templates\django_comments_xtd\like.html:54
+msgid "Please, confirm your opinion about the comment."
+msgstr ""
+
+#: .\templates\django_comments_xtd\dislike.html:78
+msgid "I dislike it"
+msgstr ""
+
+#: .\templates\django_comments_xtd\disliked.html:4
+msgid "You disliked the comment"
+msgstr ""
+
+#: .\templates\django_comments_xtd\disliked.html:7
+#: .\templates\django_comments_xtd\liked.html:7
+msgid "Thanks for taking the time to participate."
+msgstr ""
+
+#: .\templates\django_comments_xtd\email_followup_comment.html:2
+#: .\templates\django_comments_xtd\email_followup_comment.txt:4
+msgid "There is a new comment following up yours."
+msgstr ""
+
+#: .\templates\django_comments_xtd\email_followup_comment.html:5
+msgid "Sent by:"
+msgstr ""
+
+#: .\templates\django_comments_xtd\email_followup_comment.html:6
+msgid "The comment:"
+msgstr ""
+
+#: .\templates\django_comments_xtd\email_followup_comment.txt:20
+msgid "Kind regards"
+msgstr ""
+
+#: .\templates\django_comments_xtd\like.html:48
+msgid "You liked this comment, do you want to change it?"
+msgstr ""
+
+#: .\templates\django_comments_xtd\like.html:50
+msgid "Do you like this comment?"
+msgstr ""
+
+#: .\templates\django_comments_xtd\liked.html:4
+msgid "Your opinion is appreciated"
+msgstr ""
+
+#: .\templates\django_comments_xtd\moderated.html:4
+msgid "Comment requires approval"
+msgstr ""
+
+#: .\templates\django_comments_xtd\moderated.html:8
+msgid "Comment in moderation"
+msgstr ""
+
+#: .\templates\django_comments_xtd\moderated.html:14
+msgid ""
+"\n"
+"            Your comment is in moderation.<br/>\n"
+"            It has to be reviewed before being published.<br/>\n"
+"            Thank you for your patience and understanding.\n"
+"            "
+msgstr ""
+
+#: .\templates\django_comments_xtd\moderated.html:22
+#, python-format
+msgid ""
+"\n"
+"            Go back to: <a href=\"%(content_object_url)s\">"
+"%(content_object_str)s</a>\n"
+"            "
+msgstr ""
+
+#: .\templates\django_comments_xtd\muted.html:4
+msgid "Comment thread muted"
+msgstr ""
+
+#: .\templates\django_comments_xtd\muted.html:7
+msgid "Comment thread has been muted"
+msgstr ""
+
+#: .\templates\django_comments_xtd\muted.html:9
+msgid "You will no longer receive email notifications for comments sent to"
+msgstr ""
+
+#: .\templates\django_comments_xtd\reply.html:10
+msgid "Comment reply"
+msgstr ""
+
+#: .\templates\django_comments_xtd\reply.html:20
+msgid "Leave a response to the user's comment"
+msgstr "ব্যবহারকারীর মন্তব্য একটি প্রতিক্রিয়া ছেড়ে"
+
+#: .\templates\registration\black.html:18
+msgid "Choose black"
+msgstr "কালো নির্বাচন করুন"
+
+#: .\templates\registration\black.html:25
+#: .\templates\registration\black_pay.html:28
+#: .\templates\registration\purple.html:28
+#: .\templates\registration\purple_pay.html:22
+#: .\templates\registration\white.html:26
+#: .\templates\registration\white_pay.html:22
+msgid "Choose"
+msgstr "পছন্দ করা"
+
+#: .\templates\registration\black.html:35
+#: .\templates\registration\black_pay.html:37
+msgid "Enjoy the black"
+msgstr "কালো উপভোগ করুন"
+
+#: .\templates\registration\black_pay.html:21
+msgid "Choose black for 1$ dollar"
+msgstr "1$ ডলারের জন্য কালো বেছে নিন"
+
+#: .\templates\registration\comments.html:347
+msgid ""
+"You will not be able to edit or delete your comment. Think before you write"
+msgstr "আপনি আপনার মন্তব্য সম্পাদনা করতে বা মুছতে পারবেন না। লেখার আগে ভাবুন"
+
+#: .\templates\registration\comments.html:352
+msgid "Since you didn't vote, you will be shown the first 50 comments."
+msgstr "যেহেতু আপনি ভোট দেননি, তাই আপনাকে প্রথম 50টি মন্তব্য দেখানো হবে।"
+
+#: .\templates\registration\home.html:25
+msgid "Logout"
+msgstr "প্রস্থান"
+
+#: .\templates\registration\home.html:37
+msgid "Login"
+msgstr "প্রবেশ করুন"
+
+#: .\templates\registration\home.html:53
+msgid "or"
+msgstr "বা"
+
+#: .\templates\registration\home.html:59
+msgid "Black"
+msgstr "কালো"
+
+#: .\templates\registration\home.html:65
+msgid "White"
+msgstr "সাদা"
+
+#: .\templates\registration\home.html:98 .\templates\registration\home.html:108
+msgid ""
+"Here you will see the votes for the color of all users, after you vote "
+"yourself"
+msgstr "এখানে আপনি নিজেই ভোট দেওয়ার পরে সমস্ত ব্যবহারকারীর রঙের জন্য ভোট দেখতে পাবেন"
+
+#: .\templates\registration\home.html:118
+msgid ""
+"This site was created in order to find out which color people like more. "
+"Black or White? Everyone likes these 2 colors, but which one do you like the "
+"most?"
+msgstr "মানুষ কোন রঙ বেশি পছন্দ করে তা খুঁজে বের করার জন্য এই সাইটটি তৈরি করা হয়েছে। কালো অথবা সাদা? সবাই এই 2টি রঙ পছন্দ করে, কিন্তু কোনটি আপনি সবচেয়ে পছন্দ করেন?"
+
+#: .\templates\registration\home.html:119
+msgid "You can only vote 1 time by paying 1 USD"
+msgstr "আপনি 1 USD প্রদান করে শুধুমাত্র 1 বার ভোট দিতে পারেন"
+
+#: .\templates\registration\home.html:172
+#: .\templates\registration\home.html:174
+msgid "Comments"
+msgstr "মন্তব্য"
+
+#: .\templates\registration\profile.html:78
+msgid "Voted for black"
+msgstr "ভোট দিলেন কালো  রঙ"
+
+#: .\templates\registration\profile.html:84
+msgid "Voted for white"
+msgstr "ভোট দিলেন সাদা রঙ"
+
+#: .\templates\registration\profile.html:91
+msgid "Voted for purple"
+msgstr "ভোট দিলেন বেগুনি রঙ"
+
+#: .\templates\registration\profile.html:96
+msgid "Registration date"
+msgstr "নিবন্ধনের তারিখ"
+
+#: .\templates\registration\profile.html:121
+msgid "You haven't logged"
+msgstr "আপনি লগইন করেননি"
+
+#: .\templates\registration\profile.html:122
+msgid "or registered yet"
+msgstr "বা এখনও নিবন্ধিত"
+
+#: .\templates\registration\profile.html:125
+msgid "Sign In"
+msgstr "প্রবেশ করুন"
+
+#: .\templates\registration\profile.html:126
+msgid "Sign Up"
+msgstr "সাইন ইন করুন"
+
+#: .\templates\registration\purple.html:22
+#: .\templates\registration\purple_pay.html:16
+msgid "Wow, you're an original"
+msgstr "বাহ, আপনি একটি মৌলিক"
+
+#: .\templates\registration\purple.html:23
+#: .\templates\registration\purple_pay.html:17
+msgid "Choose purple for 1$ dollar"
+msgstr "1$ ডলারের জন্য বেগুনি বেছে নিন"
+
+#: .\templates\registration\purple.html:35
+#: .\templates\registration\purple_pay.html:30
+msgid "Enjoy the purple"
+msgstr "বেগুনি উপভোগ করুন"
+
+#: .\templates\registration\white.html:20
+msgid "Choose white"
+msgstr "সাদা বেছে নিন"
+
+#: .\templates\registration\white.html:34
+#: .\templates\registration\white_pay.html:31
+msgid "Enjoy the white"
+msgstr "সাদা উপভোগ করুন"
+
+#: .\templates\registration\white_pay.html:16
+msgid "Choose white for 1$ dollar"
+msgstr "1$ ডলারের জন্য সাদা বেছে নিন"
+
+#: .\templates\results\black_results.html:32
+msgid "Users who chose black"
+msgstr "কালো বেছে নেওয়া ব্যবহারকারীরা"
+
+#: .\templates\results\black_results.html:57
+#: .\templates\results\purple_results.html:58
+#: .\templates\results\white_results.html:58
+msgid "Page"
+msgstr "পাতা"
+
+#: .\templates\results\black_results.html:57
+#: .\templates\results\purple_results.html:58
+#: .\templates\results\white_results.html:58
+msgid "of"
+msgstr "থেকে"
+
+#: .\templates\results\purple_results.html:33
+msgid "Users who chose purple"
+msgstr "বেগুনি বেছে নেওয়া ব্যবহারকারীরা"
+
+#: .\templates\results\white_results.html:32
+msgid "Users who chose white"
+msgstr "সাদা বেছে নেওয়া ব্যবহারকারীরা"

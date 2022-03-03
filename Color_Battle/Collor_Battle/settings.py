@@ -75,10 +75,10 @@ INSTALLED_APPS = [
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), )
 
-LANGUAGES = (
-    ('en-us', _('English')),
-    ('ru', _('Russian')),
-)
+# LANGUAGES = (
+#     ('en-us', _('English')),
+#     ('ru', _('Russian')),
+# )
 
 # STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static"),
@@ -155,7 +155,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
@@ -174,7 +174,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"  # "mandatory"
 
 
 AVATAR_AUTO_GENERATE_SIZES = [250, 100]
-AVATAR_MAX_SIZE = 1024 * 1024
+
 AVATAR_MIN_SIZE = 100 * 100
 AVATAR_CLEANUP_DELETED = True
 AVATAR_EXPOSE_USERNAMES = True
@@ -245,3 +245,4 @@ DATETIME_FORMAT = 'N j, Y, H:i'
 TIME_FORMAT = 'H:i'
 
 SITE_ID = 1
+

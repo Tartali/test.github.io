@@ -298,7 +298,8 @@ html *
 
 .White {
     width:  80%;
-    bottom: 120px;
+    bottom: 120px !important;
+    margin: 0;
 }
 
 .a_w {
@@ -449,7 +450,7 @@ html *
 .eyes-text {
     text-align: center;
     position: absolute;
-    width: 500px;
+    width: 90%;
     left: 50%;
     transform: translate(-50%, 0);
     bottom: 15px;
@@ -674,7 +675,7 @@ html *
     align-items: center;
     top: 50%;
     position: relative;
-    background: #e3e3ef;
+    background: #75647D;
     height: 150px;
     width: 60%;
     border-radius: 30px;
