@@ -76,8 +76,7 @@ def black(request):
 
     whUrl = 'https://test-my-site-id.herokuapp.com/'
     needWebhookList = [
-        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
-        WebhookNotificationEventType.PAYMENT_CANCELED
+        WebhookNotificationEventType.PAYMENT_SUCCEEDED
     ]
 
     whList = Webhook.list()
