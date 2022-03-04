@@ -74,12 +74,29 @@ def black(request):
     Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
-    response = Webhook.add({
-        "event": "payment.succeeded",
-        "url": "https://test-my-site-id.herokuapp.com/",
-    })
+    whUrl = 'https://test-my-site-id.herokuapp.com/'
+    needWebhookList = [
+        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
+        WebhookNotificationEventType.PAYMENT_CANCELED
+    ]
 
-    print(response)
+    whList = Webhook.list()
+
+    for event in needWebhookList:
+        hookIsSet = False
+        for wh in whList.items:
+            if wh.event != event:
+                continue
+            if wh.url != whUrl:
+                Webhook.remove(wh.id)
+            else:
+                hookIsSet = True
+
+        if not hookIsSet:
+            Webhook.add({"event": event, "url": whUrl})
+
+    var_dump.var_dump(Webhook.list())
+    print(event)
 
     idempotence_key = str(uuid.uuid4())
 
