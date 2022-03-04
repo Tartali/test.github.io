@@ -95,7 +95,7 @@ def black(request):
             Webhook.add({"event": event, "url": whUrl})
 
     var_dump.var_dump(Webhook.list())
-    print(event)
+    print(vars(Webhook.list()))
 
     idempotence_key = str(uuid.uuid4())
 

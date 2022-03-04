@@ -8,7 +8,7 @@
 <font face="Montserrat">
 
 
-    <div>
+    <div style="width: 200px">
         <a href="{% url 'home' %}" class="back_b"><h1 style="color: white"> <span>⮪</span>{% trans "Back" %}</h1></a>
     </div>
 
@@ -82,8 +82,7 @@
     <div id="mypopup" class="popup" align="center">
         <div class="popup-content">
             <div class="popup-header">
-                 <h2>Here you will see the votes for the color of all users,
-                     after you vote yourself</h2>
+                 <h2>{% trans "Here you will see the votes for the color of all users, after you vote yourself" %}</h2>
                 <span class="close"><big><big><big>&times;</big></big></big></span>
             </div>
 

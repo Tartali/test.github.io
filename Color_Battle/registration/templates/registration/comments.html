@@ -12,6 +12,10 @@
 {% block home %}
 
 {% if somebody.count_purple %}
+<style>
+  label[for="id_followup"] {display: none;}
+  .custom-checkbox {display: none;}
+</style>
 
 <style>
 
@@ -76,7 +80,7 @@ input[name="post"] {
     height: 50px;
     width: 150px;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-top: 10px;
     display: block;
     border-radius: 10px;
     border: none;
@@ -440,10 +444,7 @@ $(function() {
   audio.autoplay = true; // Автоматически запускаем
 }
 </script>
-<style>
-  label[for="id_followup"] {display: none;}
-  .custom-checkbox {display: none;}
-</style>
+
 
 {% endblock %}
 

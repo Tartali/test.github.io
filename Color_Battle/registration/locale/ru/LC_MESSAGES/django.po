@@ -387,10 +387,8 @@ msgid "Leave a response to the user's comment"
 msgstr "Оставить ответ на комментарий пользователя"
 
 #: .\templates\registration\black.html:18
-#, fuzzy
-#| msgid "Choose"
 msgid "Choose black"
-msgstr "Выбрать"
+msgstr "Выбрать черный"
 
 #: .\templates\registration\black.html:25
 #: .\templates\registration\black_pay.html:28
@@ -403,10 +401,8 @@ msgstr "Выбрать"
 
 #: .\templates\registration\black.html:35
 #: .\templates\registration\black_pay.html:37
-#, fuzzy
-#| msgid "Voted for black"
 msgid "Enjoy the black"
-msgstr "Проголосовал за черный"
+msgstr "Насладиться черным"
 
 #: .\templates\registration\black_pay.html:21
 msgid "Choose black for 1$ dollar"
@@ -515,23 +511,17 @@ msgstr "Выбрать фиолетовый за 1$ доллар"
 
 #: .\templates\registration\purple.html:35
 #: .\templates\registration\purple_pay.html:30
-#, fuzzy
-#| msgid "Voted for purple"
 msgid "Enjoy the purple"
-msgstr "Прголосовал за фиолетовый"
+msgstr "Насладиться фиолетовым"
 
 #: .\templates\registration\white.html:20
-#, fuzzy
-#| msgid "Choose"
 msgid "Choose white"
-msgstr "Выбрать"
+msgstr "Выбрать белый"
 
 #: .\templates\registration\white.html:34
 #: .\templates\registration\white_pay.html:31
-#, fuzzy
-#| msgid "Voted for white"
 msgid "Enjoy the white"
-msgstr "Проголосовал за белый"
+msgstr "Насладиться белым"
 
 #: .\templates\registration\white_pay.html:16
 msgid "Choose white for 1$ dollar"
