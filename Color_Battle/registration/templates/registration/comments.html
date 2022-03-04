@@ -72,6 +72,17 @@ textarea {
 input[name="post"] {
     background-color: #d2c6d8;
     color: #331C41;
+    transition: 1s !important;
+    height: 50px;
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: 900;
 }
 
 @media screen and (min-width: 1360px) {
@@ -347,6 +358,8 @@ body.darkkk .backProfileUrl{
         <a href="{% url 'home' %}" class="backProfileUrl"><h1 class="s"> <span class="b_c" >⮪</span>{% trans "Back" %}</h1></a>
 </div>
 
+<h3 align="center">The site uses Coordinated Universal Time (UTC)</h3>
+
 {% if somebody.count_black or somebody.count_white or somebody.count_purple %}
     <h3 align="center"><big>{% trans "You will not be able to edit or delete your comment. Think before you write" %}</big></h3>
 <div class="container-fluid mt-4 comment-form">
@@ -427,6 +440,10 @@ $(function() {
   audio.autoplay = true; // Автоматически запускаем
 }
 </script>
+<style>
+  label[for="id_followup"] {display: none;}
+  .custom-checkbox {display: none;}
+</style>
 
 {% endblock %}
 
