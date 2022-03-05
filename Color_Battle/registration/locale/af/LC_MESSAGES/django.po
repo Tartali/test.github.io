@@ -382,10 +382,8 @@ msgstr "Kies"
 
 #: .\templates\registration\black.html:35
 #: .\templates\registration\black_pay.html:37
-#, fuzzy
-#| msgid "Voted for black"
 msgid "Enjoy the black"
-msgstr "Het vir swart gestem"
+msgstr "Geniet die swart"
 
 #: .\templates\registration\black_pay.html:21
 msgid "Choose black for 1$ dollar"
@@ -491,10 +489,8 @@ msgstr "Kies pers vir $ 1 dollar"
 
 #: .\templates\registration\purple.html:35
 #: .\templates\registration\purple_pay.html:30
-#, fuzzy
-#| msgid "Voted for purple"
 msgid "Enjoy the purple"
-msgstr "Het vir pers gestem"
+msgstr "Geniet die pers"
 
 #: .\templates\registration\white.html:20
 #, fuzzy
@@ -504,8 +500,6 @@ msgstr "Kies"
 
 #: .\templates\registration\white.html:34
 #: .\templates\registration\white_pay.html:31
-#, fuzzy
-#| msgid "Voted for white"
 msgid "Enjoy the white"
 msgstr "Het vir wit gestem"
 
@@ -536,3 +530,6 @@ msgstr "Gebruikers wat pers gekies het"
 #: .\templates\results\white_results.html:32
 msgid "Users who chose white"
 msgstr "Gebruikers wat wit gekies het"
+
+
+

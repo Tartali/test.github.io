@@ -71,12 +71,14 @@ def callback_payment(request):
 @login_required(login_url='accounts/login/')
 def black(request):
     # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    global event
     Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
     whUrl = 'https://test-my-site-id.herokuapp.com/'
     needWebhookList = [
-        WebhookNotificationEventType.PAYMENT_SUCCEEDED
+        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
+        WebhookNotificationEventType.PAYMENT_CANCELED
     ]
 
     whList = Webhook.list()
@@ -116,7 +118,7 @@ def black(request):
         },
 
         "id": idempotence_key,
-        # "capture": True,
+        "capture": True,
         # "response_type": "code",
         # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
 

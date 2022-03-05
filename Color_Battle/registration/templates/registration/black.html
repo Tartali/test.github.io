@@ -15,7 +15,7 @@
 
     <div class="block_b">
     <div>
-        <h1 style="color: black">{% trans "Choose black" %}</h1><br>
+        <h1 align="center" style="color: black">{% trans "Choose black" %}</h1><br>
 
     <form method="post">
     {% csrf_token %}
@@ -32,7 +32,7 @@
     </div>
 
 
-    <input type="button" onmousedown="viewDiv()" class="none_div" value="{% trans "Enjoy the black" %}">
+    <button style="width: 100%;" type="button" onmousedown="viewDiv()" class="none_div"><h1><b>{% trans "Enjoy the black" %}</b></h1></button>
 
     <div id="div1">
 

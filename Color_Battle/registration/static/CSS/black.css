@@ -119,7 +119,8 @@ background-attachment: fixed;
     background: transparent;
     cursor: pointer;
     color: white;
-    font-size: 25pt;
+    font-size: 12pt;
+    color: white;
 }
 
 html {

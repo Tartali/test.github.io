@@ -34,7 +34,7 @@
     </div>
     <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the purple" %}</b></h1></button>
 
-        <div id="div11">
+        <div id="div1">
 
             <div class="jillyfish"></div>
             <div class="snake_div">
@@ -67,7 +67,7 @@
             <div><video src="{% static 'IMG/Purple/medi.mp4' %}" class="medi" autoplay loop muted></video></div>
             <div class="space"></div>
             <div class="speed"></div>
-            <div><video src="{% static 'IMG/Purple/anim.mp4' %}" class="anim" autoplay loop muted></video></div>
+            <div><video src="{% static 'IMG/Purple/anim (video-converter.com).mp4' %}" class="anim" autoplay loop muted></video></div>
 
         </div>
 <!--    <div class="result">-->
@@ -79,5 +79,14 @@
 
 <script src="{% static 'CSS/snake.js' %}"></script>
 <script src="{% static 'CSS/town.js' %}"></script>
+<script>
+       function assign(){
+       document.location.assign("{{ url }}");
+   }
+
+   function viewDiv(){
+  document.getElementById("div1").style.display = "block";
+};
+</script>
 
 {% endblock %}

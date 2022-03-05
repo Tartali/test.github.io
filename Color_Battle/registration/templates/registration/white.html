@@ -17,7 +17,7 @@
 
     <div class="block_w">
     <div class="sss">
-        <h1 style="color: white">{% trans "Choose white" %}</h1><br>
+        <h1 align="center" style="color: white">{% trans "Choose white" %}</h1><br>
 
     <form method="POST">
     {% csrf_token %}
@@ -31,8 +31,8 @@
 
     </div>
     </div>
-    <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the white" %}</b></h1></button>
-    <div id="divy1">
+    <button style="width: 100%;" type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the white" %}</b></h1></button>
+    <div id="div1">
           <div class="wolf"></div>
 
         <div class="paint">
@@ -60,9 +60,6 @@
 </div>
 </body>
     <script>
-
-
-
     let popup = document.getElementById('mypopup_b'),
     popupToggle = document.getElementById('myBtn_b'),
     popupClose = document.querySelector('.close_b');

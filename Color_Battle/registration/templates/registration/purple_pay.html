@@ -27,7 +27,7 @@
     </div>
     </div>
 
-     <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the purple" %}</b></h1></button>
+         <button style="width: 100%;" type="button" onmousedown="viewDiv()" class="none_div"><h1><b>{% trans "Enjoy the black" %}</b></h1></button>
 
         <div id="div1">
 
@@ -46,15 +46,29 @@
             <div><video src="{% static 'IMG/Purple/medi.mp4' %}" class="medi" autoplay loop muted></video></div>
             <div class="space"></div>
             <div class="speed"></div>
-            <div><video src="{% static 'IMG/Purple/anim.mp4' %}" class="anim" autoplay loop muted></video></div>
+            <div><video src="{% static 'IMG/Purple/anim (video-converter.com).mp4' %}" class="anim" autoplay loop muted></video></div>
 
         </div>
 
 <!--    <div class="result">-->
 <!--        <h1 style="color: #331c2a" align="center">{{ value.count_purple }} ({{ percent_purple}})%</h1>-->
 <!--    </div>-->
+
 </font>
 </div>
 </body>
+
+<script src="{% static 'CSS/snake.js' %}"></script>
+<script src="{% static 'CSS/town.js' %}"></script>
+
+<script>
+       function assign(){
+       document.location.assign("{{ url }}");
+   }
+
+   function viewDiv(){
+  document.getElementById("div1").style.display = "block";
+};
+</script>
 
 {% endblock %}

@@ -18,7 +18,7 @@
 
     <div class="block_b">
     <div>
-        <h1 style="color: black">{% trans "Choose black for 1$ dollar" %}</h1><br>
+        <h1 align="center" style="color: black">{% trans "Choose black for 1$ dollar" %}</h1><br>
 
     <form method="post">
     {% csrf_token %}
@@ -34,16 +34,18 @@
     </div>
     </div>
 
-     <input type="button" onmousedown="viewDiv()" class="none_div" value="{% trans "Enjoy the black" %}">
+    <button style="width: 100%;" type="button" onmousedown="viewDiv()" class="none_div"><h1><b>{% trans "Enjoy the black" %}</b></h1></button>
 
-    <div id="div11">
+    <div id="div1">
 
         <div class="black_cat"></div>
 
         <div></div>
 
         <div class="div_piano">
-        <video src="{% static 'IMG/Black/smoke.mp4' %}" class="video" autoplay loop muted></video>
+        <video src="{% static 'IMG/Black/smoke.mp4' %}" class="video" autoplay loop muted>
+
+        </video>
             <audio src="{% static 'CSS/Bohemian.mp3' %}"></audio>
                 <img onclick="soundClickGod()" class="fred_img" src="{% static 'IMG/fred.png' %}">
        <div class="piano">
