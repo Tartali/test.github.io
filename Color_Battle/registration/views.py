@@ -72,9 +72,9 @@ def callback_payment(request):
 @csrf_exempt
 @login_required(login_url='accounts/login/')
 def black(request):
-    # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
 
-    Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX9fitqaMFjvxpHU3YJV8zY1vH_opunl3v3za8IpyLSx_5wU8R6VSR8LP9XZ0pmEYWFZM0qk')
+    #Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX9fitqaMFjvxpHU3YJV8zY1vH_opunl3v3za8IpyLSx_5wU8R6VSR8LP9XZ0pmEYWFZM0qk')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
     # whUrl = 'https://test-my-site-id.herokuapp.com/'
@@ -116,7 +116,8 @@ def black(request):
         },
         "confirmation": {
             "type": "redirect",
-            "return_url": "http://127.0.0.1:8000/"
+            "return_url": "http://127.0.0.1:8000/",
+            "locale": "en_US"
         },
 
         "id": idempotence_key,
@@ -127,6 +128,8 @@ def black(request):
         "description": "Заказ №72"
     }, )
     print(idempotence_key)
+    event_json = request.body
+    print(event_json)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
     # params = {"limit": 1}
