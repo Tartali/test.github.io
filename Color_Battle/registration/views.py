@@ -2,6 +2,7 @@ import uuid
 import json
 
 from django.core.paginator import Paginator
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from yookassa import Webhook
 import var_dump as var_dump
@@ -37,7 +38,8 @@ def home(request):
         percent_black = int(sum_black['count_black__sum'] * 100 / all)
         percent_white = int(sum_white['count_white__sum'] * 100 / all)
         percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-
+        event_json = request.body
+        print(event_json)
         context = {
             "value": value,
             "sum_black_result": sum_black_result,
@@ -67,38 +69,38 @@ def callback_payment(request):
             # то делаю нужные мне действия с пользователем
             print("Делаем")
 
-
+@csrf_exempt
 @login_required(login_url='accounts/login/')
 def black(request):
     # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
-    global event
-    Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
+
+    Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX9fitqaMFjvxpHU3YJV8zY1vH_opunl3v3za8IpyLSx_5wU8R6VSR8LP9XZ0pmEYWFZM0qk')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
-    whUrl = 'https://test-my-site-id.herokuapp.com/'
-    needWebhookList = [
-        WebhookNotificationEventType.PAYMENT_SUCCEEDED,
-        WebhookNotificationEventType.PAYMENT_CANCELED
-    ]
-
-    whList = Webhook.list()
-
-    for event in needWebhookList:
-        hookIsSet = False
-        for wh in whList.items:
-            if wh.event != event:
-                continue
-            if wh.url != whUrl:
-                Webhook.remove(wh.id)
-            else:
-                hookIsSet = True
-
-        if not hookIsSet:
-            Webhook.add({"event": event, "url": whUrl})
-
-    var_dump.var_dump(Webhook.list())
-    print(vars(Webhook.list()))
-
+    # whUrl = 'https://test-my-site-id.herokuapp.com/'
+    # needWebhookList = [
+    #     WebhookNotificationEventType.PAYMENT_SUCCEEDED,
+    #     WebhookNotificationEventType.PAYMENT_CANCELED
+    # ]
+    #
+    # whList = Webhook.list()
+    #
+    # for event in needWebhookList:
+    #     hookIsSet = False
+    #     for wh in whList.items:
+    #         if wh.event != event:
+    #             continue
+    #         if wh.url != whUrl:
+    #             Webhook.remove(wh.id)
+    #         else:
+    #             hookIsSet = True
+    #
+    #     if not hookIsSet:
+    #         Webhook.add({"event": event, "url": whUrl})
+    #
+    # var_dump.var_dump(Webhook.list())
+    # print(vars(Webhook.list()))
+    #
     idempotence_key = str(uuid.uuid4())
 
     # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
@@ -127,6 +129,11 @@ def black(request):
     print(idempotence_key)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
+    # params = {"limit": 1}
+    # res = Payment.list(params)
+    # print(vars((res)))
+
+
 
     if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
         value, created = Choose.objects.get_or_create(voter=request.user)
@@ -144,7 +151,8 @@ def black(request):
 
     else:
         return render(request, 'registration/black.html')
-
+    event_json = request.body
+    print(event_json)
     return render(request, 'registration/black_pay.html', {"url": confirmation_url})
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
