@@ -128,13 +128,25 @@ def black(request):
         "description": "Заказ №72"
     }, )
     print(idempotence_key)
-    event_json = request.body
+    event_json = json.loads(request.body)
     print(event_json)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
     # params = {"limit": 1}
     # res = Payment.list(params)
     # print(vars((res)))
+    try:
+        # Создание объекта класса уведомлений в зависимости от события
+        notification_object = WebhookNotificationFactory().create(event_json)
+        response_object = notification_object.object
+        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+            some_data = {
+                'paymentId': response_object.id,
+                'paymentStatus': response_object.status,
+            }
+    except Exception:
+        # Обработка ошибок
+        return HttpResponse(status=400)  # Сообщаем кассе об ошибке
 
 
 
