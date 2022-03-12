@@ -16,7 +16,7 @@ urlpatterns = [
     path('callback/', views.callback_payment, name='callback'),
     path('info', Comment2.as_view(), name='comment'),
 
-    # path('pay/<int:payment_id>/', views.payment_details, name='pay'),
+    path('payeer_1620555063.txt', views.payeer),
 
     path('black_results', views.black_results, name='black_results'),
     path('white_results', views.white_results, name='white_results'),

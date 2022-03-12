@@ -14,7 +14,6 @@ urlpatterns = [
     path('', include('registration.urls')),
     path('comments/', include('django_comments_xtd.urls')),
     path(r'jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
-    path('payments/', include('payments.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 ]

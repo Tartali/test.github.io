@@ -5,8 +5,6 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 from decimal import Decimal
-from payments import PurchasedItem
-from payments.models import BasePayment
 
 
 class Choose(models.Model):

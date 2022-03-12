@@ -355,5 +355,5 @@ class Comment2(TemplateView):
 
         return context
 
-
-
+def payeer(request):
+    return render(request, 'registration/payeer_1620555063.txt')
