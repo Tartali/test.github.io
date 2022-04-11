@@ -26,6 +26,13 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
+def event(request):
+    event_json = json.loads(request.body)
+    print(event_json)
+
+    return HttpResponse(status=200)
+
+
 def home(request):
     if request.user.is_authenticated:
         value = Choose.objects.all()
@@ -93,8 +100,8 @@ def black(request):
 
     else:
         return render(request, 'registration/black.html')
-    event_json = request.body
-    print(event_json)
+    # event_json = json.loads(request.body)
+    # print(event_json)
     return render(request, 'registration/black_pay.html')
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)

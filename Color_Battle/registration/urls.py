@@ -21,5 +21,7 @@ urlpatterns = [
     path('black_results', views.black_results, name='black_results'),
     path('white_results', views.white_results, name='white_results'),
     path('purple_results', views.purple_results, name='purple_results'),
+
+    path('yookassa-event/', views.event, name='event_http'),
 ]
 
