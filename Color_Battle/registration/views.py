@@ -84,9 +84,9 @@ def callback_payment(request):
 @login_required(login_url='accounts/login/')
 def black(request):
 
-    # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
-    Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
-    Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
+    Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    #Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
+    #Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
     idempotence_key = str(uuid.uuid4())
 
