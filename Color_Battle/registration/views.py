@@ -28,7 +28,7 @@ from yookassa.domain.common.user_agent import Version
 
 def event(request):
     event_json = json.loads(request.body)
-    print(event_json)
+    print(">>>>>>>>>>>>>>>>>>>>\n", event_json)
 
     return HttpResponse(status=200)
 
@@ -84,6 +84,40 @@ def callback_payment(request):
 @login_required(login_url='accounts/login/')
 def black(request):
 
+    # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
+    Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
+
+    idempotence_key = str(uuid.uuid4())
+
+    # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
+    # payment_one = Payment.find_one(payment_id)
+
+    payment = Payment.create({
+        "amount": {
+            "value": "2.00",
+            "currency": "RUB"
+        },
+        "payment_method_data": {
+            "type": "bank_card"
+        },
+        "confirmation": {
+            "type": "redirect",
+            "return_url": "http://127.0.0.1:8000/"
+        },
+
+        "id": idempotence_key,
+        # "capture": True,
+        # "response_type": "code",
+        # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
+
+
+        "description": "Заказ №72"
+    },)
+    print(idempotence_key)
+    # print(vars(payment_one))
+    confirmation_url = payment.confirmation.confirmation_url
+
     if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
         value, created = Choose.objects.get_or_create(voter=request.user)
 
@@ -102,7 +136,7 @@ def black(request):
         return render(request, 'registration/black.html')
     # event_json = json.loads(request.body)
     # print(event_json)
-    return render(request, 'registration/black_pay.html')
+    return render(request, 'registration/black_pay.html', {"url": confirmation_url})
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
     black_voters = Choose.objects.filter(count_black__gte=1)
