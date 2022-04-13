@@ -28,10 +28,22 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt #event_json["object"]["status"]
 def event(request):
-
-    global event_json
     event_json = json.loads(request.body)
-
+    notification_object = WebhookNotificationFactory().create(event_json)
+    response_object = notification_object.object
+    if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+        some_data = {
+            'paymentId': response_object.id,
+            'paymentStatus': response_object.status,
+        }
+        print("Платеж успешен!!1!!11!!!")
+    elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
+        some_data = {
+            'payoutId': response_object.id,
+            'payoutStatus': response_object.status,
+            'dealId': response_object.deal.id,
+        }
+        print("Успешно, но это PAYOUT_SUCCEEDED")
     return HttpResponse(status=200)
 
 
@@ -54,7 +66,6 @@ def home(request):
         percent_black = int(sum_black['count_black__sum'] * 100 / all)
         percent_white = int(sum_white['count_white__sum'] * 100 / all)
         percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-        print(event_json)
         context = {
             "value": value,
             "sum_black_result": sum_black_result,
