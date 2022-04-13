@@ -35,7 +35,7 @@ def event(request):
     return HttpResponse(status=200)
 
 
-print(event_json)
+
 
 
 def home(request):
@@ -54,7 +54,7 @@ def home(request):
         percent_black = int(sum_black['count_black__sum'] * 100 / all)
         percent_white = int(sum_white['count_white__sum'] * 100 / all)
         percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-       
+        print(event_json)
         context = {
             "value": value,
             "sum_black_result": sum_black_result,
