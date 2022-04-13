@@ -28,14 +28,14 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt #event_json["object"]["status"]
 def event(request):
-    value, created = Choose.objects.get_or_create(voter=request.user)
 
+    global event_json
     event_json = json.loads(request.body)
-    if event_json["object"]["status"] == "succeeded":
-        value.count_black += 1
-        value.save()
 
     return HttpResponse(status=200)
+
+
+print(event_json)
 
 
 def home(request):
@@ -54,7 +54,6 @@ def home(request):
         percent_black = int(sum_black['count_black__sum'] * 100 / all)
         percent_white = int(sum_white['count_white__sum'] * 100 / all)
         percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-        event_json = request.body
         print(event_json)
         context = {
             "value": value,
