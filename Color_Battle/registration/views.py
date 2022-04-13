@@ -30,7 +30,7 @@ from yookassa.domain.common.user_agent import Version
 def event(request):
     event_json = json.loads(request.body)
     print(">>>>>>>>>>>>>>>>>>>>\n", event_json)
-
+    print("//////////////////////////////\n", event_json["object"]["status"])
     return HttpResponse(status=200)
 
 
@@ -109,7 +109,7 @@ def black(request):
         },
 
         "id": idempotence_key,
-        # "capture": True,
+        "capture": True,
         # "response_type": "code",
         # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
 
