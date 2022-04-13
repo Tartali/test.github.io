@@ -26,6 +26,7 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
+@csrf_exempt
 def event(request):
     event_json = json.loads(request.body)
     print(">>>>>>>>>>>>>>>>>>>>\n", event_json)
@@ -84,11 +85,12 @@ def callback_payment(request):
 @login_required(login_url='accounts/login/')
 def black(request):
 
-    Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
-    #Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
-    #Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
+    # Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+    # Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
+    Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
     idempotence_key = str(uuid.uuid4())
+
 
     # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
     # payment_one = Payment.find_one(payment_id)
