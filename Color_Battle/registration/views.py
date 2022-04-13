@@ -26,11 +26,15 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
-@csrf_exempt
+@csrf_exempt #event_json["object"]["status"]
 def event(request):
+    value, created = Choose.objects.get_or_create(voter=request.user)
+
     event_json = json.loads(request.body)
-    print(">>>>>>>>>>>>>>>>>>>>\n", event_json)
-    print("//////////////////////////////\n", event_json["object"]["status"])
+    if event_json["object"]["status"] == "succeeded":
+        value.count_black += 1
+        value.save()
+
     return HttpResponse(status=200)
 
 
