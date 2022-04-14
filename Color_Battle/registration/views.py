@@ -25,10 +25,11 @@ from .models import Choose, Comment
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
-status = None
 
+@login_required(login_url='accounts/login/')
 @csrf_exempt #event_json["object"]["status"]
 def event(request):
+    global status
     event_json = json.loads(request.body)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
@@ -38,8 +39,6 @@ def event(request):
             'paymentStatus': response_object.status,
         }
         print("Платеж успешен!!1!!11!!!")
-        global status
-        status = "vin"
     elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
         some_data = {
             'payoutId': response_object.id,
@@ -47,6 +46,7 @@ def event(request):
             'dealId': response_object.deal.id,
         }
         print("Успешно, но это PAYOUT_SUCCEEDED")
+        print(some_data)
     return HttpResponse(status=200)
 
 
@@ -84,20 +84,6 @@ def home(request):
     else:
         return render(request, 'registration/home.html')
 
-def callback_payment(request):
-    if request.method == 'POST':
-        data = request.POST  # передаем в эту
-        # переменную ответ(список json)
-
-        items = json.loads(data)
-        item = items[0]  # предполагаю, что в списке json
-        # будет только один словарь и обращаюсь
-        # к первому элементу(к словарю) спика
-
-        if item['order_status'] == "approved":  # проверяю, если статус платежа успешен,
-            # то делаю нужные мне действия с пользователем
-            print("Делаем")
-
 
 @login_required(login_url='accounts/login/')
 def black(request):
@@ -134,7 +120,6 @@ def black(request):
         "description": "Заказ №72"
     },)
     print(idempotence_key)
-    print(status)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
 
