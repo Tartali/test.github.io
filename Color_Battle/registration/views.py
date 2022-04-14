@@ -26,7 +26,6 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
-@login_required(login_url='accounts/login/')
 @csrf_exempt #event_json["object"]["status"]
 def event(request):
     global status
