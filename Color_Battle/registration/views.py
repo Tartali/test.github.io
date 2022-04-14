@@ -25,6 +25,7 @@ from .models import Choose, Comment
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
+status = None
 
 @csrf_exempt #event_json["object"]["status"]
 def event(request):
