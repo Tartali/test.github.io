@@ -31,15 +31,14 @@ def event(request):
     event_json = json.loads(request.body)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
-    value, created = Choose.objects.get_or_create(voter=request.user)
     if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
         some_data = {
             'paymentId': response_object.id,
             'paymentStatus': response_object.status,
         }
         print("Платеж успешен!!1!!11!!!")
-        value.count_black += 1
-        value.save()
+        global status
+        status = "vin"
     elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
         some_data = {
             'payoutId': response_object.id,
@@ -134,6 +133,7 @@ def black(request):
         "description": "Заказ №72"
     },)
     print(idempotence_key)
+    print(status)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
 
