@@ -134,7 +134,6 @@ def black(request):
         "description": "Заказ №72"
     },)
     print(idempotence_key)
-    print(status)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
 
