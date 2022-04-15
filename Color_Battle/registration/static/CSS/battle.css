@@ -738,16 +738,18 @@ right: -40px;
 }
 
 @media screen and (max-width: 400px) {
-
 .close_p {
     position: absolute;
     bottom: 50px !important;
 }
-
 }
 
-
 .point {cursor:pointer}
+
+@media screen and (max-width: 630px){
+.point{display: none;}
+}
+}
 
 @keyframes animatetop {
     from {

@@ -7,6 +7,7 @@ from hashlib import sha256
 
 from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
+from requests import Response
 from rest_framework.views import APIView
 from yookassa import Webhook
 import var_dump as var_dump
@@ -26,12 +27,12 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
-@csrf_exempt #event_json["object"]["status"]
+@csrf_exempt  # event_json["object"]["status"]
 def event(request):
-    global status
     event_json = json.loads(request.body)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
+    # request.session['status'] = "succeed"
     if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
         some_data = {
             'paymentId': response_object.id,
@@ -39,6 +40,9 @@ def event(request):
         }
         print("Платеж успешен!!1!!11!!!")
         print(some_data)
+
+        # main = "get"
+        # return main
     elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
         some_data = {
             'payoutId': response_object.id,
@@ -46,10 +50,10 @@ def event(request):
             'dealId': response_object.deal.id,
         }
         print("Успешно, но это PAYOUT_SUCCEEDED")
-    return HttpResponse(status=200)
+    return HttpResponse(event.stat, status=200)
 
 
-
+# var = event()
 
 
 def home(request):
@@ -63,11 +67,12 @@ def home(request):
         sum_black_result = sum_black['count_black__sum']
         sum_white_result = sum_white['count_white__sum']
         sum_purple_result = sum_purple['count_purple__sum']
-
+        # print(var)
         all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
         percent_black = int(sum_black['count_black__sum'] * 100 / all)
         percent_white = int(sum_white['count_white__sum'] * 100 / all)
         percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+
         context = {
             "value": value,
             "sum_black_result": sum_black_result,
@@ -82,6 +87,7 @@ def home(request):
         return render(request, 'registration/home.html', context)
     else:
         return render(request, 'registration/home.html')
+
 
 def callback_payment(request):
     if request.method == 'POST':
@@ -100,13 +106,13 @@ def callback_payment(request):
 
 @login_required(login_url='accounts/login/')
 def black(request):
-
     Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     # Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
     idempotence_key = str(uuid.uuid4())
-
+    # status = request.session['status']
+    # print(status)
 
     # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
     # payment_one = Payment.find_one(payment_id)
@@ -120,8 +126,8 @@ def black(request):
             "type": "bank_card"
         },
         "confirmation": {
-            "type": "redirect",
-            "return_url": "http://127.0.0.1:8000/"
+            "type": "embedded",
+            # "return_url": "http://127.0.0.1:8000/"
         },
 
         "id": idempotence_key,
@@ -129,9 +135,8 @@ def black(request):
         # "response_type": "code",
         # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
 
-
         "description": "Заказ №72"
-    },)
+    }, )
     print(idempotence_key)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
@@ -155,6 +160,8 @@ def black(request):
     # event_json = json.loads(request.body)
     # print(event_json)
     return render(request, 'registration/black_pay.html', {"url": confirmation_url})
+
+
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)
     black_voters = Choose.objects.filter(count_black__gte=1)
@@ -172,7 +179,9 @@ def black_results(request):
     paginator = Paginator(black_voters, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'results/black_results.html', {'voters': page_obj, 'page_obj': page_obj, "sum_black_result": sum_black_result, "percent_black": percent_black})
+    return render(request, 'results/black_results.html',
+                  {'voters': page_obj, 'page_obj': page_obj, "sum_black_result": sum_black_result,
+                   "percent_black": percent_black})
 
 
 @login_required(login_url='accounts/login/')
@@ -246,7 +255,9 @@ def white_results(request):
     paginator = Paginator(white_voters, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'results/white_results.html', {'voters': page_obj, 'page_obj': page_obj, "sum_white_result": sum_white_result, "percent_white": percent_white})
+    return render(request, 'results/white_results.html',
+                  {'voters': page_obj, 'page_obj': page_obj, "sum_white_result": sum_white_result,
+                   "percent_white": percent_white})
 
 
 @login_required(login_url='accounts/login/')
@@ -300,6 +311,7 @@ def purple(request):
         return render(request, 'registration/purple_pay.html')
     return render(request, 'registration/purple.html', {"url": confirmation_url})
 
+
 def purple_results(request):
     purple_voters = Choose.objects.filter(count_purple__gte=1)
 
@@ -315,7 +327,9 @@ def purple_results(request):
     paginator = Paginator(purple_voters, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'results/purple_results.html', {'voters': page_obj, 'page_obj': page_obj, "sum_purple_result": sum_purple_result, "percent_purple": percent_purple})
+    return render(request, 'results/purple_results.html',
+                  {'voters': page_obj, 'page_obj': page_obj, "sum_purple_result": sum_purple_result,
+                   "percent_purple": percent_purple})
 
 
 class Profile(TemplateView):
@@ -340,6 +354,7 @@ class Comment2(TemplateView):
         context['somebody'] = somebody
 
         return context
+
 
 def payeer(request):
     return render(request, 'registration/payeer_1620555063.txt')
