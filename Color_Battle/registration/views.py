@@ -117,6 +117,27 @@ def black(request):
     # payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
     # payment_one = Payment.find_one(payment_id)
 
+    # payment = Payment.create({
+    #     "amount": {
+    #         "value": "2.00",
+    #         "currency": "RUB"
+    #     },
+    #     "payment_method_data": {
+    #         "type": "bank_card"
+    #     },
+    #     "confirmation": {
+    #         "type": "embedded",
+    #
+    #     },
+    #
+    #     "id": idempotence_key,
+    #     "capture": True,
+    #     # "response_type": "code",
+    #     # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
+    #
+    #     "description": "Заказ №72"
+    # }, )
+
     payment = Payment.create({
         "amount": {
             "value": "2.00",
@@ -130,7 +151,7 @@ def black(request):
     })
     print(idempotence_key)
     # print(vars(payment_one))
-    confirmation_url = payment.confirmation.confirmation_url
+    # confirmation_url = payment.confirmation.confirmation_url
 
     if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
         value, created = Choose.objects.get_or_create(voter=request.user)
@@ -150,7 +171,7 @@ def black(request):
         return render(request, 'registration/black.html')
     # event_json = json.loads(request.body)
     # print(event_json)
-    return render(request, 'registration/black_pay.html', {"url": confirmation_url})
+    return render(request, 'registration/black_pay.html') #{"url": confirmation_url})
 
 
 def black_results(request):
