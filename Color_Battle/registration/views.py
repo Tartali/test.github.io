@@ -122,21 +122,12 @@ def black(request):
             "value": "2.00",
             "currency": "RUB"
         },
-        "payment_method_data": {
-            "type": "bank_card"
-        },
         "confirmation": {
-            "type": "embedded",
-            # "return_url": "http://127.0.0.1:8000/"
+            "type": "embedded"
         },
-
-        "id": idempotence_key,
         "capture": True,
-        # "response_type": "code",
-        # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
-
         "description": "Заказ №72"
-    }, )
+    })
     print(idempotence_key)
     # print(vars(payment_one))
     confirmation_url = payment.confirmation.confirmation_url
