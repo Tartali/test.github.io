@@ -30,6 +30,7 @@ from yookassa.domain.common.user_agent import Version
 @csrf_exempt  # event_json["object"]["status"]
 def event(request):
     event_json = json.loads(request.body)
+    print(event_json)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
     # request.session['status'] = "succeed"
