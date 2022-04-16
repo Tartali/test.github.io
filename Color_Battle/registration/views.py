@@ -105,6 +105,9 @@ def callback_payment(request):
             print("Делаем")
 
 
+def widget(request):
+    return render(request, 'registration/yookassa_widget.html')
+
 @login_required(login_url='accounts/login/')
 def black(request):
     Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
@@ -141,7 +144,7 @@ def black(request):
 
     print(idempotence_key)
     # print(vars(payment_one))
-    confirmation_url = payment.confirmation.confirmation_url
+    confirmation_url = "http://127.0.0.1:8000/yookassa_widget/"
 
     if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
         value, created = Choose.objects.get_or_create(voter=request.user)

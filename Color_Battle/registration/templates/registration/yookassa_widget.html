@@ -23,29 +23,17 @@
   <p><a href=https://yookassa.ru/developers/payment-acceptance/testing-and-going-live/testing#test-bank-card>Другие тестовые банковские карты</a></p>
 
   <script>
-  //Инициализация виджета. Все параметры обязательные.
-  const checkout = new window.YooMoneyCheckoutWidget({
-      confirmation_token: 'ct-29ecfd03-000f-5000-9000-1ec1aaeffc98', //Токен, который перед проведением оплаты нужно получить от ЮKassa
-      return_url: 'https://example.com/', //Ссылка на страницу завершения оплаты, это может быть любая ваша страница
+    //Инициализация виджета. Все параметры обязательные.
+    const checkout = new window.YooMoneyCheckoutWidget({
+        confirmation_token: 'ct-29ecfd03-000f-5000-9000-1ec1aaeffc98', //Токен, который вы получили после создания платежа
+        return_url: 'https://yookassa.ru/', //Ссылка на страницу завершения оплаты
+        error_callback: function(error) {
+            console.log(error)
+        }
+    });
 
-      //При необходимости можно изменить цвета виджета, подробные настройки см. в документации
-       //customization: {
-        //Настройка цветовой схемы, минимум один параметр, значения цветов в HEX
-        //colors: {
-            //Цвет акцентных элементов: кнопка Заплатить, выбранные переключатели, опции и текстовые поля
-            //controlPrimary: '#00BF96', //Значение цвета в HEX
-
-            //Цвет платежной формы и ее элементов
-            //background: '#000000' //Значение цвета в HEX
-        //}
-      //},
-      error_callback: function(error) {
-          console.log(error)
-      }
-  });
-
-  //Отображение платежной формы в контейнере
-  checkout.render('payment-form');
+    //Отображение платежной формы в контейнере
+    checkout.render('payment-form');
   </script>
  </body>
 </html>
