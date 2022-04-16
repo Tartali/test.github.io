@@ -127,8 +127,8 @@ def black(request):
             "type": "bank_card"
         },
         "confirmation": {
-            "type": "embedded",
-
+            "type": "redirect",
+            "return_url": "https://test-my-site-id.herokuapp.com/"
         },
 
         "id": idempotence_key,
