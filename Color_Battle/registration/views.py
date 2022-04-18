@@ -18,7 +18,7 @@ from yookassa import Configuration, Payment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
-from django.http import HttpResponseForbidden, HttpResponse
+from django.http import HttpResponseForbidden, HttpResponse, request
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
@@ -26,9 +26,14 @@ from .models import Choose, Comment
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
-
 @csrf_exempt  # event_json["object"]["status"]
 def event(request):
+    # stat = "stat"
+    # global val
+    # def val():
+    #     return stat
+
+    mean, created = Choose.objects.get_or_create(voter=request.user)
     event_json = json.loads(request.body)
     print(event_json)
     notification_object = WebhookNotificationFactory().create(event_json)
@@ -41,7 +46,8 @@ def event(request):
         }
         print("Платеж успешен!!1!!11!!!")
         print(some_data)
-
+        mean.count_black += 1
+        mean.save()
         # main = "get"
         # return main
     elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
@@ -51,13 +57,14 @@ def event(request):
             'dealId': response_object.deal.id,
         }
         print("Успешно, но это PAYOUT_SUCCEEDED")
-    return HttpResponse(event.stat, status=200)
+    return HttpResponse(status=200)
 
-
-# var = event()
-
+# event(request)
 
 def home(request):
+    # b = val()
+    # print(b)
+
     if request.user.is_authenticated:
         value = Choose.objects.all()
         somebody, created = Choose.objects.get_or_create(voter=request.user)
@@ -73,7 +80,7 @@ def home(request):
         percent_black = int(sum_black['count_black__sum'] * 100 / all)
         percent_white = int(sum_white['count_white__sum'] * 100 / all)
         percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-
+        test = "TEST"
         context = {
             "value": value,
             "sum_black_result": sum_black_result,
@@ -82,7 +89,8 @@ def home(request):
             "percent_black": percent_black,
             "percent_white": percent_white,
             "percent_purple": percent_purple,
-            "somebody": somebody
+            "somebody": somebody,
+            "test": test
         }
 
         return render(request, 'registration/home.html', context)
@@ -106,7 +114,12 @@ def callback_payment(request):
 
 
 def widget(request):
-    return render(request, 'registration/yookassa_widget.html')
+    test = "TEST"
+    context = {
+
+        "test": test
+    }
+    return render(request, 'registration/yookassa_widget.html', context)
 
 @login_required(login_url='accounts/login/')
 def black(request):
@@ -126,15 +139,15 @@ def black(request):
             "value": "2.00",
             "currency": "RUB"
         },
-        "payment_method_data": {
-            "type": "bank_card"
-        },
+        # "payment_method_data": {
+        #     "type": "bank_card"
+        # },
         "confirmation": {
-            "type": "redirect",
-            "return_url": "https://test-my-site-id.herokuapp.com/"
+            "type": "embedded",
+           # "return_url": "https://test-my-site-id.herokuapp.com/"
         },
 
-        "id": idempotence_key,
+
         "capture": True,
         # "response_type": "code",
         # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",

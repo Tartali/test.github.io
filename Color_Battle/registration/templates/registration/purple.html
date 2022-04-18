@@ -1,12 +1,14 @@
 {% extends 'layout/base.html' %}
 {% load i18n %}
 {% load static %}
+{% block head %}<link rel="shortcut icon" type="image/png" href="{% static 'IMG/zico/purple_ico.ico' %}"/>{% endblock %}
 {% block home %}
 
 <head>
     <script src="https://codepen.io/steveg3003/pen/zBVakw"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="{% static 'IMG/zico/purple_ico.ico' %}"/>
 </head>
 
 <body bgcolor="#884ea3">
