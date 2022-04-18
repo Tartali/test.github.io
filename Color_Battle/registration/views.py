@@ -32,7 +32,7 @@ def event(request):
     # global val
     # def val():
     #     return stat
-
+    # for heroku
     mean, created = Choose.objects.get_or_create(voter=request.user)
     event_json = json.loads(request.body)
     print(event_json)
