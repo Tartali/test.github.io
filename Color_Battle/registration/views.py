@@ -43,9 +43,9 @@ def event(request):
         }
     return HttpResponse(status=200)
 
-request = ""
-
-event(request)
+# request = ""
+#
+# event(request)
 
 
 def home(request):
