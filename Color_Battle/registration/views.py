@@ -18,7 +18,7 @@ from yookassa import Configuration, Payment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
-from django.http import HttpResponseForbidden, HttpResponse, request
+from django.http import HttpResponseForbidden, HttpResponse
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
@@ -26,10 +26,7 @@ from .models import Choose, Comment
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
-event_json = json.loads(request.body)
-notification_object = WebhookNotificationFactory().create(event_json)
-response_object = notification_object.object
-print(event_json)
+
 @csrf_exempt  # event_json["object"]["status"]
 def event(request):
     event_json = json.loads(request.body)
@@ -43,12 +40,21 @@ def event(request):
         }
     return HttpResponse(status=200)
 
-# request = ""
-#
-# event(request)
 
 
+
+@csrf_exempt
 def home(request):
+    event_json = json.loads(request.body)
+    notification_object = WebhookNotificationFactory().create(event_json)
+    response_object = notification_object.object
+    # request.session['status'] = "succeed"
+    if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+        some_data = {
+            'paymentId': response_object.id,
+            'paymentStatus': response_object.status,
+        }
+
 
     if request.user.is_authenticated:
         value = Choose.objects.all()
