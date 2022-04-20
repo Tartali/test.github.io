@@ -26,16 +26,13 @@ from .models import Choose, Comment
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
+event_json = json.loads(request.body)
+notification_object = WebhookNotificationFactory().create(event_json)
+response_object = notification_object.object
+print(event_json)
 @csrf_exempt  # event_json["object"]["status"]
 def event(request):
-    # stat = "stat"
-    # global val
-    # def val():
-    #     return stat
-    # for heroku
-    mean, created = Choose.objects.get_or_create(voter=request.user)
     event_json = json.loads(request.body)
-    print(event_json)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
     # request.session['status'] = "succeed"
@@ -44,26 +41,14 @@ def event(request):
             'paymentId': response_object.id,
             'paymentStatus': response_object.status,
         }
-        print("Платеж успешен!!1!!11!!!")
-        print(some_data)
-        mean.count_black += 1
-        mean.save()
-        # main = "get"
-        # return main
-    elif notification_object.event == WebhookNotificationEventType.PAYOUT_SUCCEEDED:
-        some_data = {
-            'payoutId': response_object.id,
-            'payoutStatus': response_object.status,
-            'dealId': response_object.deal.id,
-        }
-        print("Успешно, но это PAYOUT_SUCCEEDED")
     return HttpResponse(status=200)
 
-# event(request)
+request = ""
+
+event(request)
+
 
 def home(request):
-    # b = val()
-    # print(b)
 
     if request.user.is_authenticated:
         value = Choose.objects.all()
