@@ -28,8 +28,8 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt  # event_json["object"]["status"]
 def event(request):
-    event_json = json.loads(request.body)
-    request.session['status'] = event_json
+    event_json = json.dump(request.body)
+
 
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
@@ -39,74 +39,45 @@ def event(request):
             'paymentId': response_object.id,
             'paymentStatus': response_object.status,
         }
+        request.session['status'] = some_data
     return HttpResponse(status=200)
 
+event(HttpRequest)
 
 def home(request):
-    try:
-        event = request.session['status']
-        print("HOME:", event)
-        if request.user.is_authenticated:
-            value = Choose.objects.all()
-            somebody, created = Choose.objects.get_or_create(voter=request.user)
-            sum_black = Choose.objects.aggregate(Sum('count_black'))
-            sum_white = Choose.objects.aggregate(Sum('count_white'))
-            sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+    event = request.session['status']
+    print("HOME:", event)
+    if request.user.is_authenticated:
+        value = Choose.objects.all()
+        somebody, created = Choose.objects.get_or_create(voter=request.user)
+        sum_black = Choose.objects.aggregate(Sum('count_black'))
+        sum_white = Choose.objects.aggregate(Sum('count_white'))
+        sum_purple = Choose.objects.aggregate(Sum('count_purple'))
 
-            sum_black_result = sum_black['count_black__sum']
-            sum_white_result = sum_white['count_white__sum']
-            sum_purple_result = sum_purple['count_purple__sum']
-            # print(var)
-            all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
-            percent_black = int(sum_black['count_black__sum'] * 100 / all)
-            percent_white = int(sum_white['count_white__sum'] * 100 / all)
-            percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-            test = "TEST"
-            context = {
-                "value": value,
-                "sum_black_result": sum_black_result,
-                "sum_white_result": sum_white_result,
-                "sum_purple_result": sum_purple_result,
-                "percent_black": percent_black,
-                "percent_white": percent_white,
-                "percent_purple": percent_purple,
-                "somebody": somebody,
-                "test": test
-            }
+        sum_black_result = sum_black['count_black__sum']
+        sum_white_result = sum_white['count_white__sum']
+        sum_purple_result = sum_purple['count_purple__sum']
+        # print(var)
+        all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+        percent_black = int(sum_black['count_black__sum'] * 100 / all)
+        percent_white = int(sum_white['count_white__sum'] * 100 / all)
+        percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+        test = "TEST"
+        context = {
+            "value": value,
+            "sum_black_result": sum_black_result,
+            "sum_white_result": sum_white_result,
+            "sum_purple_result": sum_purple_result,
+            "percent_black": percent_black,
+            "percent_white": percent_white,
+            "percent_purple": percent_purple,
+            "somebody": somebody,
+            "test": test
+        }
 
-            return render(request, 'registration/home.html', context)
-        else:
-            return render(request, 'registration/home.html')
-    except KeyError:
-        if request.user.is_authenticated:
-            value = Choose.objects.all()
-            somebody, created = Choose.objects.get_or_create(voter=request.user)
-            sum_black = Choose.objects.aggregate(Sum('count_black'))
-            sum_white = Choose.objects.aggregate(Sum('count_white'))
-            sum_purple = Choose.objects.aggregate(Sum('count_purple'))
-
-            sum_black_result = sum_black['count_black__sum']
-            sum_white_result = sum_white['count_white__sum']
-            sum_purple_result = sum_purple['count_purple__sum']
-            # print(var)
-            all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
-            percent_black = int(sum_black['count_black__sum'] * 100 / all)
-            percent_white = int(sum_white['count_white__sum'] * 100 / all)
-            percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-            context = {
-                "value": value,
-                "sum_black_result": sum_black_result,
-                "sum_white_result": sum_white_result,
-                "sum_purple_result": sum_purple_result,
-                "percent_black": percent_black,
-                "percent_white": percent_white,
-                "percent_purple": percent_purple,
-                "somebody": somebody,
-            }
-
-            return render(request, 'registration/home.html', context)
-        else:
-            return render(request, 'registration/home.html')
+        return render(request, 'registration/home.html', context)
+    else:
+        return render(request, 'registration/home.html')
 
 def callback_payment(request):
     if request.method == 'POST':
