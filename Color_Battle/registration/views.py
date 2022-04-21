@@ -30,7 +30,7 @@ from yookassa.domain.common.user_agent import Version
 def event(request):
     event_json = json.loads(request.body)
     request.session['status'] = event_json
-    print(event_json)
+
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
 
@@ -45,7 +45,7 @@ def event(request):
 def home(request):
     try:
         event = request.session['status']
-        print(event)
+        print("HOME:", event)
         if request.user.is_authenticated:
             value = Choose.objects.all()
             somebody, created = Choose.objects.get_or_create(voter=request.user)
@@ -93,7 +93,6 @@ def home(request):
             percent_black = int(sum_black['count_black__sum'] * 100 / all)
             percent_white = int(sum_white['count_white__sum'] * 100 / all)
             percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-            test = "TEST"
             context = {
                 "value": value,
                 "sum_black_result": sum_black_result,
@@ -103,7 +102,6 @@ def home(request):
                 "percent_white": percent_white,
                 "percent_purple": percent_purple,
                 "somebody": somebody,
-                "test": test
             }
 
             return render(request, 'registration/home.html', context)
