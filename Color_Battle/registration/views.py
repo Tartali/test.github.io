@@ -1,7 +1,7 @@
 import hashlib
 import uuid
 import json
-
+import requests
 import binascii
 from hashlib import sha256
 
@@ -18,7 +18,7 @@ from yookassa import Configuration, Payment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
-from django.http import HttpResponseForbidden, HttpResponse
+from django.http import HttpResponseForbidden, HttpResponse, request, JsonResponse, HttpRequest
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
@@ -29,10 +29,11 @@ from yookassa.domain.common.user_agent import Version
 @csrf_exempt  # event_json["object"]["status"]
 def event(request):
     event_json = json.loads(request.body)
+    request.session['status'] = event_json
     print(event_json)
     notification_object = WebhookNotificationFactory().create(event_json)
     response_object = notification_object.object
-    # request.session['status'] = "succeed"
+
     if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
         some_data = {
             'paymentId': response_object.id,
@@ -42,41 +43,72 @@ def event(request):
 
 
 def home(request):
+    try:
+        event = request.session['status']
+        print(event)
+        if request.user.is_authenticated:
+            value = Choose.objects.all()
+            somebody, created = Choose.objects.get_or_create(voter=request.user)
+            sum_black = Choose.objects.aggregate(Sum('count_black'))
+            sum_white = Choose.objects.aggregate(Sum('count_white'))
+            sum_purple = Choose.objects.aggregate(Sum('count_purple'))
 
+            sum_black_result = sum_black['count_black__sum']
+            sum_white_result = sum_white['count_white__sum']
+            sum_purple_result = sum_purple['count_purple__sum']
+            # print(var)
+            all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+            percent_black = int(sum_black['count_black__sum'] * 100 / all)
+            percent_white = int(sum_white['count_white__sum'] * 100 / all)
+            percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+            test = "TEST"
+            context = {
+                "value": value,
+                "sum_black_result": sum_black_result,
+                "sum_white_result": sum_white_result,
+                "sum_purple_result": sum_purple_result,
+                "percent_black": percent_black,
+                "percent_white": percent_white,
+                "percent_purple": percent_purple,
+                "somebody": somebody,
+                "test": test
+            }
 
+            return render(request, 'registration/home.html', context)
+        else:
+            return render(request, 'registration/home.html')
+    except KeyError:
+        if request.user.is_authenticated:
+            value = Choose.objects.all()
+            somebody, created = Choose.objects.get_or_create(voter=request.user)
+            sum_black = Choose.objects.aggregate(Sum('count_black'))
+            sum_white = Choose.objects.aggregate(Sum('count_white'))
+            sum_purple = Choose.objects.aggregate(Sum('count_purple'))
 
-    if request.user.is_authenticated:
-        value = Choose.objects.all()
-        somebody, created = Choose.objects.get_or_create(voter=request.user)
-        sum_black = Choose.objects.aggregate(Sum('count_black'))
-        sum_white = Choose.objects.aggregate(Sum('count_white'))
-        sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+            sum_black_result = sum_black['count_black__sum']
+            sum_white_result = sum_white['count_white__sum']
+            sum_purple_result = sum_purple['count_purple__sum']
+            # print(var)
+            all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+            percent_black = int(sum_black['count_black__sum'] * 100 / all)
+            percent_white = int(sum_white['count_white__sum'] * 100 / all)
+            percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+            test = "TEST"
+            context = {
+                "value": value,
+                "sum_black_result": sum_black_result,
+                "sum_white_result": sum_white_result,
+                "sum_purple_result": sum_purple_result,
+                "percent_black": percent_black,
+                "percent_white": percent_white,
+                "percent_purple": percent_purple,
+                "somebody": somebody,
+                "test": test
+            }
 
-        sum_black_result = sum_black['count_black__sum']
-        sum_white_result = sum_white['count_white__sum']
-        sum_purple_result = sum_purple['count_purple__sum']
-        # print(var)
-        all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
-        percent_black = int(sum_black['count_black__sum'] * 100 / all)
-        percent_white = int(sum_white['count_white__sum'] * 100 / all)
-        percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-        test = "TEST"
-        context = {
-            "value": value,
-            "sum_black_result": sum_black_result,
-            "sum_white_result": sum_white_result,
-            "sum_purple_result": sum_purple_result,
-            "percent_black": percent_black,
-            "percent_white": percent_white,
-            "percent_purple": percent_purple,
-            "somebody": somebody,
-            "test": test
-        }
-
-        return render(request, 'registration/home.html', context)
-    else:
-        return render(request, 'registration/home.html')
-
+            return render(request, 'registration/home.html', context)
+        else:
+            return render(request, 'registration/home.html')
 
 def callback_payment(request):
     if request.method == 'POST':
@@ -103,6 +135,8 @@ def widget(request):
 
 @login_required(login_url='accounts/login/')
 def black(request):
+
+    print(event)
     Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     # Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
@@ -119,16 +153,16 @@ def black(request):
             "value": "2.00",
             "currency": "RUB"
         },
-        # "payment_method_data": {
-        #     "type": "bank_card"
-        # },
+        "payment_method_data": {
+            "type": "bank_card"
+        },
         "confirmation": {
-            "type": "embedded",
-           # "return_url": "https://test-my-site-id.herokuapp.com/"
+            "type": "redirect",
+            "return_url": "http://127.0.0.1:8000/"
         },
 
-
-        "capture": True,
+        "id": idempotence_key,
+        # "capture": True,
         # "response_type": "code",
         # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
 
@@ -137,8 +171,8 @@ def black(request):
 
     print(idempotence_key)
     # print(vars(payment_one))
-    confirmation_url = "http://127.0.0.1:8000/yookassa_widget/"
-
+    # confirmation_url = "http://127.0.0.1:8000/yookassa_widget/"
+    confirmation_url = payment.confirmation.confirmation_url
     if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
         value, created = Choose.objects.get_or_create(voter=request.user)
 
