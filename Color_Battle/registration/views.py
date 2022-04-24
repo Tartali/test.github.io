@@ -41,7 +41,7 @@ def event(HttpRequest):
     #         'paymentStatus': response_object.status,
     #     }
         # request.session['status'] = some_data
-    return event.event_json
+    return HttpResponse(event.event_json)
 
 event(HttpRequest)
 print("Попытка:")
