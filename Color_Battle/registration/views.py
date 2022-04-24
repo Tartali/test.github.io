@@ -39,7 +39,7 @@ def event(HttpRequest):
     #         'paymentStatus': response_object.status,
     #     }
         # request.session['status'] = some_data
-    return HttpResponse(event_json, status=200)
+    return event_json
 
 event(HttpRequest)
 print("Вывод самой функции:", event(HttpRequest))
