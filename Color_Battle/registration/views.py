@@ -79,6 +79,7 @@ def home(request):
         else:
             return render(request, 'registration/home.html')
     except KeyError:
+        print("GOOOOOOOOOOMEEEEEEEEEE")
         if request.user.is_authenticated:
             value = Choose.objects.all()
             somebody, created = Choose.objects.get_or_create(voter=request.user)
