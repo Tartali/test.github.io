@@ -29,7 +29,7 @@ from yookassa.domain.common.user_agent import Version
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
     event_json = HttpRequest.body
-    print(event_json)
+    print("PRINT\n", event_json)
     # notification_object = WebhookNotificationFactory().create(event_json)
     # response_object = notification_object.object
     #
@@ -39,9 +39,10 @@ def event(HttpRequest):
     #         'paymentStatus': response_object.status,
     #     }
         # request.session['status'] = some_data
-    return HttpResponse(status=200)
+    return HttpResponse(event_json, status=200)
 
 event(HttpRequest)
+
 
 def home(request):
     try:
