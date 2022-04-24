@@ -30,6 +30,8 @@ from yookassa.domain.common.user_agent import Version
 def event(HttpRequest):
     event_json = HttpRequest.body
     print("PRINT\n", event_json)
+    event.event_json = event_json
+    print("event.event_json:\n", event.event_json)
     # notification_object = WebhookNotificationFactory().create(event_json)
     # response_object = notification_object.object
     #
@@ -42,8 +44,9 @@ def event(HttpRequest):
     return event_json
 
 event(HttpRequest)
+print("Попытка:")
 print("Вывод самой функции:", event(HttpRequest))
-
+print("event.event_json вызов вне функции: ", event.event_json)
 
 def home(request):
     try:
