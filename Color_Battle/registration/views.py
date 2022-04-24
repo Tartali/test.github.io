@@ -42,6 +42,7 @@ def event(HttpRequest):
     return HttpResponse(event_json, status=200)
 
 event(HttpRequest)
+print("Вывод самой функции:", event(HttpRequest))
 
 
 def home(request):
