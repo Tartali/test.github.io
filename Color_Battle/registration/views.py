@@ -18,7 +18,7 @@ from yookassa import Configuration, Payment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
-from django.http import HttpResponseForbidden, HttpResponse, request, JsonResponse, HttpRequest, response
+from django.http import HttpResponseForbidden, HttpResponse, request, JsonResponse, HttpRequest, response, QueryDict
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
@@ -29,12 +29,15 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    event_json = HttpRequest.headers
-    d = event_json
+    event_json = HttpRequest.body
+    d = str(event_json)
+    QueryDict(d)
+    print("QueryDict", QueryDict)
     # dic = dict(d)
     # print("Выозов D: ")
     event.event_json = event_json
     var_dump.var_dump(event_json)
+
     # notification_object = WebhookNotificationFactory().create(event_json)
     # response_object = notification_object.object
     #
