@@ -18,7 +18,8 @@ from yookassa import Configuration, Payment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
-from django.http import HttpResponseForbidden, HttpResponse, request, JsonResponse, HttpRequest, response, QueryDict
+from django.http import HttpResponseForbidden, HttpResponse, request, JsonResponse, response, QueryDict, \
+    HttpResponseBadRequest
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth.models import User
 from .models import Choose, Comment
@@ -27,40 +28,21 @@ from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
 
 
+
+
 @csrf_exempt  # event_json["object"]["status"]
-def event(HttpRequest):
-    event_json = HttpRequest.body
-    print(type("TYPE: ", event_json))
-    # bytes_in = event_json
-    # dict_out = json.loads(bytes_in.decode('utf-8'))
-    # d = dict(event_json) # 'property' object is not iterable
-    # u = event_json.decode('UTF-8') # 'property' object has no attribute 'decode'
-    # print(json.loads(d))
-    # q = QueryDict(d)
-    # print("QueryDict", q.dict())
-    # q.dict()
+def event(request):
+    if request.method != "POST":
+        return HttpResponseBadRequest("POST request expected")
+    event_json = request.read()
+    print(event_json)
+    data = json.loads(event_json)
+    print("DATA: ", data)
 
-
-    # dic = dict(d)
-    # print("Выозов D: ")
-    event.event_json = event_json
-    var_dump.var_dump(event_json)
-
-    # notification_object = WebhookNotificationFactory().create(event_json)
-    # response_object = notification_object.object
-    #
-    # if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
-    #     some_data = {
-    #         'paymentId': response_object.id,
-    #         'paymentStatus': response_object.status,
-    #     }
-        # request.session['status'] = some_data
-    return HttpResponse(event.event_json)
-
-event(HttpRequest)
+# event(request)
 print("Попытка:")
-print("Вывод самой функции:", event(HttpRequest))
-print("event.event_json вызов вне функции: ", event.event_json)
+# print("Вывод самой функции:", event(HttpRequest))
+# print("event.event_json вызов вне функции: ", event.event_json)
 
 def home(request):
     try:
