@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 19:43+0300\n"
+"POT-Creation-Date: 2022-04-25 07:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -320,6 +320,13 @@ msgstr ""
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr ""
+
+#: .\templates\account\signup.html:71
+msgid ""
+"Observe this for successful registration: You cannot enter the mail that the "
+"account already uses on this site, do not write simple and common passwords, "
+"the maximum length of the name = 20 characters"
+msgstr "Observe esto para un registro exitoso: No puede ingresar el correo que la cuenta ya usa en este sitio, no escriba contraseñas simples y comunes, la longitud máxima del nombre = 20 caracteres"
 
 #: .\templates\account\signup_closed.html:5
 #: .\templates\account\signup_closed.html:8

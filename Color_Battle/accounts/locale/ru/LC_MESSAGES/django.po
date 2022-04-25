@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 16:37+0300\n"
+"POT-Creation-Date: 2022-04-25 07:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,6 +165,7 @@ msgstr ""
 
 #: .\templates\account\login.html:15 .\templates\account\logout.html:22
 #: .\templates\account\password_reset.html:23
+#: .\templates\account\verification_sent.html:10
 msgid "Back"
 msgstr ""
 
@@ -322,6 +323,13 @@ msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr ""
 
+#: .\templates\account\signup.html:71
+msgid ""
+"Observe this for successful registration: You cannot enter the mail that the "
+"account already uses on this site, do not write simple and common passwords, "
+"the maximum length of the name = 20 characters"
+msgstr "Соблюдайте это для успешной регистрации: Вы не можете вводить почту, которую учетная запись уже использует на этом сайте, не создавайте простые и распространенные пароли, максимальная длина имени = 20 символов"
+
 #: .\templates\account\signup_closed.html:5
 #: .\templates\account\signup_closed.html:8
 msgid "Sign Up Closed"
@@ -341,7 +349,7 @@ msgid "you are already logged in as %(user_display)s."
 msgstr ""
 
 #: .\templates\account\verification_sent.html:5
-#: .\templates\account\verification_sent.html:9
+#: .\templates\account\verification_sent.html:14
 #: .\templates\account\verified_email_required.html:5
 #: .\templates\account\verified_email_required.html:8
 msgid "Verify Your E-mail Address"
