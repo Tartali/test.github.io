@@ -32,7 +32,7 @@ def event(HttpRequest):
     event_json = HttpRequest.body
     d = str(event_json)
     q = QueryDict(d)
-    print("QueryDict", dict(q))
+    print("QueryDict", q.dict())
     # dic = dict(d)
     # print("Выозов D: ")
     event.event_json = event_json
