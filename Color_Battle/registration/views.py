@@ -31,8 +31,8 @@ from yookassa.domain.common.user_agent import Version
 def event(HttpRequest):
     event_json = HttpRequest.body
     d = str(event_json)
-    QueryDict(d)
-    print("QueryDict", QueryDict)
+    q = QueryDict(d)
+    print("QueryDict", dict(q))
     # dic = dict(d)
     # print("Выозов D: ")
     event.event_json = event_json
