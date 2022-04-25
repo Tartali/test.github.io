@@ -30,7 +30,7 @@ from yookassa.domain.common.user_agent import Version
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
     event_json = HttpRequest.body
-    print(type(event_json))
+    print(type("TYPE: ", event_json))
     # bytes_in = event_json
     # dict_out = json.loads(bytes_in.decode('utf-8'))
     # d = dict(event_json) # 'property' object is not iterable
