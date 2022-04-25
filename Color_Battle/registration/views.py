@@ -29,10 +29,11 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    event_json = HttpRequest.body
-    print("PRINT\n", event_json)
+    event_json = HttpRequest.headers
+    d = event_json
+    # dic = dict(d)
+    # print("Выозов D: ")
     event.event_json = event_json
-
     var_dump.var_dump(event_json)
     # notification_object = WebhookNotificationFactory().create(event_json)
     # response_object = notification_object.object
