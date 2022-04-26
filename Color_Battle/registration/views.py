@@ -29,7 +29,7 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    event_json = request.HttpRequest.body
+    event_json = HttpRequest.body
     print(event_json)
 
         # request.session['status'] = some_data
