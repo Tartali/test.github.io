@@ -31,7 +31,7 @@ from yookassa.domain.common.user_agent import Version
 def event(HttpRequest):
     try:
         event_json = dict(HttpRequest.body)
-        print(event_json)
+        print("TRY:", event_json)
         notification_object = WebhookNotificationFactory().create(event_json)
         response_object = notification_object.object
         if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
