@@ -29,16 +29,18 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    event_json = HttpRequest.user
+    event_json = request.HttpRequest.body
     print(event_json)
 
         # request.session['status'] = some_data
-    return HttpResponse(event_json)
+    return event_json
 
-# event(HttpRequest)
+
+event(HttpRequest)
 # print("Попытка:")
 # print("Вывод самой функции:", event(HttpRequest))
 # print("event.event_json вызов вне функции: ", event.event_json)
+
 
 def home(request):
     try:
