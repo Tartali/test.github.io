@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 20:07+0300\n"
+"POT-Creation-Date: 2022-05-01 21:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\templates\403\black.html:17 .\templates\403\purple.html:15
-#: .\templates\403\white.html:17 .\templates\django_comments_xtd\reply.html:15
-#: .\templates\registration\black.html:13
-#: .\templates\registration\black_pay.html:12
-#: .\templates\registration\comments.html:343
+#: .\templates\403\white.html:17 .\templates\avatar\add.html:8
+#: .\templates\avatar\change.html:10 .\templates\avatar\confirm_delete.html:11
+#: .\templates\django_comments_xtd\reply.html:15
+#: .\templates\registration\black.html:14
+#: .\templates\registration\black_pay.html:18
+#: .\templates\registration\comments.html:362
 #: .\templates\registration\profile.html:29
-#: .\templates\registration\purple.html:17
-#: .\templates\registration\purple_pay.html:11
-#: .\templates\registration\white.html:11
-#: .\templates\registration\white_pay.html:11
+#: .\templates\registration\purple.html:19
+#: .\templates\registration\purple_pay.html:19
+#: .\templates\registration\white.html:12
+#: .\templates\registration\white_pay.html:14
 #: .\templates\results\black_results.html:28
 #: .\templates\results\black_results.html:53
 #: .\templates\results\purple_results.html:29
@@ -47,23 +49,23 @@ msgstr "Jammer, jy kan net 1 keer stem"
 msgid "Results"
 msgstr "Resultate"
 
-#: .\templates\avatar\add.html:5 .\templates\avatar\change.html:14
+#: .\templates\avatar\add.html:11 .\templates\avatar\change.html:15
 msgid "Your current avatar: "
 msgstr ""
 
-#: .\templates\avatar\add.html:8 .\templates\avatar\change.html:17
+#: .\templates\avatar\add.html:14 .\templates\avatar\change.html:18
 msgid "You haven't uploaded an avatar yet. Please upload one now."
 msgstr ""
 
-#: .\templates\avatar\add.html:12 .\templates\avatar\change.html:30
-msgid "Upload New Image"
-msgstr ""
-
-#: .\templates\avatar\change.html:25
+#: .\templates\avatar\change.html:26
 msgid "Choose new Default"
 msgstr ""
 
-#: .\templates\avatar\change.html:35
+#: .\templates\avatar\change.html:31
+msgid "Upload New Image"
+msgstr ""
+
+#: .\templates\avatar\change.html:36
 msgid "Delete Avatar"
 msgstr ""
 
@@ -365,81 +367,92 @@ msgstr ""
 msgid "Leave a response to the user's comment"
 msgstr "Laat 'n antwoord op die gebruiker se opmerking"
 
-#: .\templates\registration\black.html:18
+#: .\templates\registration\black.html:19
 #, fuzzy
 #| msgid "Choose"
 msgid "Choose black"
 msgstr "Kies"
 
-#: .\templates\registration\black.html:25
-#: .\templates\registration\black_pay.html:28
-#: .\templates\registration\purple.html:28
-#: .\templates\registration\purple_pay.html:22
-#: .\templates\registration\white.html:26
-#: .\templates\registration\white_pay.html:22
+#: .\templates\registration\black.html:26
+#: .\templates\registration\black_pay.html:35
+#: .\templates\registration\black_pay.html:43
+#: .\templates\registration\purple.html:30
+#: .\templates\registration\purple_pay.html:32
+#: .\templates\registration\purple_pay.html:40
+#: .\templates\registration\white.html:27
+#: .\templates\registration\white_pay.html:27
+#: .\templates\registration\white_pay.html:35
 msgid "Choose"
 msgstr "Kies"
 
-#: .\templates\registration\black.html:35
-#: .\templates\registration\black_pay.html:37
+#: .\templates\registration\black.html:36
+#: .\templates\registration\black_pay.html:52
 msgid "Enjoy the black"
 msgstr "Geniet die swart"
 
-#: .\templates\registration\black_pay.html:21
+#: .\templates\registration\black_pay.html:27
 msgid "Choose black for 1$ dollar"
 msgstr "Kies swart vir $ 1 dollar"
 
-#: .\templates\registration\comments.html:347
+#: .\templates\registration\black_pay.html:102
+#: .\templates\registration\home.html:100
+#: .\templates\registration\home.html:110
+#: .\templates\registration\white.html:53
+msgid ""
+"Here you will see the votes for the color of all users, after you vote "
+"yourself"
+msgstr ""
+"Hier sal jy die stemme vir die kleur van alle gebruikers sien, nadat jy self "
+"gestem het"
+
+#: .\templates\registration\comments.html:368
 msgid ""
 "You will not be able to edit or delete your comment. Think before you write"
 msgstr ""
 "Jy sal nie jou opmerking kan uitvee of verander nie. Dink voor jy skryf"
 
-#: .\templates\registration\comments.html:352
+#: .\templates\registration\comments.html:373
 msgid "Since you didn't vote, you will be shown the first 50 comments."
 msgstr ""
 "Aangesien jy nie gestem het nie, sal die eerste 50 opmerkings aan jou gewys "
 "word."
 
-#: .\templates\registration\home.html:25
+#: .\templates\registration\home.html:27
 msgid "Logout"
 msgstr "Teken uit"
 
-#: .\templates\registration\home.html:37
+#: .\templates\registration\home.html:39
 msgid "Login"
 msgstr "teken aan"
 
-#: .\templates\registration\home.html:53
+#: .\templates\registration\home.html:55
 msgid "or"
 msgstr "of"
 
-#: .\templates\registration\home.html:59
+#: .\templates\registration\home.html:61
 msgid "Black"
 msgstr "Swart"
 
-#: .\templates\registration\home.html:65
+#: .\templates\registration\home.html:67
 msgid "White"
 msgstr "Wit"
 
-#: .\templates\registration\home.html:98 .\templates\registration\home.html:108
-msgid ""
-"Here you will see the votes for the color of all users, after you vote "
-"yourself"
-msgstr "Hier sal jy die stemme vir die kleur van alle gebruikers sien, nadat jy self gestem het"
-
-#: .\templates\registration\home.html:118
+#: .\templates\registration\home.html:120
 msgid ""
 "This site was created in order to find out which color people like more. "
 "Black or White? Everyone likes these 2 colors, but which one do you like the "
 "most?"
-msgstr "Hierdie webwerf is geskep om uit te vind van watter kleur mense meer hou. Swart of wit? Almal hou van hierdie 2 kleure, maar van watter een hou jy die meeste?"
+msgstr ""
+"Hierdie webwerf is geskep om uit te vind van watter kleur mense meer hou. "
+"Swart of wit? Almal hou van hierdie 2 kleure, maar van watter een hou jy die "
+"meeste?"
 
-#: .\templates\registration\home.html:119
+#: .\templates\registration\home.html:121
 msgid "You can only vote 1 time by paying 1 USD"
 msgstr "Jy kan net 1 keer stem deur 1 USD te betaal"
 
-#: .\templates\registration\home.html:172
 #: .\templates\registration\home.html:174
+#: .\templates\registration\home.html:176
 msgid "Comments"
 msgstr "Kommentaar"
 
@@ -477,33 +490,36 @@ msgstr "Meld aan"
 msgid "Sign Up"
 msgstr "Teken aan"
 
-#: .\templates\registration\purple.html:22
-#: .\templates\registration\purple_pay.html:16
+#: .\templates\registration\purple.html:24
+#: .\templates\registration\purple_pay.html:24
 msgid "Wow, you're an original"
 msgstr "Sjoe, jy is 'n oorspronklike"
 
-#: .\templates\registration\purple.html:23
-#: .\templates\registration\purple_pay.html:17
-msgid "Choose purple for 1$ dollar"
-msgstr "Kies pers vir $ 1 dollar"
+#: .\templates\registration\purple.html:25
+msgid "Choose purple"
+msgstr "Kies pers"
 
-#: .\templates\registration\purple.html:35
-#: .\templates\registration\purple_pay.html:30
+#: .\templates\registration\purple.html:37
+#: .\templates\registration\purple_pay.html:48
 msgid "Enjoy the purple"
 msgstr "Geniet die pers"
 
-#: .\templates\registration\white.html:20
+#: .\templates\registration\purple_pay.html:25
+msgid "Choose purple for 1$ dollar"
+msgstr "Kies pers vir $ 1 dollar"
+
+#: .\templates\registration\white.html:21
 #, fuzzy
 #| msgid "Choose"
 msgid "Choose white"
 msgstr "Kies"
 
-#: .\templates\registration\white.html:34
-#: .\templates\registration\white_pay.html:31
+#: .\templates\registration\white.html:35
+#: .\templates\registration\white_pay.html:45
 msgid "Enjoy the white"
 msgstr "Het vir wit gestem"
 
-#: .\templates\registration\white_pay.html:16
+#: .\templates\registration\white_pay.html:19
 msgid "Choose white for 1$ dollar"
 msgstr "Kies wit vir 1$ dollar"
 
@@ -530,6 +546,3 @@ msgstr "Gebruikers wat pers gekies het"
 #: .\templates\results\white_results.html:32
 msgid "Users who chose white"
 msgstr "Gebruikers wat wit gekies het"
-
-
-

@@ -1,5 +1,6 @@
 {% extends 'layout/base.html' %}
 {% load i18n %}
+{% load static %}
 {% block head %}<link rel="shortcut icon" type="image/png" href="{% static 'IMG/zico/purple_ico.ico' %}"/>{% endblock %}
 {% block home %}
 
@@ -21,32 +22,58 @@
     <div class="block_p">
     <div class="sss">
         <h1 style="color: #331c2a" align="center">{% trans "Wow, you're an original" %}</h1><br>
-        <h1 style="color: #331c2a">{% trans "Choose purple for 1$ dollar" %}</h1><br>
-        <form method="post">
+        <h1 style="color: #331c2a;word-wrap: break-word;">{% trans "Choose purple for 1$ dollar" %}</h1><br>
+        <form method="post"> <!--purple_pay-->
         {% csrf_token %}
-            <button class="button_p" name="choose" value="purple" type="button">
+        {% if user.is_authenticated %}
+            <a href="{{ url }}">
+            <button class="button_p" name="choose" type="button" value="purple">
             <h1 class="text_button">
                 <b>{% trans "Choose" %}</b>
             </h1>
             </button>
-
+            </a>
+            {% else %}
+            <a href="{% url 'account_login' %}">
+            <button class="button_p" name="choose" type="button" value="purple">
+            <h1 class="text_button">
+                <b>{% trans "Choose" %}</b>
+            </h1>
+            </button>
+            </a>
+            {% endif %}
         </form>
     </div>
     </div>
-
-         <button style="width: 100%;" type="button" onmousedown="viewDiv()" class="none_div"><h1><b>{% trans "Enjoy the black" %}</b></h1></button>
+    <button type="button" onmousedown="viewDiv()" class="none_div_p"><h1><b>{% trans "Enjoy the purple" %}</b></h1></button>
 
         <div id="div1">
 
             <div class="jillyfish"></div>
             <div class="snake_div">
-             <section class="snakeTable"></section>
-                <!-- modular window before and after games -->
-                <section class="modul">
-                  <div class="start">
-                    <span><b><b><b>➤➤</b></b></b></span>
-                  </div>
-                </section>
+                <div class="width_snake">
+                 <section class="snakeTable"></section>
+                    <!-- modular window before and after games -->
+                    <section class="modul">
+                      <div class="start">
+                        <span><b><b><b>➤➤</b></b></b></span>
+                      </div>
+                    </section>
+                </div>
+
+                <div class="width_town">
+                      <div id="container">
+                      <div id="game"></div>
+                      <div id="score">0</div>
+                      <div class="game-over">
+                        <h2>o_0</h2>
+                      </div>
+                      <div class="game-ready">
+                        <div id="start-button">>></div>
+                        <div></div>
+                      </div>
+                    </div>
+                </div>
             </div>
             <div class="oke"></div>
             <div class="arhi"></div>
@@ -56,18 +83,15 @@
             <div><video src="{% static 'IMG/Purple/anim (video-converter.com).mp4' %}" class="anim" autoplay loop muted></video></div>
 
         </div>
-
 <!--    <div class="result">-->
 <!--        <h1 style="color: #331c2a" align="center">{{ value.count_purple }} ({{ percent_purple}})%</h1>-->
 <!--    </div>-->
-
 </font>
 </div>
 </body>
 
 <script src="{% static 'CSS/snake.js' %}"></script>
 <script src="{% static 'CSS/town.js' %}"></script>
-
 <script>
        function assign(){
        document.location.assign("{{ url }}");

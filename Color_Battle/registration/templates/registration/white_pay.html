@@ -20,12 +20,23 @@
 
     <form method="POST">
     {% csrf_token %}
+        {% if user.is_authenticated %}
+        <a href="{{ url }}">
         <button  class="button_w" name="choose" type="button" value="white">
             <h1>
             <b>{% trans "Choose" %}</b>
             </h1>
         </button>
-
+        </a>
+        {% else %}
+         <a href="{% url 'account_login' %}">
+             <button  class="button_w" name="choose" type="button" value="white">
+            <h1>
+            <b>{% trans "Choose" %}</b>
+            </h1>
+        </button>
+         </a>
+        {%  endif %}
     </form>
 
     </div>
@@ -48,6 +59,25 @@
 
 </font>
 </div>
+    <script>
+    let popup = document.getElementById('mypopup_b'),
+    popupToggle = document.getElementById('myBtn_b'),
+    popupClose = document.querySelector('.close_b');
+
+    popupToggle.onclick = function() {
+     popup.style.display="block";
+    };
+
+    popupClose.onclick = function() {
+     popup.style.display="none";
+    }
+
+    function viewDiv(){
+     document.getElementById("div1").style.display = "block";
+    };
+    </script>
+
+<script src="{% static 'CSS/paint.js' %}"></script>
 </body>
 
 {% endblock %}

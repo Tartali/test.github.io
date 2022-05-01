@@ -203,58 +203,78 @@ def black_results(request):
                    "percent_black": percent_black})
 
 
-@login_required(login_url='accounts/login/')
 def white(request):
-    Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
-    Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
+    if event.s == "succeed":
+        if request.user.is_authenticated:
+            value, created = Choose.objects.get_or_create(voter=request.user)
 
-    idempotence_key = str(uuid.uuid4())
+            if request.method == 'POST':
+                select_action = request.POST['choose']
 
-    payment_id = '29886c50-000f-5000-8000-113bdfdebe75'
-    payment_one = Payment.find_one(payment_id)
+                if select_action == 'white':
+                    value.count_white += 1
+                    value.save()
 
-    dict_payment = {'_PaymentResponse__id': '29886c50-000f-5000-8000-113bdfdebe75',
-                    '_PaymentResponse__status': 'succeeded'}
+                return redirect("home")
 
-    payment = Payment.create({
-        "amount": {
-            "value": "2.00",
-            "currency": "RUB"
-        },
-        "payment_method_data": {
-            "type": "bank_card"
-        },
-        "confirmation": {
-            "type": "redirect",
-            "return_url": "https://test-my-site-id.herokuapp.com/"
-        },
+            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
+                return render(request, '403/white.html')
+        else:
+            return render(request, 'registration/white_pay.html')
 
-        "capture": True,
-
-        "description": "Заказ №72"
-    }, idempotence_key)
-
-    confirmation_url = payment.confirmation.confirmation_url
-
-    if dict_payment['_PaymentResponse__status'] == 'succeeded':
-        value, created = Choose.objects.get_or_create(voter=request.user)
-
-        if request.method == 'POST':
-            select_action = request.POST['choose']
-
-            if select_action == 'white':
-                value.count_white += 1
-                value.save()
-
-            return redirect("home")
-
-        if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
-            return render(request, '403/white.html')
+        return render(request, 'registration/white.html')
 
     else:
-        return render(request, 'registration/white_pay.html')
+        Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+        Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
-    return render(request, 'registration/white.html', {"url": confirmation_url})
+        idempotence_key = str(uuid.uuid4())
+
+        payment_id = '29886c50-000f-5000-8000-113bdfdebe75'
+        payment_one = Payment.find_one(payment_id)
+
+        dict_payment = {'_PaymentResponse__id': '29886c50-000f-5000-8000-113bdfdebe75',
+                        '_PaymentResponse__status': 'succeeded'}
+
+        payment = Payment.create({
+            "amount": {
+                "value": "2.00",
+                "currency": "RUB"
+            },
+            "payment_method_data": {
+                "type": "bank_card"
+            },
+            "confirmation": {
+                "type": "redirect",
+                "return_url": "https://test-my-site-id.herokuapp.com/"
+            },
+
+            "capture": True,
+
+            "description": "Заказ №72"
+        }, idempotence_key)
+
+        confirmation_url = payment.confirmation.confirmation_url
+
+        if request.user.is_authenticated:
+            value, created = Choose.objects.get_or_create(voter=request.user)
+
+            if request.method == 'POST':
+                select_action = request.POST['choose']
+
+                if select_action == 'white':
+                    value.count_white += 1
+                    value.save()
+
+                return redirect("home")
+
+            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
+                return render(request, '403/white.html')
+
+        else:
+            return render(request, 'registration/white_pay.html')
+
+        return render(request, 'registration/white_pay.html', {"url": confirmation_url})
 
 
 def white_results(request):
@@ -279,56 +299,71 @@ def white_results(request):
                    "percent_white": percent_white})
 
 
-@login_required(login_url='accounts/login/')
 def purple(request):
-    Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
-    Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
+    if event.s == "succeed":
+        if request.user.is_authenticated:
+            value, created = Choose.objects.get_or_create(voter=request.user)
 
-    idempotence_key = str(uuid.uuid4())
+            if request.method == 'POST':
+                select_action = request.POST['choose']
 
-    payment_id = '29886c50-000f-5000-8000-113bdfdebe75'
-    payment_one = Payment.find_one(payment_id)
+                if select_action == 'purple':
+                    value.count_purple += 1
+                    value.save()
 
-    dict_payment = vars(payment_one)
+                return redirect("home")
 
-    payment = Payment.create({
-        "amount": {
-            "value": "2.00",
-            "currency": "RUB"
-        },
-        "payment_method_data": {
-            "type": "bank_card"
-        },
-        "confirmation": {
-            "type": "redirect",
-            "return_url": "https://test-my-site-id.herokuapp.com/"
-        },
+            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
+                return render(request, '403/purple.html')
 
-        "capture": True,
-
-        "description": "Заказ №72"
-    }, idempotence_key)
-
-    confirmation_url = payment.confirmation.confirmation_url
-
-    if dict_payment['_PaymentResponse__status'] == 'succeeded':
-        value, created = Choose.objects.get_or_create(voter=request.user)
-
-        if request.method == 'POST':
-            select_action = request.POST['choose']
-
-            if select_action == 'purple':
-                value.count_purple += 1
-                value.save()
-
-            return redirect("home")
-
-        if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
-            return render(request, '403/purple.html')
+        else:
+            return render(request, 'registration/purple_pay.html')
+        return render(request, 'registration/purple.html')
 
     else:
-        return render(request, 'registration/purple_pay.html')
-    return render(request, 'registration/purple.html', {"url": confirmation_url})
+        Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
+        Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
+
+        idempotence_key = str(uuid.uuid4())
+
+        payment = Payment.create({
+            "amount": {
+                "value": "2.00",
+                "currency": "RUB"
+            },
+            "payment_method_data": {
+                "type": "bank_card"
+            },
+            "confirmation": {
+                "type": "redirect",
+                "return_url": "https://test-my-site-id.herokuapp.com/"
+            },
+
+            "capture": True,
+
+            "description": "Заказ №72"
+        }, idempotence_key)
+
+        confirmation_url = payment.confirmation.confirmation_url
+
+        if request.user.is_authenticated:
+            value, created = Choose.objects.get_or_create(voter=request.user)
+
+            if request.method == 'POST':
+                select_action = request.POST['choose']
+
+                if select_action == 'purple':
+                    value.count_purple += 1
+                    value.save()
+
+                return redirect("home")
+
+            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
+                return render(request, '403/purple.html')
+
+        else:
+            return render(request, 'registration/purple_pay.html')
+        return render(request, 'registration/purple_pay.html', {"url": confirmation_url})
 
 
 def purple_results(request):

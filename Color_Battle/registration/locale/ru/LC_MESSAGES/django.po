@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 19:26+0300\n"
+"POT-Creation-Date: 2022-05-01 21:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,17 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: .\templates\403\black.html:17 .\templates\403\purple.html:15
-#: .\templates\403\white.html:17 .\templates\django_comments_xtd\reply.html:15
-#: .\templates\registration\black.html:13
-#: .\templates\registration\black_pay.html:12
-#: .\templates\registration\comments.html:343
+#: .\templates\403\white.html:17 .\templates\avatar\add.html:8
+#: .\templates\avatar\change.html:10 .\templates\avatar\confirm_delete.html:11
+#: .\templates\django_comments_xtd\reply.html:15
+#: .\templates\registration\black.html:14
+#: .\templates\registration\black_pay.html:18
+#: .\templates\registration\comments.html:362
 #: .\templates\registration\profile.html:29
-#: .\templates\registration\purple.html:17
-#: .\templates\registration\purple_pay.html:11
-#: .\templates\registration\white.html:11
-#: .\templates\registration\white_pay.html:11
+#: .\templates\registration\purple.html:19
+#: .\templates\registration\purple_pay.html:19
+#: .\templates\registration\white.html:12
+#: .\templates\registration\white_pay.html:14
 #: .\templates\results\black_results.html:28
 #: .\templates\results\black_results.html:53
 #: .\templates\results\purple_results.html:29
@@ -41,7 +43,6 @@ msgstr "Назад"
 
 #: .\templates\403\black.html:21 .\templates\403\purple.html:20
 #: .\templates\403\white.html:21
-
 msgid "Sorry, you can only vote 1 time"
 msgstr "Вы можете проголосовать только 1 раз"
 
@@ -50,23 +51,23 @@ msgstr "Вы можете проголосовать только 1 раз"
 msgid "Results"
 msgstr "Результаты"
 
-#: .\templates\avatar\add.html:5 .\templates\avatar\change.html:14
+#: .\templates\avatar\add.html:11 .\templates\avatar\change.html:15
 msgid "Your current avatar: "
 msgstr ""
 
-#: .\templates\avatar\add.html:8 .\templates\avatar\change.html:17
+#: .\templates\avatar\add.html:14 .\templates\avatar\change.html:18
 msgid "You haven't uploaded an avatar yet. Please upload one now."
 msgstr ""
 
-#: .\templates\avatar\add.html:12 .\templates\avatar\change.html:30
-msgid "Upload New Image"
-msgstr ""
-
-#: .\templates\avatar\change.html:25
+#: .\templates\avatar\change.html:26
 msgid "Choose new Default"
 msgstr ""
 
-#: .\templates\avatar\change.html:35
+#: .\templates\avatar\change.html:31
+msgid "Upload New Image"
+msgstr ""
+
+#: .\templates\avatar\change.html:36
 msgid "Delete Avatar"
 msgstr ""
 
@@ -386,62 +387,35 @@ msgstr "Комментарии"
 msgid "Leave a response to the user's comment"
 msgstr "Оставить ответ на комментарий пользователя"
 
-#: .\templates\registration\black.html:18
+#: .\templates\registration\black.html:19
 msgid "Choose black"
 msgstr "Выбрать черный"
 
-#: .\templates\registration\black.html:25
-#: .\templates\registration\black_pay.html:28
-#: .\templates\registration\purple.html:28
-#: .\templates\registration\purple_pay.html:22
-#: .\templates\registration\white.html:26
-#: .\templates\registration\white_pay.html:22
+#: .\templates\registration\black.html:26
+#: .\templates\registration\black_pay.html:35
+#: .\templates\registration\black_pay.html:43
+#: .\templates\registration\purple.html:30
+#: .\templates\registration\purple_pay.html:32
+#: .\templates\registration\purple_pay.html:40
+#: .\templates\registration\white.html:27
+#: .\templates\registration\white_pay.html:27
+#: .\templates\registration\white_pay.html:35
 msgid "Choose"
 msgstr "Выбрать"
 
-#: .\templates\registration\black.html:35
-#: .\templates\registration\black_pay.html:37
+#: .\templates\registration\black.html:36
+#: .\templates\registration\black_pay.html:52
 msgid "Enjoy the black"
 msgstr "Насладиться черным"
 
-#: .\templates\registration\black_pay.html:21
+#: .\templates\registration\black_pay.html:27
 msgid "Choose black for 1$ dollar"
 msgstr "Выбрать черный за 1$ доллар"
 
-#: .\templates\registration\comments.html:347
-msgid ""
-"You will not be able to edit or delete your comment. Think before you write"
-msgstr ""
-"Вы не сможете удалить или изменить свой комментарий. Подумайте, прежде чем "
-"писать"
-
-#: .\templates\registration\comments.html:352
-msgid "Since you didn't vote, you will be shown the first 50 comments."
-msgstr ""
-"Так как вы не проголосовали, вам будут показываться первые 50 комментариев"
-
-#: .\templates\registration\home.html:25
-msgid "Logout"
-msgstr "Выйти"
-
-#: .\templates\registration\home.html:37
-
-msgid "Login"
-msgstr "Войти"
-
-#: .\templates\registration\home.html:53
-msgid "or"
-msgstr "или"
-
-#: .\templates\registration\home.html:59
-msgid "Black"
-msgstr "Черный"
-
-#: .\templates\registration\home.html:65
-msgid "White"
-msgstr "Белый"
-
-#: .\templates\registration\home.html:98 .\templates\registration\home.html:108
+#: .\templates\registration\black_pay.html:102
+#: .\templates\registration\home.html:100
+#: .\templates\registration\home.html:110
+#: .\templates\registration\white.html:53
 msgid ""
 "Here you will see the votes for the color of all users, after you vote "
 "yourself"
@@ -449,7 +423,39 @@ msgstr ""
 "Здесь вы увидите голоса за цвет всех пользователей после того, как "
 "проголосуете сами"
 
-#: .\templates\registration\home.html:118
+#: .\templates\registration\comments.html:368
+msgid ""
+"You will not be able to edit or delete your comment. Think before you write"
+msgstr ""
+"Вы не сможете удалить или изменить свой комментарий. Подумайте, прежде чем "
+"писать"
+
+#: .\templates\registration\comments.html:373
+msgid "Since you didn't vote, you will be shown the first 50 comments."
+msgstr ""
+"Так как вы не проголосовали, вам будут показываться первые 50 комментариев"
+
+#: .\templates\registration\home.html:27
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\templates\registration\home.html:39
+msgid "Login"
+msgstr "Войти"
+
+#: .\templates\registration\home.html:55
+msgid "or"
+msgstr "или"
+
+#: .\templates\registration\home.html:61
+msgid "Black"
+msgstr "Черный"
+
+#: .\templates\registration\home.html:67
+msgid "White"
+msgstr "Белый"
+
+#: .\templates\registration\home.html:120
 msgid ""
 "This site was created in order to find out which color people like more. "
 "Black or White? Everyone likes these 2 colors, but which one do you like the "
@@ -458,12 +464,12 @@ msgstr ""
 "Этот сайт создан для того, чтобы узнать, какой цвет больше нравится людям. "
 "Черный или белый? Всем нравятся эти 2 цвета, а какой нравится вам больше? "
 
-#: .\templates\registration\home.html:119
+#: .\templates\registration\home.html:121
 msgid "You can only vote 1 time by paying 1 USD"
 msgstr "Вы можете проголосовать только 1 раз, заплатив 1 доллар США."
 
-#: .\templates\registration\home.html:172
 #: .\templates\registration\home.html:174
+#: .\templates\registration\home.html:176
 msgid "Comments"
 msgstr "Комментарии"
 
@@ -499,31 +505,34 @@ msgstr "Войти"
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
-#: .\templates\registration\purple.html:22
-#: .\templates\registration\purple_pay.html:16
+#: .\templates\registration\purple.html:24
+#: .\templates\registration\purple_pay.html:24
 msgid "Wow, you're an original"
 msgstr "Вау, вы оригинальны"
 
-#: .\templates\registration\purple.html:23
-#: .\templates\registration\purple_pay.html:17
-msgid "Choose purple for 1$ dollar"
-msgstr "Выбрать фиолетовый за 1$ доллар"
+#: .\templates\registration\purple.html:25
+msgid "Choose purple"
+msgstr "Выбрать фиолетовый"
 
-#: .\templates\registration\purple.html:35
-#: .\templates\registration\purple_pay.html:30
+#: .\templates\registration\purple.html:37
+#: .\templates\registration\purple_pay.html:48
 msgid "Enjoy the purple"
 msgstr "Насладиться фиолетовым"
 
-#: .\templates\registration\white.html:20
+#: .\templates\registration\purple_pay.html:25
+msgid "Choose purple for 1$ dollar"
+msgstr "Выбрать фиолетовый за 1$ доллар"
+
+#: .\templates\registration\white.html:21
 msgid "Choose white"
 msgstr "Выбрать белый"
 
-#: .\templates\registration\white.html:34
-#: .\templates\registration\white_pay.html:31
+#: .\templates\registration\white.html:35
+#: .\templates\registration\white_pay.html:45
 msgid "Enjoy the white"
 msgstr "Насладиться белым"
 
-#: .\templates\registration\white_pay.html:16
+#: .\templates\registration\white_pay.html:19
 msgid "Choose white for 1$ dollar"
 msgstr "Выбрать белый за 1$ доллар"
 

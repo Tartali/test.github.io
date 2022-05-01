@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 21:30+0300\n"
+"POT-Creation-Date: 2022-05-01 22:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\templates\403\black.html:17 .\templates\403\purple.html:15
-#: .\templates\403\white.html:17 .\templates\django_comments_xtd\reply.html:15
-#: .\templates\registration\black.html:13
-#: .\templates\registration\black_pay.html:12
-#: .\templates\registration\comments.html:343
+#: .\templates\403\white.html:17 .\templates\avatar\add.html:8
+#: .\templates\avatar\change.html:10 .\templates\avatar\confirm_delete.html:11
+#: .\templates\django_comments_xtd\reply.html:15
+#: .\templates\registration\black.html:14
+#: .\templates\registration\black_pay.html:18
+#: .\templates\registration\comments.html:362
 #: .\templates\registration\profile.html:29
-#: .\templates\registration\purple.html:17
-#: .\templates\registration\purple_pay.html:11
-#: .\templates\registration\white.html:11
-#: .\templates\registration\white_pay.html:11
+#: .\templates\registration\purple.html:19
+#: .\templates\registration\purple_pay.html:19
+#: .\templates\registration\white.html:12
+#: .\templates\registration\white_pay.html:14
 #: .\templates\results\black_results.html:28
 #: .\templates\results\black_results.html:53
 #: .\templates\results\purple_results.html:29
@@ -47,23 +49,23 @@ msgstr "죄송합니다. 한 번만 투표할 수 있습니다."
 msgid "Results"
 msgstr "결과"
 
-#: .\templates\avatar\add.html:5 .\templates\avatar\change.html:14
+#: .\templates\avatar\add.html:11 .\templates\avatar\change.html:15
 msgid "Your current avatar: "
 msgstr ""
 
-#: .\templates\avatar\add.html:8 .\templates\avatar\change.html:17
+#: .\templates\avatar\add.html:14 .\templates\avatar\change.html:18
 msgid "You haven't uploaded an avatar yet. Please upload one now."
 msgstr ""
 
-#: .\templates\avatar\add.html:12 .\templates\avatar\change.html:30
-msgid "Upload New Image"
-msgstr ""
-
-#: .\templates\avatar\change.html:25
+#: .\templates\avatar\change.html:26
 msgid "Choose new Default"
 msgstr ""
 
-#: .\templates\avatar\change.html:35
+#: .\templates\avatar\change.html:31
+msgid "Upload New Image"
+msgstr ""
+
+#: .\templates\avatar\change.html:36
 msgid "Delete Avatar"
 msgstr ""
 
@@ -363,76 +365,85 @@ msgstr ""
 msgid "Leave a response to the user's comment"
 msgstr "댓글에 대한 응답 남기기"
 
-#: .\templates\registration\black.html:18
+#: .\templates\registration\black.html:19
 msgid "Choose black"
 msgstr "검은 색 선택"
 
-#: .\templates\registration\black.html:25
-#: .\templates\registration\black_pay.html:28
-#: .\templates\registration\purple.html:28
-#: .\templates\registration\purple_pay.html:22
-#: .\templates\registration\white.html:26
-#: .\templates\registration\white_pay.html:22
+#: .\templates\registration\black.html:26
+#: .\templates\registration\black_pay.html:35
+#: .\templates\registration\black_pay.html:43
+#: .\templates\registration\purple.html:30
+#: .\templates\registration\purple_pay.html:32
+#: .\templates\registration\purple_pay.html:40
+#: .\templates\registration\white.html:27
+#: .\templates\registration\white_pay.html:27
+#: .\templates\registration\white_pay.html:35
 msgid "Choose"
 msgstr "선택"
 
-#: .\templates\registration\black.html:35
-#: .\templates\registration\black_pay.html:37
+#: .\templates\registration\black.html:36
+#: .\templates\registration\black_pay.html:52
 msgid "Enjoy the black"
 msgstr "블랙을 즐기세요"
 
-#: .\templates\registration\black_pay.html:21
+#: .\templates\registration\black_pay.html:27
 msgid "Choose black for 1$ dollar"
 msgstr "1$ 달러에 검은색 선택"
 
-#: .\templates\registration\comments.html:347
-msgid ""
-"You will not be able to edit or delete your comment. Think before you write"
-msgstr "댓글을 수정하거나 삭제할 수 없습니다. 쓰기 전에 생각하십시오"
-
-#: .\templates\registration\comments.html:352
-msgid "Since you didn't vote, you will be shown the first 50 comments."
-msgstr "투표하지 않았기 때문에 처음 50개의 댓글이 표시됩니다."
-
-#: .\templates\registration\home.html:25
-msgid "Logout"
-msgstr "로그 아웃"
-
-#: .\templates\registration\home.html:37
-msgid "Login"
-msgstr "로그인"
-
-#: .\templates\registration\home.html:53
-msgid "or"
-msgstr "또는"
-
-#: .\templates\registration\home.html:59
-msgid "Black"
-msgstr "검은 색"
-
-#: .\templates\registration\home.html:65
-msgid "White"
-msgstr "하얀색"
-
-#: .\templates\registration\home.html:98 .\templates\registration\home.html:108
+#: .\templates\registration\black_pay.html:102
+#: .\templates\registration\home.html:100
+#: .\templates\registration\home.html:110
+#: .\templates\registration\white.html:53
 msgid ""
 "Here you will see the votes for the color of all users, after you vote "
 "yourself"
 msgstr "여기에 직접 투표한 후 모든 사용자의 색상에 대한 투표가 표시됩니다."
 
-#: .\templates\registration\home.html:118
+#: .\templates\registration\comments.html:368
+msgid ""
+"You will not be able to edit or delete your comment. Think before you write"
+msgstr "댓글을 수정하거나 삭제할 수 없습니다. 쓰기 전에 생각하십시오"
+
+#: .\templates\registration\comments.html:373
+msgid "Since you didn't vote, you will be shown the first 50 comments."
+msgstr "투표하지 않았기 때문에 처음 50개의 댓글이 표시됩니다."
+
+#: .\templates\registration\home.html:27
+msgid "Logout"
+msgstr "로그 아웃"
+
+#: .\templates\registration\home.html:39
+msgid "Login"
+msgstr "로그인"
+
+#: .\templates\registration\home.html:55
+msgid "or"
+msgstr "또는"
+
+#: .\templates\registration\home.html:61
+msgid "Black"
+msgstr "검은 색"
+
+#: .\templates\registration\home.html:67
+msgid "White"
+msgstr "하얀색"
+
+#: .\templates\registration\home.html:120
 msgid ""
 "This site was created in order to find out which color people like more. "
 "Black or White? Everyone likes these 2 colors, but which one do you like the "
 "most?"
-msgstr "이 사이트는 사람들이 어떤 색상을 더 좋아하는지 알아보기 위해 만들어졌습니다. 블랙 또는 화이트? 모두가 이 2가지 색상을 좋아하지만 어떤 색상이 가장 마음에 드시나요?"
+msgstr ""
+"이 사이트는 사람들이 어떤 색상을 더 좋아하는지 알아보기 위해 만들어졌습니다. "
+"블랙 또는 화이트? 모두가 이 2가지 색상을 좋아하지만 어떤 색상이 가장 마음에 "
+"드시나요?"
 
-#: .\templates\registration\home.html:119
+#: .\templates\registration\home.html:121
 msgid "You can only vote 1 time by paying 1 USD"
 msgstr "투표 비용은$1 입니다. 한 번만 투표 할 수 있습니다"
 
-#: .\templates\registration\home.html:172
 #: .\templates\registration\home.html:174
+#: .\templates\registration\home.html:176
 msgid "Comments"
 msgstr "코멘트"
 
@@ -468,31 +479,34 @@ msgstr "로그인"
 msgid "Sign Up"
 msgstr "등록"
 
-#: .\templates\registration\purple.html:22
-#: .\templates\registration\purple_pay.html:16
+#: .\templates\registration\purple.html:24
+#: .\templates\registration\purple_pay.html:24
 msgid "Wow, you're an original"
 msgstr "와우, 당신은 원래"
 
-#: .\templates\registration\purple.html:23
-#: .\templates\registration\purple_pay.html:17
-msgid "Choose purple for 1$ dollar"
-msgstr "1$ 달러에 보라색을 선택하십시오"
+#: .\templates\registration\purple.html:25
+msgid "Choose purple"
+msgstr "보라색을 선택"
 
-#: .\templates\registration\purple.html:35
-#: .\templates\registration\purple_pay.html:30
+#: .\templates\registration\purple.html:37
+#: .\templates\registration\purple_pay.html:48
 msgid "Enjoy the purple"
 msgstr "보라색을 즐기십시오"
 
-#: .\templates\registration\white.html:20
+#: .\templates\registration\purple_pay.html:25
+msgid "Choose purple for 1$ dollar"
+msgstr "1$ 달러에 보라색을 선택하십시오"
+
+#: .\templates\registration\white.html:21
 msgid "Choose white"
 msgstr "흰색을 선택"
 
-#: .\templates\registration\white.html:34
-#: .\templates\registration\white_pay.html:31
+#: .\templates\registration\white.html:35
+#: .\templates\registration\white_pay.html:45
 msgid "Enjoy the white"
 msgstr "화이트를 즐기세요"
 
-#: .\templates\registration\white_pay.html:16
+#: .\templates\registration\white_pay.html:19
 msgid "Choose white for 1$ dollar"
 msgstr "1$ 달러에 흰색을 선택하십시오"
 

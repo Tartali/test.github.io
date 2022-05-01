@@ -171,7 +171,7 @@ USE_TZ = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_EMAIL_REQUIRED = True  # указвать или не указывать почту при регистрации
 ACCOUNT_EMAIL_VERIFICATION = "none"  # "mandatory"
-
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # метод входа
 
 AVATAR_AUTO_GENERATE_SIZES = [250, 100]
 

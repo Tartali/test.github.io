@@ -41,7 +41,8 @@
 
         <div class="div_piano">
         <video src="{% static 'IMG/Black/smoke.mp4' %}" class="video" autoplay loop muted></video>
-
+        <audio src="{% static 'CSS/Bohemian.mp3' %}"></audio>
+                <img onclick="soundClickGod()" class="fred_img" src="{% static 'IMG/fred.png' %}">
        <div class="piano">
 
         <button class="white-key C4-key"></button>
@@ -83,6 +84,14 @@
     function soundClick() {
   var audio = new Audio(); // Создаём новый элемент Audio
   audio.src = 'http://127.0.0.1:8000/static/CSS/out.mp3' ; // Указываем путь к звуку "клика"
+  audio.autoplay = true; // Автоматически запускаем
+}
+</script>
+
+<script>
+    function soundClickGod() {
+  var audio = new Audio(); // Создаём новый элемент Audio
+  audio.src = 'http://127.0.0.1:8000/static/CSS/Bohemian.mp3' ; // Указываем путь к звуку "клика"
   audio.autoplay = true; // Автоматически запускаем
 }
 </script>

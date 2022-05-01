@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 20:27+0300\n"
+"POT-Creation-Date: 2022-05-01 22:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: .\templates\403\black.html:17 .\templates\403\purple.html:15
-#: .\templates\403\white.html:17 .\templates\django_comments_xtd\reply.html:15
-#: .\templates\registration\black.html:13
-#: .\templates\registration\black_pay.html:12
-#: .\templates\registration\comments.html:343
+#: .\templates\403\white.html:17 .\templates\avatar\add.html:8
+#: .\templates\avatar\change.html:10 .\templates\avatar\confirm_delete.html:11
+#: .\templates\django_comments_xtd\reply.html:15
+#: .\templates\registration\black.html:14
+#: .\templates\registration\black_pay.html:18
+#: .\templates\registration\comments.html:362
 #: .\templates\registration\profile.html:29
-#: .\templates\registration\purple.html:17
-#: .\templates\registration\purple_pay.html:11
-#: .\templates\registration\white.html:11
-#: .\templates\registration\white_pay.html:11
+#: .\templates\registration\purple.html:19
+#: .\templates\registration\purple_pay.html:19
+#: .\templates\registration\white.html:12
+#: .\templates\registration\white_pay.html:14
 #: .\templates\results\black_results.html:28
 #: .\templates\results\black_results.html:53
 #: .\templates\results\purple_results.html:29
@@ -47,23 +49,23 @@ msgstr "抱歉，您只能投票 1 次"
 msgid "Results"
 msgstr "结果"
 
-#: .\templates\avatar\add.html:5 .\templates\avatar\change.html:14
+#: .\templates\avatar\add.html:11 .\templates\avatar\change.html:15
 msgid "Your current avatar: "
 msgstr ""
 
-#: .\templates\avatar\add.html:8 .\templates\avatar\change.html:17
+#: .\templates\avatar\add.html:14 .\templates\avatar\change.html:18
 msgid "You haven't uploaded an avatar yet. Please upload one now."
 msgstr ""
 
-#: .\templates\avatar\add.html:12 .\templates\avatar\change.html:30
-msgid "Upload New Image"
-msgstr ""
-
-#: .\templates\avatar\change.html:25
+#: .\templates\avatar\change.html:26
 msgid "Choose new Default"
 msgstr ""
 
-#: .\templates\avatar\change.html:35
+#: .\templates\avatar\change.html:31
+msgid "Upload New Image"
+msgstr ""
+
+#: .\templates\avatar\change.html:36
 msgid "Delete Avatar"
 msgstr ""
 
@@ -363,76 +365,84 @@ msgstr ""
 msgid "Leave a response to the user's comment"
 msgstr "回复用户的评论"
 
-#: .\templates\registration\black.html:18
+#: .\templates\registration\black.html:19
 msgid "Choose black"
 msgstr "选择黑色"
 
-#: .\templates\registration\black.html:25
-#: .\templates\registration\black_pay.html:28
-#: .\templates\registration\purple.html:28
-#: .\templates\registration\purple_pay.html:22
-#: .\templates\registration\white.html:26
-#: .\templates\registration\white_pay.html:22
+#: .\templates\registration\black.html:26
+#: .\templates\registration\black_pay.html:35
+#: .\templates\registration\black_pay.html:43
+#: .\templates\registration\purple.html:30
+#: .\templates\registration\purple_pay.html:32
+#: .\templates\registration\purple_pay.html:40
+#: .\templates\registration\white.html:27
+#: .\templates\registration\white_pay.html:27
+#: .\templates\registration\white_pay.html:35
 msgid "Choose"
 msgstr "选择"
 
-#: .\templates\registration\black.html:35
-#: .\templates\registration\black_pay.html:37
+#: .\templates\registration\black.html:36
+#: .\templates\registration\black_pay.html:52
 msgid "Enjoy the black"
 msgstr "享受黑色"
 
-#: .\templates\registration\black_pay.html:21
+#: .\templates\registration\black_pay.html:27
 msgid "Choose black for 1$ dollar"
 msgstr "1美元选择黑色"
 
-#: .\templates\registration\comments.html:347
-msgid ""
-"You will not be able to edit or delete your comment. Think before you write"
-msgstr "您将无法编辑或删除您的评论。 三思而后行"
-
-#: .\templates\registration\comments.html:352
-msgid "Since you didn't vote, you will be shown the first 50 comments."
-msgstr "由于您没有投票，您将看到前 50 条评论。"
-
-#: .\templates\registration\home.html:25
-msgid "Logout"
-msgstr "登出"
-
-#: .\templates\registration\home.html:37
-msgid "Login"
-msgstr "登录"
-
-#: .\templates\registration\home.html:53
-msgid "or"
-msgstr "要么"
-
-#: .\templates\registration\home.html:59
-msgid "Black"
-msgstr "黑色的"
-
-#: .\templates\registration\home.html:65
-msgid "White"
-msgstr "白色的"
-
-#: .\templates\registration\home.html:98 .\templates\registration\home.html:108
+#: .\templates\registration\black_pay.html:102
+#: .\templates\registration\home.html:100
+#: .\templates\registration\home.html:110
+#: .\templates\registration\white.html:53
 msgid ""
 "Here you will see the votes for the color of all users, after you vote "
 "yourself"
 msgstr "在这里您将看到所有用户对颜色的投票，您自己投票后"
 
-#: .\templates\registration\home.html:118
+#: .\templates\registration\comments.html:368
+msgid ""
+"You will not be able to edit or delete your comment. Think before you write"
+msgstr "您将无法编辑或删除您的评论。 三思而后行"
+
+#: .\templates\registration\comments.html:373
+msgid "Since you didn't vote, you will be shown the first 50 comments."
+msgstr "由于您没有投票，您将看到前 50 条评论。"
+
+#: .\templates\registration\home.html:27
+msgid "Logout"
+msgstr "登出"
+
+#: .\templates\registration\home.html:39
+msgid "Login"
+msgstr "登录"
+
+#: .\templates\registration\home.html:55
+msgid "or"
+msgstr "要么"
+
+#: .\templates\registration\home.html:61
+msgid "Black"
+msgstr "黑色的"
+
+#: .\templates\registration\home.html:67
+msgid "White"
+msgstr "白色的"
+
+#: .\templates\registration\home.html:120
 msgid ""
 "This site was created in order to find out which color people like more. "
 "Black or White? Everyone likes these 2 colors, but which one do you like the "
 "most?"
-msgstr "创建这个网站是为了找出人们更喜欢哪种颜色。 黑或白？ 这两种颜色大家都喜欢，但是你最喜欢哪一种呢？"
+msgstr ""
+"创建这个网站是为了找出人们更喜欢哪种颜色。 黑或白？ 这两种颜色大家都喜欢，但"
+"是你最喜欢哪一种呢？"
 
-#: .\templates\registration\home.html:119
+#: .\templates\registration\home.html:121
 msgid "You can only vote 1 time by paying 1 USD"
 msgstr "支付 1 美元只能投票 1 次"
 
-#: .\templates\registration\home.html:172
 #: .\templates\registration\home.html:174
+#: .\templates\registration\home.html:176
 msgid "Comments"
 msgstr "注释"
 
@@ -468,31 +478,34 @@ msgstr "登入"
 msgid "Sign Up"
 msgstr "注册"
 
-#: .\templates\registration\purple.html:22
-#: .\templates\registration\purple_pay.html:16
+#: .\templates\registration\purple.html:24
+#: .\templates\registration\purple_pay.html:24
 msgid "Wow, you're an original"
 msgstr "哇，你是原创"
 
-#: .\templates\registration\purple.html:23
-#: .\templates\registration\purple_pay.html:17
-msgid "Choose purple for 1$ dollar"
-msgstr "选择紫色为1$"
+#: .\templates\registration\purple.html:25
+msgid "Choose purple"
+msgstr "选择紫色"
 
-#: .\templates\registration\purple.html:35
-#: .\templates\registration\purple_pay.html:30
+#: .\templates\registration\purple.html:37
+#: .\templates\registration\purple_pay.html:48
 msgid "Enjoy the purple"
 msgstr "享受紫色"
 
-#: .\templates\registration\white.html:20
+#: .\templates\registration\purple_pay.html:25
+msgid "Choose purple for 1$ dollar"
+msgstr "选择紫色为1$"
+
+#: .\templates\registration\white.html:21
 msgid "Choose white"
 msgstr "选择白色"
 
-#: .\templates\registration\white.html:34
-#: .\templates\registration\white_pay.html:31
+#: .\templates\registration\white.html:35
+#: .\templates\registration\white_pay.html:45
 msgid "Enjoy the white"
 msgstr "享受白色"
 
-#: .\templates\registration\white_pay.html:16
+#: .\templates\registration\white_pay.html:19
 msgid "Choose white for 1$ dollar"
 msgstr "选择白色1美元"
 

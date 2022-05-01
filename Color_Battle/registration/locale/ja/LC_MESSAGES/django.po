@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 14:09+0300\n"
+"POT-Creation-Date: 2022-05-01 22:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\templates\403\black.html:17 .\templates\403\purple.html:15
-#: .\templates\403\white.html:17 .\templates\django_comments_xtd\reply.html:15
-#: .\templates\registration\black.html:13
-#: .\templates\registration\black_pay.html:12
-#: .\templates\registration\comments.html:343
+#: .\templates\403\white.html:17 .\templates\avatar\add.html:8
+#: .\templates\avatar\change.html:10 .\templates\avatar\confirm_delete.html:11
+#: .\templates\django_comments_xtd\reply.html:15
+#: .\templates\registration\black.html:14
+#: .\templates\registration\black_pay.html:18
+#: .\templates\registration\comments.html:362
 #: .\templates\registration\profile.html:29
-#: .\templates\registration\purple.html:17
-#: .\templates\registration\purple_pay.html:11
-#: .\templates\registration\white.html:11
-#: .\templates\registration\white_pay.html:11
+#: .\templates\registration\purple.html:19
+#: .\templates\registration\purple_pay.html:19
+#: .\templates\registration\white.html:12
+#: .\templates\registration\white_pay.html:14
 #: .\templates\results\black_results.html:28
 #: .\templates\results\black_results.html:53
 #: .\templates\results\purple_results.html:29
@@ -47,23 +49,23 @@ msgstr "申し訳ありませんが、投票できるのは1回のみです"
 msgid "Results"
 msgstr "結果"
 
-#: .\templates\avatar\add.html:5 .\templates\avatar\change.html:14
+#: .\templates\avatar\add.html:11 .\templates\avatar\change.html:15
 msgid "Your current avatar: "
 msgstr ""
 
-#: .\templates\avatar\add.html:8 .\templates\avatar\change.html:17
+#: .\templates\avatar\add.html:14 .\templates\avatar\change.html:18
 msgid "You haven't uploaded an avatar yet. Please upload one now."
 msgstr ""
 
-#: .\templates\avatar\add.html:12 .\templates\avatar\change.html:30
-msgid "Upload New Image"
-msgstr ""
-
-#: .\templates\avatar\change.html:25
+#: .\templates\avatar\change.html:26
 msgid "Choose new Default"
 msgstr ""
 
-#: .\templates\avatar\change.html:35
+#: .\templates\avatar\change.html:31
+msgid "Upload New Image"
+msgstr ""
+
+#: .\templates\avatar\change.html:36
 msgid "Delete Avatar"
 msgstr ""
 
@@ -363,76 +365,85 @@ msgstr ""
 msgid "Leave a response to the user's comment"
 msgstr "ユーザーのコメントに返信を残す"
 
-#: .\templates\registration\black.html:18
+#: .\templates\registration\black.html:19
 msgid "Choose black"
 msgstr "黒を選択"
 
-#: .\templates\registration\black.html:25
-#: .\templates\registration\black_pay.html:28
-#: .\templates\registration\purple.html:28
-#: .\templates\registration\purple_pay.html:22
-#: .\templates\registration\white.html:26
-#: .\templates\registration\white_pay.html:22
+#: .\templates\registration\black.html:26
+#: .\templates\registration\black_pay.html:35
+#: .\templates\registration\black_pay.html:43
+#: .\templates\registration\purple.html:30
+#: .\templates\registration\purple_pay.html:32
+#: .\templates\registration\purple_pay.html:40
+#: .\templates\registration\white.html:27
+#: .\templates\registration\white_pay.html:27
+#: .\templates\registration\white_pay.html:35
 msgid "Choose"
 msgstr "選択"
 
-#: .\templates\registration\black.html:35
-#: .\templates\registration\black_pay.html:37
+#: .\templates\registration\black.html:36
+#: .\templates\registration\black_pay.html:52
 msgid "Enjoy the black"
 msgstr "黒をお楽しみください"
 
-#: .\templates\registration\black_pay.html:21
+#: .\templates\registration\black_pay.html:27
 msgid "Choose black for 1$ dollar"
 msgstr "1ドルで黒を選択"
 
-#: .\templates\registration\comments.html:347
+#: .\templates\registration\black_pay.html:102
+#: .\templates\registration\home.html:100
+#: .\templates\registration\home.html:110
+#: .\templates\registration\white.html:53
+msgid ""
+"Here you will see the votes for the color of all users, after you vote "
+"yourself"
+msgstr ""
+"ここでは、自分で投票した後、すべてのユーザーの色に対する投票が表示されます"
+
+#: .\templates\registration\comments.html:368
 msgid ""
 "You will not be able to edit or delete your comment. Think before you write"
 msgstr "コメントを編集または削除することはできません。 書く前に考えてください"
 
-#: .\templates\registration\comments.html:352
+#: .\templates\registration\comments.html:373
 msgid "Since you didn't vote, you will be shown the first 50 comments."
 msgstr "投票しなかったため、最初の50件のコメントが表示されます。"
 
-#: .\templates\registration\home.html:25
+#: .\templates\registration\home.html:27
 msgid "Logout"
 msgstr "ログアウト"
 
-#: .\templates\registration\home.html:37
+#: .\templates\registration\home.html:39
 msgid "Login"
 msgstr "ログイン"
 
-#: .\templates\registration\home.html:53
+#: .\templates\registration\home.html:55
 msgid "or"
 msgstr "または"
 
-#: .\templates\registration\home.html:59
+#: .\templates\registration\home.html:61
 msgid "Black"
 msgstr "黒"
 
-#: .\templates\registration\home.html:65
+#: .\templates\registration\home.html:67
 msgid "White"
 msgstr "白"
 
-#: .\templates\registration\home.html:98 .\templates\registration\home.html:108
-msgid ""
-"Here you will see the votes for the color of all users, after you vote "
-"yourself"
-msgstr "ここでは、自分で投票した後、すべてのユーザーの色に対する投票が表示されます"
-
-#: .\templates\registration\home.html:118
+#: .\templates\registration\home.html:120
 msgid ""
 "This site was created in order to find out which color people like more. "
 "Black or White? Everyone likes these 2 colors, but which one do you like the "
 "most?"
-msgstr "このサイトは、人々がより好きな色を見つけるために作成されました。 黒か白か？  誰もがこの2色が好きですが、どちらが一番好きですか？"
+msgstr ""
+"このサイトは、人々がより好きな色を見つけるために作成されました。 黒か白か？  "
+"誰もがこの2色が好きですが、どちらが一番好きですか？"
 
-#: .\templates\registration\home.html:119
+#: .\templates\registration\home.html:121
 msgid "You can only vote 1 time by paying 1 USD"
 msgstr "1米ドルを支払うことで1回だけ投票できます"
 
-#: .\templates\registration\home.html:172
 #: .\templates\registration\home.html:174
+#: .\templates\registration\home.html:176
 msgid "Comments"
 msgstr "コメント"
 
@@ -468,31 +479,34 @@ msgstr "アカウントにログインする"
 msgid "Sign Up"
 msgstr "ログイン"
 
-#: .\templates\registration\purple.html:22
-#: .\templates\registration\purple_pay.html:16
+#: .\templates\registration\purple.html:24
+#: .\templates\registration\purple_pay.html:24
 msgid "Wow, you're an original"
 msgstr "うわー、あなたはオリジナルです"
 
-#: .\templates\registration\purple.html:23
-#: .\templates\registration\purple_pay.html:17
-msgid "Choose purple for 1$ dollar"
-msgstr "1ドルで紫を選ぶ"
+#: .\templates\registration\purple.html:25
+msgid "Choose purple"
+msgstr "紫を選ぶ"
 
-#: .\templates\registration\purple.html:35
-#: .\templates\registration\purple_pay.html:30
+#: .\templates\registration\purple.html:37
+#: .\templates\registration\purple_pay.html:48
 msgid "Enjoy the purple"
 msgstr "紫をお楽しみくださ"
 
-#: .\templates\registration\white.html:20
+#: .\templates\registration\purple_pay.html:25
+msgid "Choose purple for 1$ dollar"
+msgstr "1ドルで紫を選ぶ"
+
+#: .\templates\registration\white.html:21
 msgid "Choose white"
 msgstr "白を選択"
 
-#: .\templates\registration\white.html:34
-#: .\templates\registration\white_pay.html:31
+#: .\templates\registration\white.html:35
+#: .\templates\registration\white_pay.html:45
 msgid "Enjoy the white"
 msgstr "白をお楽しみください"
 
-#: .\templates\registration\white_pay.html:16
+#: .\templates\registration\white_pay.html:19
 msgid "Choose white for 1$ dollar"
 msgstr "1ドルで白を選ぶ"
 
