@@ -35,8 +35,11 @@ def event(HttpRequest):
         a = event_json.decode("UTF-8")
         d = json.loads(a)
         print(d)
-
-        return d
+        notification_object = WebhookNotificationFactory().create(event_json)
+        response_object = notification_object.object
+        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+            stat = " return SUCCEEDED"
+            return stat
 
 
 event(HttpRequest)
