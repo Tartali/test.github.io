@@ -26,11 +26,10 @@ from .models import Choose, Comment
 
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
-
-stat = None
+a = 0
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    global stat
+    global a
     event_json = HttpRequest.body
     if isinstance(event_json, bytes):
         a = event_json.decode("UTF-8")
@@ -42,19 +41,13 @@ def event(HttpRequest):
             'paymentId': response_object.id,
             'paymentStatus': response_object.status,
         }
-        event.a = some_data
-    return "stat"
-
-
+        a = some_data
+    event.s = a
+    return HttpResponse(event.s, a, status=200)
 
 event(HttpRequest)
-var = event
-print("VAR ", var)
-# print("Попытка:")
-print("Вывод самой функции:", event(HttpRequest))
-# print("event.event_json вызов вне функции: ", event.event_json)
-
-
+print(event(HttpRequest))
+print(event.s)
 def home(request):
     try:
         event = request.session['status']
@@ -83,8 +76,8 @@ def home(request):
                 "percent_black": percent_black,
                 "percent_white": percent_white,
                 "percent_purple": percent_purple,
-                "somebody": somebody,
-                "test": test
+                "somebody": somebody
+
             }
 
             return render(request, 'registration/home.html', context)
@@ -117,7 +110,7 @@ def home(request):
                 "percent_white": percent_white,
                 "percent_purple": percent_purple,
                 "somebody": somebody,
-                "test": test
+
             }
 
             return render(request, 'registration/home.html', context)
