@@ -39,12 +39,12 @@ def event(HttpRequest):
         response_object = notification_object.object
         if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
             stat = " return SUCCEEDED"
-            return stat
+            return HttpResponse(stat)
 
 
 event(HttpRequest)
 # print("Попытка:")
-# print("Вывод самой функции:", event(HttpRequest))
+print("Вывод самой функции:", event(HttpRequest))
 # print("event.event_json вызов вне функции: ", event.event_json)
 
 
