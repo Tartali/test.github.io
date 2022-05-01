@@ -33,7 +33,7 @@ def event(HttpRequest):
     event_json = HttpRequest.body
     if isinstance(event_json, bytes):
         a = event_json.decode("UTF-8")
-        d = ast.literal_eval(a)
+        d = json.loads(a)
         print(d)
 
     return event_json
