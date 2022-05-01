@@ -1,5 +1,3 @@
-import hashlib
-import ast
 import uuid
 import json
 import requests
@@ -46,73 +44,38 @@ event(HttpRequest)
 print(event(HttpRequest))
 
 def home(request):
-    try:
-        print(event.s)
-        if request.user.is_authenticated:
-            value = Choose.objects.all()
-            somebody, created = Choose.objects.get_or_create(voter=request.user)
-            sum_black = Choose.objects.aggregate(Sum('count_black'))
-            sum_white = Choose.objects.aggregate(Sum('count_white'))
-            sum_purple = Choose.objects.aggregate(Sum('count_purple'))
+    print(event.s)
+    if request.user.is_authenticated:
+        value = Choose.objects.all()
+        somebody, created = Choose.objects.get_or_create(voter=request.user)
+        sum_black = Choose.objects.aggregate(Sum('count_black'))
+        sum_white = Choose.objects.aggregate(Sum('count_white'))
+        sum_purple = Choose.objects.aggregate(Sum('count_purple'))
 
-            sum_black_result = sum_black['count_black__sum']
-            sum_white_result = sum_white['count_white__sum']
-            sum_purple_result = sum_purple['count_purple__sum']
-            # print(var)
-            all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
-            percent_black = int(sum_black['count_black__sum'] * 100 / all)
-            percent_white = int(sum_white['count_white__sum'] * 100 / all)
-            percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-            test = "TEST"
-            context = {
-                "value": value,
-                "sum_black_result": sum_black_result,
-                "sum_white_result": sum_white_result,
-                "sum_purple_result": sum_purple_result,
-                "percent_black": percent_black,
-                "percent_white": percent_white,
-                "percent_purple": percent_purple,
-                "somebody": somebody
+        sum_black_result = sum_black['count_black__sum']
+        sum_white_result = sum_white['count_white__sum']
+        sum_purple_result = sum_purple['count_purple__sum']
+        # print(var)
+        all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
+        percent_black = int(sum_black['count_black__sum'] * 100 / all)
+        percent_white = int(sum_white['count_white__sum'] * 100 / all)
+        percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
+        test = "TEST"
+        context = {
+            "value": value,
+            "sum_black_result": sum_black_result,
+            "sum_white_result": sum_white_result,
+            "sum_purple_result": sum_purple_result,
+            "percent_black": percent_black,
+            "percent_white": percent_white,
+            "percent_purple": percent_purple,
+            "somebody": somebody
 
-            }
+        }
 
-            return render(request, 'registration/home.html', context)
-        else:
-            return render(request, 'registration/home.html')
-    except KeyError:
-        print(event.s)
-        print("GOOOOOOOOOOMEEEEEEEEE")
-        if request.user.is_authenticated:
-            value = Choose.objects.all()
-            somebody, created = Choose.objects.get_or_create(voter=request.user)
-            sum_black = Choose.objects.aggregate(Sum('count_black'))
-            sum_white = Choose.objects.aggregate(Sum('count_white'))
-            sum_purple = Choose.objects.aggregate(Sum('count_purple'))
-
-            sum_black_result = sum_black['count_black__sum']
-            sum_white_result = sum_white['count_white__sum']
-            sum_purple_result = sum_purple['count_purple__sum']
-            # print(var)
-            all = sum_black['count_black__sum'] + sum_white['count_white__sum'] + sum_purple['count_purple__sum']
-            percent_black = int(sum_black['count_black__sum'] * 100 / all)
-            percent_white = int(sum_white['count_white__sum'] * 100 / all)
-            percent_purple = int(sum_purple['count_purple__sum'] * 100 / all)
-            test = "TEST"
-            context = {
-                "value": value,
-                "sum_black_result": sum_black_result,
-                "sum_white_result": sum_white_result,
-                "sum_purple_result": sum_purple_result,
-                "percent_black": percent_black,
-                "percent_white": percent_white,
-                "percent_purple": percent_purple,
-                "somebody": somebody,
-
-            }
-
-            return render(request, 'registration/home.html', context)
-        else:
-            return render(request, 'registration/home.html')
+        return render(request, 'registration/home.html', context)
+    else:
+        return render(request, 'registration/home.html')
 
 
 def callback_payment(request):
@@ -138,16 +101,33 @@ def widget(request):
     }
     return render(request, 'registration/yookassa_widget.html', context)
 
-@login_required(login_url='accounts/login/')
+
 def black(request):
-    try:
-        print(event.stat)
-        if event.stat == "return SUCCEEDED":
-            print("Black ", event.stat)
+    if event.s == "succeed":
+        if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
+            value, created = Choose.objects.get_or_create(voter=request.user)
+
+            if request.method == 'POST':
+                select_action = request.POST['choose']
+
+                if select_action == 'black':
+                    value.count_black += 1
+                    value.save()
+                return redirect("home")
+
+            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
+                return render(request, '403/black.html')
+
+        else:
+            return render(request, 'registration/black.html')
+        # event_json = json.loads(request.body)
+        # print(event_json)
+        return render(request, 'registration/black.html')
+
+    else:
         Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
         # Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
         Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
-
         idempotence_key = str(uuid.uuid4())
         # status = request.session['status']
         # print(status)
@@ -195,66 +175,11 @@ def black(request):
                 return render(request, '403/black.html')
 
         else:
-            return render(request, 'registration/black.html')
+            return render(request, 'registration/black_pay.html')
         # event_json = json.loads(request.body)
         # print(event_json)
         return render(request, 'registration/black_pay.html', {"url": confirmation_url})
-    except AttributeError:
-        Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
-        # Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
-        Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
 
-        idempotence_key = str(uuid.uuid4())
-        # status = request.session['status']
-        # print(status)
-
-        payment_id = '298c8e3b-000f-5000-9000-1f612ba540bc'
-        payment_one = Payment.find_one(payment_id)
-
-        payment = Payment.create({
-            "amount": {
-                "value": "2.00",
-                "currency": "RUB"
-            },
-            "payment_method_data": {
-                "type": "bank_card"
-            },
-            "confirmation": {
-                "type": "redirect",
-                "return_url": "http://127.0.0.1:8000/"
-            },
-
-            "id": idempotence_key,
-            "capture": True,
-            # "response_type": "code",
-            # "client_id": "3mo1gntboh51tguf0pphlabe6rfuhh2j",
-
-            "description": "Заказ №72"
-        }, )
-
-        print(idempotence_key)
-        # print(vars(payment_one))
-        # confirmation_url = "http://127.0.0.1:8000/yookassa_widget/"
-        confirmation_url = payment.confirmation.confirmation_url
-        if request.user.is_authenticated:  # dict_payment['_PaymentResponse__status'] == 'succeeded'
-            value, created = Choose.objects.get_or_create(voter=request.user)
-
-            if request.method == 'POST':
-                select_action = request.POST['choose']
-
-                if select_action == 'black':
-                    value.count_black += 1
-                    value.save()
-                return redirect("home")
-
-            if value.count_white > 0 or value.count_black > 0 or value.count_purple > 0:
-                return render(request, '403/black.html')
-
-        else:
-            return render(request, 'registration/black.html')
-        # event_json = json.loads(request.body)
-        # print(event_json)
-        return render(request, 'registration/black_pay.html', {"url": confirmation_url})
 
 def black_results(request):
     # получаем всех голосовавших за черный цвет (1 или более раз)

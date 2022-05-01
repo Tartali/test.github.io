@@ -28,6 +28,7 @@
 
     <form method="post">
     {% csrf_token %}
+    {% if user.is_authenticated %}
     <a href="{{ url }}">
         <button  class="button_b" type="button" name="choose" value="black" onclick="assign()">
             <h1 style="color: white">
@@ -35,8 +36,16 @@
             </h1>
         </button>
     </a>
+    {% else %}
+    <a href="{% url 'account_login' %}">
+        <button  class="button_b" type="button" name="choose" value="black" onclick="assign()">
+            <h1 style="color: white">
+                <strong>{% trans "Choose" %}</strong>
+            </h1>
+        </button>
+    </a>
+    {% endif %}
     </form>
-
     </div>
     </div>
 
