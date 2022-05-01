@@ -36,7 +36,7 @@ def event(HttpRequest):
         d = json.loads(a)
         print(d)
 
-    return event_json
+        return d
 
 
 event(HttpRequest)
