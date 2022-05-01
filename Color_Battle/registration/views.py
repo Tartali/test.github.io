@@ -35,18 +35,18 @@ def event(HttpRequest):
         a = event_json.decode("UTF-8")
         d = json.loads(a)
         print(d)
-        # notification_object = WebhookNotificationFactory().create(d)
-        # response_object = notification_object.object
-        # if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
-    event.stat = " return SUCCEEDED"
-    return HttpResponse(event.stat, status=200)
+        notification_object = WebhookNotificationFactory().create(d)
+        response_object = notification_object.object
+        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+            event.stat = "return SUCCEEDED"
 
+            return HttpResponse(event.stat, status=200)
 
 
 
 event(HttpRequest)
-var = event.stat
-print("VAR", var)
+# var = event.stat
+# print("VAR ", var)
 # print("Попытка:")
 print("Вывод самой функции:", event(HttpRequest))
 # print("event.event_json вызов вне функции: ", event.event_json)
@@ -147,6 +147,9 @@ def widget(request):
 
 @login_required(login_url='accounts/login/')
 def black(request):
+    
+    if event.stat == "return SUCCEEDED":
+        print("Black ", event.stat)
     Configuration.configure('873469', 'test_q_nwW-qQ3EihdW3M4NtbXgO4z9yGjMHVilhXbxfdXyY')
     # Configuration.configure_auth_token('AAEAAAAAQX38FQAAAX7SgOI0RoZAUo1DJS2O8uTn6WdJRlfLNWjUfi1R_XwIrSZIpjXYnGfqk9kfZ9PzUPfCyz3O')
     Configuration.configure_user_agent(framework=Version('Django', '3.1.7'))
