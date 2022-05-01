@@ -26,24 +26,21 @@ from .models import Choose, Comment
 
 from yookassa import Configuration, Payment
 from yookassa.domain.common.user_agent import Version
-a = 0
+status = 0
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    global a
+    global status
     event_json = HttpRequest.body
     if isinstance(event_json, bytes):
         a = event_json.decode("UTF-8")
         d = json.loads(a)
         print(d)
         notification_object = WebhookNotificationFactory().create(d)
-        response_object = notification_object.object
-        some_data = {
-            'paymentId': response_object.id,
-            'paymentStatus': response_object.status,
-        }
-        a = some_data
-    event.s = a
-    return HttpResponse(event.s, a, status=200)
+        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
+            status = "succeed"
+
+    event.s = status
+    return HttpResponse(event.s, status, status=200)
 
 event(HttpRequest)
 print(event(HttpRequest))
