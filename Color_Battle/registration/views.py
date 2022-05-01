@@ -47,11 +47,10 @@ def event(HttpRequest):
 
 event(HttpRequest)
 print(event(HttpRequest))
-print(event.s)
+
 def home(request):
     try:
-        event = request.session['status']
-        print("HOME:", event)
+        print(event.s)
         if request.user.is_authenticated:
             value = Choose.objects.all()
             somebody, created = Choose.objects.get_or_create(voter=request.user)
@@ -84,6 +83,7 @@ def home(request):
         else:
             return render(request, 'registration/home.html')
     except KeyError:
+        print(event.s)
         print("GOOOOOOOOOOMEEEEEEEEE")
         if request.user.is_authenticated:
             value = Choose.objects.all()
