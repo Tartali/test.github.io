@@ -29,25 +29,11 @@ from yookassa.domain.common.user_agent import Version
 
 @csrf_exempt  # event_json["object"]["status"]
 def event(HttpRequest):
-    try:
-        event_json = dict(HttpRequest.body)
-        print("TRY:", event_json)
-        notification_object = WebhookNotificationFactory().create(event_json)
-        response_object = notification_object.object
-        if notification_object.event == WebhookNotificationEventType.PAYMENT_SUCCEEDED:
-            some_data = {
-                'paymentId': response_object.id,
-                'paymentStatus': response_object.status,
-            }
-            print(some_data)
+    event_json = HttpRequest.body
+    if isinstance(event_json, bytes):
+        print("TYPE BYTES", event_json)
 
-            # request.session['status'] = some_data
-        return event_json
-    except TypeError:
-        event_json = HttpRequest.body
-        print(event_json)
-
-        return event_json
+    return event_json
 
 
 event(HttpRequest)
