@@ -1,4 +1,5 @@
 import hashlib
+import ast
 import uuid
 import json
 import requests
@@ -32,7 +33,8 @@ def event(HttpRequest):
     event_json = HttpRequest.body
     if isinstance(event_json, bytes):
         a = event_json.decode("UTF-8")
-        print(a)
+        d = ast.literal_eval(a)
+        print(d)
 
     return event_json
 
