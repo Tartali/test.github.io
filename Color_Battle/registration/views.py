@@ -31,7 +31,8 @@ from yookassa.domain.common.user_agent import Version
 def event(HttpRequest):
     event_json = HttpRequest.body
     if isinstance(event_json, bytes):
-        print("TYPE BYTES", dict(event_json))
+        a = dict(event_json)
+        print(a)
 
     return event_json
 
